@@ -1534,8 +1534,7 @@ namespace TruckWebService
         
         private int LocatieOpdrachtenField;
         
-        private string LocatieOpdrachtenPerFabriekField;
-        
+       
         private int OrderOpdrachtenField;
         
         private int VerzamelOpdrachtenField;
@@ -1578,19 +1577,6 @@ namespace TruckWebService
             set
             {
                 this.LocatieOpdrachtenField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LocatieOpdrachtenPerFabriek
-        {
-            get
-            {
-                return this.LocatieOpdrachtenPerFabriekField;
-            }
-            set
-            {
-                this.LocatieOpdrachtenPerFabriekField = value;
             }
         }
         
@@ -7758,10 +7744,10 @@ namespace TruckWebService
         System.Threading.Tasks.Task<TruckWebService.Resultaat> StartenOntvangstorderAsync(string Ontvangstordernummer, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AanmakenOntvangstorderPallets", ReplyAction="http://tempuri.org/ITruckWebService/AanmakenOntvangstorderPalletsResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> AanmakenOntvangstorderPalletsAsync(string gebiedcode, string Ontvangstordernummer, int aantalPallets);
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> AanmakenOntvangstorderPalletsAsync(string gebiedcode, string ontvangstordernummer, int aantalPallets);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOntvangstorderPallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefOntvangstorderPalletsResponse")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstorderPalletsAsync(string Ontvangstordernummer);
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstorderPalletsAsync(string ontvangstordernummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OnderbrekenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/OnderbrekenOntvangstorderResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> OnderbrekenOntvangstorderAsync(string Ontvangstordernummer, string pincode);
@@ -8383,14 +8369,14 @@ namespace TruckWebService
             return base.Channel.StartenOntvangstorderAsync(Ontvangstordernummer, pincode);
         }
         
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> AanmakenOntvangstorderPalletsAsync(string gebiedcode, string Ontvangstordernummer, int aantalPallets)
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> AanmakenOntvangstorderPalletsAsync(string gebiedcode, string ontvangstordernummer, int aantalPallets)
         {
-            return base.Channel.AanmakenOntvangstorderPalletsAsync(gebiedcode, Ontvangstordernummer, aantalPallets);
+            return base.Channel.AanmakenOntvangstorderPalletsAsync(gebiedcode, ontvangstordernummer, aantalPallets);
         }
         
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstorderPalletsAsync(string Ontvangstordernummer)
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstorderPalletsAsync(string ontvangstordernummer)
         {
-            return base.Channel.GeefOntvangstorderPalletsAsync(Ontvangstordernummer);
+            return base.Channel.GeefOntvangstorderPalletsAsync(ontvangstordernummer);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> OnderbrekenOntvangstorderAsync(string Ontvangstordernummer, string pincode)

@@ -17,12 +17,13 @@ namespace LESAPI.Controllers
         }
 
         [HttpGet(Name = "AantalOpenstaandeOpdrachtenGMAG")]
-        public async Task<ResultaatOfAantalOpenstaandeOpdrachtenGMAG5SlwlhPY> GetOpdrachtservice()
+        public async Task<AantalOpenstaandeOpdrachtenGMAG> GetOpdrachtservice()
         {
             using (var serviceClient = new TruckWebServiceClient())
             {
                 var result = await serviceClient.GeefAantalOpenstaandeOpdrachtenGMAGAsync();
-                return result;
+                
+                return result.ResultaatObject;
             }
 
 

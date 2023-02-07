@@ -16,8 +16,8 @@ namespace LESAPI.Controllers
             
     }
 
-        [HttpGet(Name = "GeefAantalOpenstaandeOpdrachtenGMAG")]
-        public async Task<IEnumerable<OntvangstOrder>> Get(string gebiedcode)
+        [HttpGet("GeefAantalOpenstaandeOpdrachtenGMAG/{gebiedcode}")]
+        public async Task<IEnumerable<OntvangstOrder>> GeefAantalOpenstaandeOpdrachtenGMAG(string gebiedcode)
         {
             using (var serviceClient = new TruckWebServiceClient())
             {
@@ -26,6 +26,16 @@ namespace LESAPI.Controllers
             }
 
             
+        }
+
+        [HttpGet("GeefOntvangstorderPallets/{ontvangstordernummer}")]
+        public async Task<IEnumerable<OntvangstregistratiePallet>> GeefOntvangstorderPallets(string ontvangstordernummer)
+        {
+            using (var serviceClient = new TruckWebServiceClient())
+            {
+                var result = await serviceClient.GeefOntvangstorderPalletsAsync(ontvangstordernummer);
+                return result.ResultaatObject;
+            }
         }
     }
 }
