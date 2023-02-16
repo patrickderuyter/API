@@ -72,8 +72,6 @@ namespace OpdrachtService
         
         private OpdrachtService.OpdrachtType TypeField;
         
-        private string ZoneOmschrijvingField;
-        
         private string ZonegroepNrField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -424,19 +422,6 @@ namespace OpdrachtService
             set
             {
                 this.TypeField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ZoneOmschrijving
-        {
-            get
-            {
-                return this.ZoneOmschrijvingField;
-            }
-            set
-            {
-                this.ZoneOmschrijvingField = value;
             }
         }
         
@@ -909,80 +894,159 @@ namespace OpdrachtService
     {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/CheckService", ReplyAction="http://tempuri.org/IOpdrachtService/CheckServiceResponse")]
+        bool CheckService();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/CheckService", ReplyAction="http://tempuri.org/IOpdrachtService/CheckServiceResponse")]
         System.Threading.Tasks.Task<bool> CheckServiceAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/GeefVolgendeOpdracht", ReplyAction="http://tempuri.org/IOpdrachtService/GeefVolgendeOpdrachtResponse")]
+        OpdrachtService.Opdracht GeefVolgendeOpdracht(string truckNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/GeefVolgendeOpdracht", ReplyAction="http://tempuri.org/IOpdrachtService/GeefVolgendeOpdrachtResponse")]
         System.Threading.Tasks.Task<OpdrachtService.Opdracht> GeefVolgendeOpdrachtAsync(string truckNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/StartInslagOpdracht", ReplyAction="http://tempuri.org/IOpdrachtService/StartInslagOpdrachtResponse")]
+        OpdrachtService.ResultaatOfOpdracht5SlwlhPY StartInslagOpdracht(string pin, string palletNummer, string gebied);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/StartInslagOpdracht", ReplyAction="http://tempuri.org/IOpdrachtService/StartInslagOpdrachtResponse")]
         System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> StartInslagOpdrachtAsync(string pin, string palletNummer, string gebied);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/StartInslagOpdrachtLocatieBepalingLES", ReplyAction="http://tempuri.org/IOpdrachtService/StartInslagOpdrachtLocatieBepalingLESResponse" +
             "")]
+        OpdrachtService.ResultaatOfOpdracht5SlwlhPY StartInslagOpdrachtLocatieBepalingLES(string pin, string palletNummer, string gebied, bool locatiebepalingGMAG);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/StartInslagOpdrachtLocatieBepalingLES", ReplyAction="http://tempuri.org/IOpdrachtService/StartInslagOpdrachtLocatieBepalingLESResponse" +
+            "")]
         System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> StartInslagOpdrachtLocatieBepalingLESAsync(string pin, string palletNummer, string gebied, bool locatiebepalingGMAG);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/StartUitslagOpdracht", ReplyAction="http://tempuri.org/IOpdrachtService/StartUitslagOpdrachtResponse")]
+        OpdrachtService.ResultaatOfOpdracht5SlwlhPY StartUitslagOpdracht(string pin, OpdrachtService.Opdracht opdracht);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/StartUitslagOpdracht", ReplyAction="http://tempuri.org/IOpdrachtService/StartUitslagOpdrachtResponse")]
         System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> StartUitslagOpdrachtAsync(string pin, OpdrachtService.Opdracht opdracht);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/StartTransportOpdracht", ReplyAction="http://tempuri.org/IOpdrachtService/StartTransportOpdrachtResponse")]
+        OpdrachtService.ResultaatOfOpdracht5SlwlhPY StartTransportOpdracht(string pin, OpdrachtService.Opdracht opdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/StartTransportOpdracht", ReplyAction="http://tempuri.org/IOpdrachtService/StartTransportOpdrachtResponse")]
         System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> StartTransportOpdrachtAsync(string pin, OpdrachtService.Opdracht opdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/StartGTMOpdracht", ReplyAction="http://tempuri.org/IOpdrachtService/StartGTMOpdrachtResponse")]
+        OpdrachtService.ResultaatOfOpdracht5SlwlhPY StartGTMOpdracht(string pin, OpdrachtService.Opdracht opdracht);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/StartGTMOpdracht", ReplyAction="http://tempuri.org/IOpdrachtService/StartGTMOpdrachtResponse")]
         System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> StartGTMOpdrachtAsync(string pin, OpdrachtService.Opdracht opdracht);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/StartAanvulOpdracht", ReplyAction="http://tempuri.org/IOpdrachtService/StartAanvulOpdrachtResponse")]
+        OpdrachtService.ResultaatOfOpdracht5SlwlhPY StartAanvulOpdracht(string pin, OpdrachtService.Opdracht opdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/StartAanvulOpdracht", ReplyAction="http://tempuri.org/IOpdrachtService/StartAanvulOpdrachtResponse")]
         System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> StartAanvulOpdrachtAsync(string pin, OpdrachtService.Opdracht opdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/AanvulOpdrachtPalletIngevuld", ReplyAction="http://tempuri.org/IOpdrachtService/AanvulOpdrachtPalletIngevuldResponse")]
+        OpdrachtService.ResultaatOfOpdracht5SlwlhPY AanvulOpdrachtPalletIngevuld(string pin, OpdrachtService.Opdracht opdracht);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/AanvulOpdrachtPalletIngevuld", ReplyAction="http://tempuri.org/IOpdrachtService/AanvulOpdrachtPalletIngevuldResponse")]
         System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> AanvulOpdrachtPalletIngevuldAsync(string pin, OpdrachtService.Opdracht opdracht);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/InslagOpdrachtAfronden", ReplyAction="http://tempuri.org/IOpdrachtService/InslagOpdrachtAfrondenResponse")]
+        void InslagOpdrachtAfronden(OpdrachtService.Opdracht opdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/InslagOpdrachtAfronden", ReplyAction="http://tempuri.org/IOpdrachtService/InslagOpdrachtAfrondenResponse")]
         System.Threading.Tasks.Task InslagOpdrachtAfrondenAsync(OpdrachtService.Opdracht opdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/AanvulOpdrachtAfronden", ReplyAction="http://tempuri.org/IOpdrachtService/AanvulOpdrachtAfrondenResponse")]
+        void AanvulOpdrachtAfronden(OpdrachtService.Opdracht opdracht, int colliAantalEindlocatie);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/AanvulOpdrachtAfronden", ReplyAction="http://tempuri.org/IOpdrachtService/AanvulOpdrachtAfrondenResponse")]
         System.Threading.Tasks.Task AanvulOpdrachtAfrondenAsync(OpdrachtService.Opdracht opdracht, int colliAantalEindlocatie);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/TransportOpdrachtAfronden", ReplyAction="http://tempuri.org/IOpdrachtService/TransportOpdrachtAfrondenResponse")]
+        void TransportOpdrachtAfronden(OpdrachtService.Opdracht opdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/TransportOpdrachtAfronden", ReplyAction="http://tempuri.org/IOpdrachtService/TransportOpdrachtAfrondenResponse")]
         System.Threading.Tasks.Task TransportOpdrachtAfrondenAsync(OpdrachtService.Opdracht opdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/GTMOpdrachtAfronden", ReplyAction="http://tempuri.org/IOpdrachtService/GTMOpdrachtAfrondenResponse")]
+        void GTMOpdrachtAfronden(OpdrachtService.Opdracht opdracht);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/GTMOpdrachtAfronden", ReplyAction="http://tempuri.org/IOpdrachtService/GTMOpdrachtAfrondenResponse")]
         System.Threading.Tasks.Task GTMOpdrachtAfrondenAsync(OpdrachtService.Opdracht opdracht);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/UitslagOpdrachtAfronden", ReplyAction="http://tempuri.org/IOpdrachtService/UitslagOpdrachtAfrondenResponse")]
+        void UitslagOpdrachtAfronden(OpdrachtService.Opdracht opdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/UitslagOpdrachtAfronden", ReplyAction="http://tempuri.org/IOpdrachtService/UitslagOpdrachtAfrondenResponse")]
         System.Threading.Tasks.Task UitslagOpdrachtAfrondenAsync(OpdrachtService.Opdracht opdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/UitslagOpdrachtMarkeren", ReplyAction="http://tempuri.org/IOpdrachtService/UitslagOpdrachtMarkerenResponse")]
+        void UitslagOpdrachtMarkeren(string opdrachtNummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/UitslagOpdrachtMarkeren", ReplyAction="http://tempuri.org/IOpdrachtService/UitslagOpdrachtMarkerenResponse")]
         System.Threading.Tasks.Task UitslagOpdrachtMarkerenAsync(string opdrachtNummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/OntkoppelOpdracht", ReplyAction="http://tempuri.org/IOpdrachtService/OntkoppelOpdrachtResponse")]
+        void OntkoppelOpdracht(OpdrachtService.Opdracht opdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/OntkoppelOpdracht", ReplyAction="http://tempuri.org/IOpdrachtService/OntkoppelOpdrachtResponse")]
         System.Threading.Tasks.Task OntkoppelOpdrachtAsync(OpdrachtService.Opdracht opdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/OpdrachtOntkoppelen", ReplyAction="http://tempuri.org/IOpdrachtService/OpdrachtOntkoppelenResponse")]
+        void OpdrachtOntkoppelen(string opdrachtNummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/OpdrachtOntkoppelen", ReplyAction="http://tempuri.org/IOpdrachtService/OpdrachtOntkoppelenResponse")]
         System.Threading.Tasks.Task OpdrachtOntkoppelenAsync(string opdrachtNummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/MaakOpdrachtVoorMagazijnMutatie", ReplyAction="http://tempuri.org/IOpdrachtService/MaakOpdrachtVoorMagazijnMutatieResponse")]
+        OpdrachtService.ResultaatOfOpdracht5SlwlhPY MaakOpdrachtVoorMagazijnMutatie(string palletnummer, string gebied, string pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/MaakOpdrachtVoorMagazijnMutatie", ReplyAction="http://tempuri.org/IOpdrachtService/MaakOpdrachtVoorMagazijnMutatieResponse")]
         System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> MaakOpdrachtVoorMagazijnMutatieAsync(string palletnummer, string gebied, string pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/LocatieVrijgeven", ReplyAction="http://tempuri.org/IOpdrachtService/LocatieVrijgevenResponse")]
+        void LocatieVrijgeven(string locatienr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/LocatieVrijgeven", ReplyAction="http://tempuri.org/IOpdrachtService/LocatieVrijgevenResponse")]
         System.Threading.Tasks.Task LocatieVrijgevenAsync(string locatienr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/FabriekopdrachtStarten", ReplyAction="http://tempuri.org/IOpdrachtService/FabriekopdrachtStartenResponse")]
+        OpdrachtService.ResultaatOfOpdracht5SlwlhPY FabriekopdrachtStarten(long orderaanvoerOpdrachtId, string gebied, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/FabriekopdrachtStarten", ReplyAction="http://tempuri.org/IOpdrachtService/FabriekopdrachtStartenResponse")]
         System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> FabriekopdrachtStartenAsync(long orderaanvoerOpdrachtId, string gebied, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/FabriekopdrachtAnnuleren", ReplyAction="http://tempuri.org/IOpdrachtService/FabriekopdrachtAnnulerenResponse")]
+        OpdrachtService.Resultaat FabriekopdrachtAnnuleren(string opdrachtnummer, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/FabriekopdrachtAnnuleren", ReplyAction="http://tempuri.org/IOpdrachtService/FabriekopdrachtAnnulerenResponse")]
         System.Threading.Tasks.Task<OpdrachtService.Resultaat> FabriekopdrachtAnnulerenAsync(string opdrachtnummer, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/FabriekopdrachtAfronden", ReplyAction="http://tempuri.org/IOpdrachtService/FabriekopdrachtAfrondenResponse")]
+        OpdrachtService.Resultaat FabriekopdrachtAfronden(string opdrachtnummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/FabriekopdrachtAfronden", ReplyAction="http://tempuri.org/IOpdrachtService/FabriekopdrachtAfrondenResponse")]
         System.Threading.Tasks.Task<OpdrachtService.Resultaat> FabriekopdrachtAfrondenAsync(string opdrachtnummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/WeegkeukenGeefOpenstaandeopdrachten", ReplyAction="http://tempuri.org/IOpdrachtService/WeegkeukenGeefOpenstaandeopdrachtenResponse")]
+        OpdrachtService.ResultaatOfArrayOfWeegkeukenAanvoerOpdracht5SlwlhPY WeegkeukenGeefOpenstaandeopdrachten(string pincode, int[] locatienummersNaar);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/WeegkeukenGeefOpenstaandeopdrachten", ReplyAction="http://tempuri.org/IOpdrachtService/WeegkeukenGeefOpenstaandeopdrachtenResponse")]
         System.Threading.Tasks.Task<OpdrachtService.ResultaatOfArrayOfWeegkeukenAanvoerOpdracht5SlwlhPY> WeegkeukenGeefOpenstaandeopdrachtenAsync(string pincode, int[] locatienummersNaar);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/WeegkeukenopdrachtStarten", ReplyAction="http://tempuri.org/IOpdrachtService/WeegkeukenopdrachtStartenResponse")]
+        OpdrachtService.ResultaatOfWeegkeukenAanvoerOpdracht5SlwlhPY WeegkeukenopdrachtStarten(long opdrachtId, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/WeegkeukenopdrachtStarten", ReplyAction="http://tempuri.org/IOpdrachtService/WeegkeukenopdrachtStartenResponse")]
         System.Threading.Tasks.Task<OpdrachtService.ResultaatOfWeegkeukenAanvoerOpdracht5SlwlhPY> WeegkeukenopdrachtStartenAsync(long opdrachtId, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/WeegkeukenopdrachtAnnuleren", ReplyAction="http://tempuri.org/IOpdrachtService/WeegkeukenopdrachtAnnulerenResponse")]
+        OpdrachtService.Resultaat WeegkeukenopdrachtAnnuleren(long opdrachtId, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/WeegkeukenopdrachtAnnuleren", ReplyAction="http://tempuri.org/IOpdrachtService/WeegkeukenopdrachtAnnulerenResponse")]
         System.Threading.Tasks.Task<OpdrachtService.Resultaat> WeegkeukenopdrachtAnnulerenAsync(long opdrachtId, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/WeegkeukenopdrachtAfronden", ReplyAction="http://tempuri.org/IOpdrachtService/WeegkeukenopdrachtAfrondenResponse")]
+        OpdrachtService.Resultaat WeegkeukenopdrachtAfronden(long opdrachtId, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOpdrachtService/WeegkeukenopdrachtAfronden", ReplyAction="http://tempuri.org/IOpdrachtService/WeegkeukenopdrachtAfrondenResponse")]
         System.Threading.Tasks.Task<OpdrachtService.Resultaat> WeegkeukenopdrachtAfrondenAsync(long opdrachtId, string pincode);
@@ -1038,9 +1102,19 @@ namespace OpdrachtService
         {
         }
         
+        public bool CheckService()
+        {
+            return base.Channel.CheckService();
+        }
+        
         public System.Threading.Tasks.Task<bool> CheckServiceAsync()
         {
             return base.Channel.CheckServiceAsync();
+        }
+        
+        public OpdrachtService.Opdracht GeefVolgendeOpdracht(string truckNumber)
+        {
+            return base.Channel.GeefVolgendeOpdracht(truckNumber);
         }
         
         public System.Threading.Tasks.Task<OpdrachtService.Opdracht> GeefVolgendeOpdrachtAsync(string truckNumber)
@@ -1048,9 +1122,19 @@ namespace OpdrachtService
             return base.Channel.GeefVolgendeOpdrachtAsync(truckNumber);
         }
         
+        public OpdrachtService.ResultaatOfOpdracht5SlwlhPY StartInslagOpdracht(string pin, string palletNummer, string gebied)
+        {
+            return base.Channel.StartInslagOpdracht(pin, palletNummer, gebied);
+        }
+        
         public System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> StartInslagOpdrachtAsync(string pin, string palletNummer, string gebied)
         {
             return base.Channel.StartInslagOpdrachtAsync(pin, palletNummer, gebied);
+        }
+        
+        public OpdrachtService.ResultaatOfOpdracht5SlwlhPY StartInslagOpdrachtLocatieBepalingLES(string pin, string palletNummer, string gebied, bool locatiebepalingGMAG)
+        {
+            return base.Channel.StartInslagOpdrachtLocatieBepalingLES(pin, palletNummer, gebied, locatiebepalingGMAG);
         }
         
         public System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> StartInslagOpdrachtLocatieBepalingLESAsync(string pin, string palletNummer, string gebied, bool locatiebepalingGMAG)
@@ -1058,9 +1142,19 @@ namespace OpdrachtService
             return base.Channel.StartInslagOpdrachtLocatieBepalingLESAsync(pin, palletNummer, gebied, locatiebepalingGMAG);
         }
         
+        public OpdrachtService.ResultaatOfOpdracht5SlwlhPY StartUitslagOpdracht(string pin, OpdrachtService.Opdracht opdracht)
+        {
+            return base.Channel.StartUitslagOpdracht(pin, opdracht);
+        }
+        
         public System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> StartUitslagOpdrachtAsync(string pin, OpdrachtService.Opdracht opdracht)
         {
             return base.Channel.StartUitslagOpdrachtAsync(pin, opdracht);
+        }
+        
+        public OpdrachtService.ResultaatOfOpdracht5SlwlhPY StartTransportOpdracht(string pin, OpdrachtService.Opdracht opdracht)
+        {
+            return base.Channel.StartTransportOpdracht(pin, opdracht);
         }
         
         public System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> StartTransportOpdrachtAsync(string pin, OpdrachtService.Opdracht opdracht)
@@ -1068,9 +1162,19 @@ namespace OpdrachtService
             return base.Channel.StartTransportOpdrachtAsync(pin, opdracht);
         }
         
+        public OpdrachtService.ResultaatOfOpdracht5SlwlhPY StartGTMOpdracht(string pin, OpdrachtService.Opdracht opdracht)
+        {
+            return base.Channel.StartGTMOpdracht(pin, opdracht);
+        }
+        
         public System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> StartGTMOpdrachtAsync(string pin, OpdrachtService.Opdracht opdracht)
         {
             return base.Channel.StartGTMOpdrachtAsync(pin, opdracht);
+        }
+        
+        public OpdrachtService.ResultaatOfOpdracht5SlwlhPY StartAanvulOpdracht(string pin, OpdrachtService.Opdracht opdracht)
+        {
+            return base.Channel.StartAanvulOpdracht(pin, opdracht);
         }
         
         public System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> StartAanvulOpdrachtAsync(string pin, OpdrachtService.Opdracht opdracht)
@@ -1078,9 +1182,19 @@ namespace OpdrachtService
             return base.Channel.StartAanvulOpdrachtAsync(pin, opdracht);
         }
         
+        public OpdrachtService.ResultaatOfOpdracht5SlwlhPY AanvulOpdrachtPalletIngevuld(string pin, OpdrachtService.Opdracht opdracht)
+        {
+            return base.Channel.AanvulOpdrachtPalletIngevuld(pin, opdracht);
+        }
+        
         public System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> AanvulOpdrachtPalletIngevuldAsync(string pin, OpdrachtService.Opdracht opdracht)
         {
             return base.Channel.AanvulOpdrachtPalletIngevuldAsync(pin, opdracht);
+        }
+        
+        public void InslagOpdrachtAfronden(OpdrachtService.Opdracht opdracht)
+        {
+            base.Channel.InslagOpdrachtAfronden(opdracht);
         }
         
         public System.Threading.Tasks.Task InslagOpdrachtAfrondenAsync(OpdrachtService.Opdracht opdracht)
@@ -1088,9 +1202,19 @@ namespace OpdrachtService
             return base.Channel.InslagOpdrachtAfrondenAsync(opdracht);
         }
         
+        public void AanvulOpdrachtAfronden(OpdrachtService.Opdracht opdracht, int colliAantalEindlocatie)
+        {
+            base.Channel.AanvulOpdrachtAfronden(opdracht, colliAantalEindlocatie);
+        }
+        
         public System.Threading.Tasks.Task AanvulOpdrachtAfrondenAsync(OpdrachtService.Opdracht opdracht, int colliAantalEindlocatie)
         {
             return base.Channel.AanvulOpdrachtAfrondenAsync(opdracht, colliAantalEindlocatie);
+        }
+        
+        public void TransportOpdrachtAfronden(OpdrachtService.Opdracht opdracht)
+        {
+            base.Channel.TransportOpdrachtAfronden(opdracht);
         }
         
         public System.Threading.Tasks.Task TransportOpdrachtAfrondenAsync(OpdrachtService.Opdracht opdracht)
@@ -1098,9 +1222,19 @@ namespace OpdrachtService
             return base.Channel.TransportOpdrachtAfrondenAsync(opdracht);
         }
         
+        public void GTMOpdrachtAfronden(OpdrachtService.Opdracht opdracht)
+        {
+            base.Channel.GTMOpdrachtAfronden(opdracht);
+        }
+        
         public System.Threading.Tasks.Task GTMOpdrachtAfrondenAsync(OpdrachtService.Opdracht opdracht)
         {
             return base.Channel.GTMOpdrachtAfrondenAsync(opdracht);
+        }
+        
+        public void UitslagOpdrachtAfronden(OpdrachtService.Opdracht opdracht)
+        {
+            base.Channel.UitslagOpdrachtAfronden(opdracht);
         }
         
         public System.Threading.Tasks.Task UitslagOpdrachtAfrondenAsync(OpdrachtService.Opdracht opdracht)
@@ -1108,9 +1242,19 @@ namespace OpdrachtService
             return base.Channel.UitslagOpdrachtAfrondenAsync(opdracht);
         }
         
+        public void UitslagOpdrachtMarkeren(string opdrachtNummer)
+        {
+            base.Channel.UitslagOpdrachtMarkeren(opdrachtNummer);
+        }
+        
         public System.Threading.Tasks.Task UitslagOpdrachtMarkerenAsync(string opdrachtNummer)
         {
             return base.Channel.UitslagOpdrachtMarkerenAsync(opdrachtNummer);
+        }
+        
+        public void OntkoppelOpdracht(OpdrachtService.Opdracht opdracht)
+        {
+            base.Channel.OntkoppelOpdracht(opdracht);
         }
         
         public System.Threading.Tasks.Task OntkoppelOpdrachtAsync(OpdrachtService.Opdracht opdracht)
@@ -1118,9 +1262,19 @@ namespace OpdrachtService
             return base.Channel.OntkoppelOpdrachtAsync(opdracht);
         }
         
+        public void OpdrachtOntkoppelen(string opdrachtNummer)
+        {
+            base.Channel.OpdrachtOntkoppelen(opdrachtNummer);
+        }
+        
         public System.Threading.Tasks.Task OpdrachtOntkoppelenAsync(string opdrachtNummer)
         {
             return base.Channel.OpdrachtOntkoppelenAsync(opdrachtNummer);
+        }
+        
+        public OpdrachtService.ResultaatOfOpdracht5SlwlhPY MaakOpdrachtVoorMagazijnMutatie(string palletnummer, string gebied, string pin)
+        {
+            return base.Channel.MaakOpdrachtVoorMagazijnMutatie(palletnummer, gebied, pin);
         }
         
         public System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> MaakOpdrachtVoorMagazijnMutatieAsync(string palletnummer, string gebied, string pin)
@@ -1128,9 +1282,19 @@ namespace OpdrachtService
             return base.Channel.MaakOpdrachtVoorMagazijnMutatieAsync(palletnummer, gebied, pin);
         }
         
+        public void LocatieVrijgeven(string locatienr)
+        {
+            base.Channel.LocatieVrijgeven(locatienr);
+        }
+        
         public System.Threading.Tasks.Task LocatieVrijgevenAsync(string locatienr)
         {
             return base.Channel.LocatieVrijgevenAsync(locatienr);
+        }
+        
+        public OpdrachtService.ResultaatOfOpdracht5SlwlhPY FabriekopdrachtStarten(long orderaanvoerOpdrachtId, string gebied, string pincode)
+        {
+            return base.Channel.FabriekopdrachtStarten(orderaanvoerOpdrachtId, gebied, pincode);
         }
         
         public System.Threading.Tasks.Task<OpdrachtService.ResultaatOfOpdracht5SlwlhPY> FabriekopdrachtStartenAsync(long orderaanvoerOpdrachtId, string gebied, string pincode)
@@ -1138,9 +1302,19 @@ namespace OpdrachtService
             return base.Channel.FabriekopdrachtStartenAsync(orderaanvoerOpdrachtId, gebied, pincode);
         }
         
+        public OpdrachtService.Resultaat FabriekopdrachtAnnuleren(string opdrachtnummer, string pincode)
+        {
+            return base.Channel.FabriekopdrachtAnnuleren(opdrachtnummer, pincode);
+        }
+        
         public System.Threading.Tasks.Task<OpdrachtService.Resultaat> FabriekopdrachtAnnulerenAsync(string opdrachtnummer, string pincode)
         {
             return base.Channel.FabriekopdrachtAnnulerenAsync(opdrachtnummer, pincode);
+        }
+        
+        public OpdrachtService.Resultaat FabriekopdrachtAfronden(string opdrachtnummer, string pincode)
+        {
+            return base.Channel.FabriekopdrachtAfronden(opdrachtnummer, pincode);
         }
         
         public System.Threading.Tasks.Task<OpdrachtService.Resultaat> FabriekopdrachtAfrondenAsync(string opdrachtnummer, string pincode)
@@ -1148,9 +1322,19 @@ namespace OpdrachtService
             return base.Channel.FabriekopdrachtAfrondenAsync(opdrachtnummer, pincode);
         }
         
+        public OpdrachtService.ResultaatOfArrayOfWeegkeukenAanvoerOpdracht5SlwlhPY WeegkeukenGeefOpenstaandeopdrachten(string pincode, int[] locatienummersNaar)
+        {
+            return base.Channel.WeegkeukenGeefOpenstaandeopdrachten(pincode, locatienummersNaar);
+        }
+        
         public System.Threading.Tasks.Task<OpdrachtService.ResultaatOfArrayOfWeegkeukenAanvoerOpdracht5SlwlhPY> WeegkeukenGeefOpenstaandeopdrachtenAsync(string pincode, int[] locatienummersNaar)
         {
             return base.Channel.WeegkeukenGeefOpenstaandeopdrachtenAsync(pincode, locatienummersNaar);
+        }
+        
+        public OpdrachtService.ResultaatOfWeegkeukenAanvoerOpdracht5SlwlhPY WeegkeukenopdrachtStarten(long opdrachtId, string pincode)
+        {
+            return base.Channel.WeegkeukenopdrachtStarten(opdrachtId, pincode);
         }
         
         public System.Threading.Tasks.Task<OpdrachtService.ResultaatOfWeegkeukenAanvoerOpdracht5SlwlhPY> WeegkeukenopdrachtStartenAsync(long opdrachtId, string pincode)
@@ -1158,9 +1342,19 @@ namespace OpdrachtService
             return base.Channel.WeegkeukenopdrachtStartenAsync(opdrachtId, pincode);
         }
         
+        public OpdrachtService.Resultaat WeegkeukenopdrachtAnnuleren(long opdrachtId, string pincode)
+        {
+            return base.Channel.WeegkeukenopdrachtAnnuleren(opdrachtId, pincode);
+        }
+        
         public System.Threading.Tasks.Task<OpdrachtService.Resultaat> WeegkeukenopdrachtAnnulerenAsync(long opdrachtId, string pincode)
         {
             return base.Channel.WeegkeukenopdrachtAnnulerenAsync(opdrachtId, pincode);
+        }
+        
+        public OpdrachtService.Resultaat WeegkeukenopdrachtAfronden(long opdrachtId, string pincode)
+        {
+            return base.Channel.WeegkeukenopdrachtAfronden(opdrachtId, pincode);
         }
         
         public System.Threading.Tasks.Task<OpdrachtService.Resultaat> WeegkeukenopdrachtAfrondenAsync(long opdrachtId, string pincode)

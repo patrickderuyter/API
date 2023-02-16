@@ -505,8 +505,6 @@ namespace TruckWebService
         
         private TruckWebService.OpdrachtType TypeField;
         
-        private string ZoneOmschrijvingField;
-        
         private string ZonegroepNrField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -857,19 +855,6 @@ namespace TruckWebService
             set
             {
                 this.TypeField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ZoneOmschrijving
-        {
-            get
-            {
-                return this.ZoneOmschrijvingField;
-            }
-            set
-            {
-                this.ZoneOmschrijvingField = value;
             }
         }
         
@@ -1534,7 +1519,8 @@ namespace TruckWebService
         
         private int LocatieOpdrachtenField;
         
-       
+        private string LocatieOpdrachtenPerFabriekField;
+        
         private int OrderOpdrachtenField;
         
         private int VerzamelOpdrachtenField;
@@ -1577,6 +1563,19 @@ namespace TruckWebService
             set
             {
                 this.LocatieOpdrachtenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LocatieOpdrachtenPerFabriek
+        {
+            get
+            {
+                return this.LocatieOpdrachtenPerFabriekField;
+            }
+            set
+            {
+                this.LocatieOpdrachtenPerFabriekField = value;
             }
         }
         
@@ -7585,53 +7584,106 @@ namespace TruckWebService
     {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieInfoGTM", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieInfoGTMResponse")]
+        TruckWebService.LocatieInfo GeefLocatieInfoGTM(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieInfoGTM", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieInfoGTMResponse")]
         System.Threading.Tasks.Task<TruckWebService.LocatieInfo> GeefLocatieInfoGTMAsync(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetAanvulVerzoekGTM", ReplyAction="http://tempuri.org/ITruckWebService/ZetAanvulVerzoekGTMResponse")]
+        TruckWebService.Resultaat ZetAanvulVerzoekGTM(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetAanvulVerzoekGTM", ReplyAction="http://tempuri.org/ITruckWebService/ZetAanvulVerzoekGTMResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> ZetAanvulVerzoekGTMAsync(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ArtikelLabelAfdrukken", ReplyAction="http://tempuri.org/ITruckWebService/ArtikelLabelAfdrukkenResponse")]
+        bool ArtikelLabelAfdrukken(string artikelnr, string idnr, int aantal, string trucknummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ArtikelLabelAfdrukken", ReplyAction="http://tempuri.org/ITruckWebService/ArtikelLabelAfdrukkenResponse")]
         System.Threading.Tasks.Task<bool> ArtikelLabelAfdrukkenAsync(string artikelnr, string idnr, int aantal, string trucknummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GTMPickorderstickerAfdrukken", ReplyAction="http://tempuri.org/ITruckWebService/GTMPickorderstickerAfdrukkenResponse")]
+        void GTMPickorderstickerAfdrukken(long aanvoeropdrachtId, string trucknummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GTMPickorderstickerAfdrukken", ReplyAction="http://tempuri.org/ITruckWebService/GTMPickorderstickerAfdrukkenResponse")]
         System.Threading.Tasks.Task GTMPickorderstickerAfdrukkenAsync(long aanvoeropdrachtId, string trucknummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartEindcontrole", ReplyAction="http://tempuri.org/ITruckWebService/StartEindcontroleResponse")]
+        TruckWebService.ResultaatOfArrayOfEindcontroleRegel5SlwlhPY StartEindcontrole(string palletnr, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartEindcontrole", ReplyAction="http://tempuri.org/ITruckWebService/StartEindcontroleResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfEindcontroleRegel5SlwlhPY> StartEindcontroleAsync(string palletnr, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerEindcontrole", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerEindcontroleResponse")]
+        TruckWebService.Resultaat AnnuleerEindcontrole(string palletnr, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerEindcontrole", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerEindcontroleResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> AnnuleerEindcontroleAsync(string palletnr, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenEindcontrolePalletnummmer", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenEindcontrolePalletnummmerResponse")]
+        TruckWebService.Resultaat AfrondenEindcontrolePalletnummmer(string palletnr, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenEindcontrolePalletnummmer", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenEindcontrolePalletnummmerResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> AfrondenEindcontrolePalletnummmerAsync(string palletnr, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefScorebord", ReplyAction="http://tempuri.org/ITruckWebService/GeefScorebordResponse")]
+        TruckWebService.Scorebord[] GeefScorebord();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefScorebord", ReplyAction="http://tempuri.org/ITruckWebService/GeefScorebordResponse")]
         System.Threading.Tasks.Task<TruckWebService.Scorebord[]> GeefScorebordAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefAantalOpenstaandeOpdrachtenGTM", ReplyAction="http://tempuri.org/ITruckWebService/GeefAantalOpenstaandeOpdrachtenGTMResponse")]
+        TruckWebService.ResultaatOfAantalOpenstaandeOpdrachtenGTM5SlwlhPY GeefAantalOpenstaandeOpdrachtenGTM();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefAantalOpenstaandeOpdrachtenGTM", ReplyAction="http://tempuri.org/ITruckWebService/GeefAantalOpenstaandeOpdrachtenGTMResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfAantalOpenstaandeOpdrachtenGTM5SlwlhPY> GeefAantalOpenstaandeOpdrachtenGTMAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefAantalOpenstaandeOpdrachtenGMAG", ReplyAction="http://tempuri.org/ITruckWebService/GeefAantalOpenstaandeOpdrachtenGMAGResponse")]
+        TruckWebService.ResultaatOfAantalOpenstaandeOpdrachtenGMAG5SlwlhPY GeefAantalOpenstaandeOpdrachtenGMAG();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefAantalOpenstaandeOpdrachtenGMAG", ReplyAction="http://tempuri.org/ITruckWebService/GeefAantalOpenstaandeOpdrachtenGMAGResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfAantalOpenstaandeOpdrachtenGMAG5SlwlhPY> GeefAantalOpenstaandeOpdrachtenGMAGAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefAantalOpenstaandeFabriekOpdrachten", ReplyAction="http://tempuri.org/ITruckWebService/GeefAantalOpenstaandeFabriekOpdrachtenRespons" +
             "e")]
+        TruckWebService.ResultaatOfint GeefAantalOpenstaandeFabriekOpdrachten(string truckNumber, string pincode, int[] processegmentcodes);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefAantalOpenstaandeFabriekOpdrachten", ReplyAction="http://tempuri.org/ITruckWebService/GeefAantalOpenstaandeFabriekOpdrachtenRespons" +
+            "e")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfint> GeefAantalOpenstaandeFabriekOpdrachtenAsync(string truckNumber, string pincode, int[] processegmentcodes);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintArtikelLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintArtikelLabelResponse")]
+        TruckWebService.Resultaat PrintArtikelLabel(string artikelnr, string idnr, int aantal, string trucknummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintArtikelLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintArtikelLabelResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintArtikelLabelAsync(string artikelnr, string idnr, int aantal, string trucknummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintColliLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintColliLabelResponse")]
+        TruckWebService.Resultaat PrintColliLabel(string palletnummer, int aantal, string trucknummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintColliLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintColliLabelResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintColliLabelAsync(string palletnummer, int aantal, string trucknummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintKlantLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintKlantLabelResponse")]
+        TruckWebService.Resultaat PrintKlantLabel(string palletNummer, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintKlantLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintKlantLabelResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintKlantLabelAsync(string palletNummer, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintPickorderLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintPickorderLabelResponse")]
+        TruckWebService.Resultaat PrintPickorderLabel(string palletnummer, string trucknummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintPickorderLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintPickorderLabelResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintPickorderLabelAsync(string palletnummer, string trucknummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefVrijeFabriekopdrachten", ReplyAction="http://tempuri.org/ITruckWebService/GeefVrijeFabriekopdrachtenResponse")]
+        TruckWebService.ResultaatOfArrayOfFabriekOpdracht5SlwlhPY GeefVrijeFabriekopdrachten(string pincode, System.Nullable<int> processegmentcode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefVrijeFabriekopdrachten", ReplyAction="http://tempuri.org/ITruckWebService/GeefVrijeFabriekopdrachtenResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfFabriekOpdracht5SlwlhPY> GeefVrijeFabriekopdrachtenAsync(string pincode, System.Nullable<int> processegmentcode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefVrijeFabriekopdrachtenVoorFabrieken", ReplyAction="http://tempuri.org/ITruckWebService/GeefVrijeFabriekopdrachtenVoorFabriekenRespon" +
+            "se")]
+        TruckWebService.ResultaatOfArrayOfFabriekOpdracht5SlwlhPY GeefVrijeFabriekopdrachtenVoorFabrieken(string pincode, int[] processegmentcodes);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefVrijeFabriekopdrachtenVoorFabrieken", ReplyAction="http://tempuri.org/ITruckWebService/GeefVrijeFabriekopdrachtenVoorFabriekenRespon" +
             "se")]
@@ -7639,326 +7691,654 @@ namespace TruckWebService
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefProcessegmentenBijFabriekopdrachten", ReplyAction="http://tempuri.org/ITruckWebService/GeefProcessegmentenBijFabriekopdrachtenRespon" +
             "se")]
+        TruckWebService.ResultaatOfArrayOfProcessegment5SlwlhPY GeefProcessegmentenBijFabriekopdrachten(string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefProcessegmentenBijFabriekopdrachten", ReplyAction="http://tempuri.org/ITruckWebService/GeefProcessegmentenBijFabriekopdrachtenRespon" +
+            "se")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfProcessegment5SlwlhPY> GeefProcessegmentenBijFabriekopdrachtenAsync(string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderaanvoeropdrachtIdVoorPallet", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderaanvoeropdrachtIdVoorPalletResponse")]
+        TruckWebService.ResultaatOflong GeefOrderaanvoeropdrachtIdVoorPallet(string palletnummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderaanvoeropdrachtIdVoorPallet", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderaanvoeropdrachtIdVoorPalletResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOflong> GeefOrderaanvoeropdrachtIdVoorPalletAsync(string palletnummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartOrderOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/StartOrderOpdrachtResponse")]
+        void StartOrderOpdracht(string verplaatsingsordernummer, string pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartOrderOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/StartOrderOpdrachtResponse")]
         System.Threading.Tasks.Task StartOrderOpdrachtAsync(string verplaatsingsordernummer, string pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerOrderOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerOrderOpdrachtResponse")]
+        void AnnuleerOrderOpdracht(string verplaatsingsordernummer, string pin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerOrderOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerOrderOpdrachtResponse")]
         System.Threading.Tasks.Task AnnuleerOrderOpdrachtAsync(string verplaatsingsordernummer, string pin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerOrderOpdrachtRegel", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerOrderOpdrachtRegelResponse")]
+        void AnnuleerOrderOpdrachtRegel(TruckWebService.Opdracht opdracht, string verplaatsingsordernummer, string orderregelnr, string pincode, bool volgendePallet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerOrderOpdrachtRegel", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerOrderOpdrachtRegelResponse")]
         System.Threading.Tasks.Task AnnuleerOrderOpdrachtRegelAsync(TruckWebService.Opdracht opdracht, string verplaatsingsordernummer, string orderregelnr, string pincode, bool volgendePallet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartOrderOpdrachtRegel", ReplyAction="http://tempuri.org/ITruckWebService/StartOrderOpdrachtRegelResponse")]
+        TruckWebService.ResultaatOfOpdracht5SlwlhPY StartOrderOpdrachtRegel(string verplaatsingsordernummer, string orderregelnr, string artikelnr, string idnr, string uitgezonderdPalletNr, bool zoekVolgende, string pin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartOrderOpdrachtRegel", ReplyAction="http://tempuri.org/ITruckWebService/StartOrderOpdrachtRegelResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfOpdracht5SlwlhPY> StartOrderOpdrachtRegelAsync(string verplaatsingsordernummer, string orderregelnr, string artikelnr, string idnr, string uitgezonderdPalletNr, bool zoekVolgende, string pin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartVerzendingControle", ReplyAction="http://tempuri.org/ITruckWebService/StartVerzendingControleResponse")]
+        void StartVerzendingControle(string palletnr, string pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartVerzendingControle", ReplyAction="http://tempuri.org/ITruckWebService/StartVerzendingControleResponse")]
         System.Threading.Tasks.Task StartVerzendingControleAsync(string palletnr, string pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGmagUitslagorders", ReplyAction="http://tempuri.org/ITruckWebService/GeefGmagUitslagordersResponse")]
+        TruckWebService.ResultaatOfArrayOfPickOrder5SlwlhPY GeefGmagUitslagorders();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGmagUitslagorders", ReplyAction="http://tempuri.org/ITruckWebService/GeefGmagUitslagordersResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfPickOrder5SlwlhPY> GeefGmagUitslagordersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefDczzUitslagorders", ReplyAction="http://tempuri.org/ITruckWebService/GeefDczzUitslagordersResponse")]
+        TruckWebService.ResultaatOfArrayOfPickOrder5SlwlhPY GeefDczzUitslagorders();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefDczzUitslagorders", ReplyAction="http://tempuri.org/ITruckWebService/GeefDczzUitslagordersResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfPickOrder5SlwlhPY> GeefDczzUitslagordersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGmagOpenstaandeUitslagorders", ReplyAction="http://tempuri.org/ITruckWebService/GeefGmagOpenstaandeUitslagordersResponse")]
+        TruckWebService.ResultaatOfArrayOfPickOrder5SlwlhPY GeefGmagOpenstaandeUitslagorders();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGmagOpenstaandeUitslagorders", ReplyAction="http://tempuri.org/ITruckWebService/GeefGmagOpenstaandeUitslagordersResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfPickOrder5SlwlhPY> GeefGmagOpenstaandeUitslagordersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefPickorders", ReplyAction="http://tempuri.org/ITruckWebService/GeefPickordersResponse")]
+        TruckWebService.ResultaatOfArrayOfPickOrder5SlwlhPY GeefPickorders(string runvolgnummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefPickorders", ReplyAction="http://tempuri.org/ITruckWebService/GeefPickordersResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfPickOrder5SlwlhPY> GeefPickordersAsync(string runvolgnummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefRittenTeVerzamelen", ReplyAction="http://tempuri.org/ITruckWebService/GeefRittenTeVerzamelenResponse")]
+        TruckWebService.ResultaatOfArrayOfRitTeVerzamelenay1Gw99V GeefRittenTeVerzamelen();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefRittenTeVerzamelen", ReplyAction="http://tempuri.org/ITruckWebService/GeefRittenTeVerzamelenResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfRitTeVerzamelenay1Gw99V> GeefRittenTeVerzamelenAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefDczzTeControlerenRitten", ReplyAction="http://tempuri.org/ITruckWebService/GeefDczzTeControlerenRittenResponse")]
+        TruckWebService.ResultaatOfArrayOfRit5SlwlhPY GeefDczzTeControlerenRitten();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefDczzTeControlerenRitten", ReplyAction="http://tempuri.org/ITruckWebService/GeefDczzTeControlerenRittenResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfRit5SlwlhPY> GeefDczzTeControlerenRittenAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefDczzTeSluitenRitten", ReplyAction="http://tempuri.org/ITruckWebService/GeefDczzTeSluitenRittenResponse")]
+        TruckWebService.ResultaatOfArrayOfRit5SlwlhPY GeefDczzTeSluitenRitten();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefDczzTeSluitenRitten", ReplyAction="http://tempuri.org/ITruckWebService/GeefDczzTeSluitenRittenResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfRit5SlwlhPY> GeefDczzTeSluitenRittenAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/HaalOpenstaandeDczzRitOpnieuwOp", ReplyAction="http://tempuri.org/ITruckWebService/HaalOpenstaandeDczzRitOpnieuwOpResponse")]
+        TruckWebService.ResultaatOfRit5SlwlhPY HaalOpenstaandeDczzRitOpnieuwOp(string runvolgnummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/HaalOpenstaandeDczzRitOpnieuwOp", ReplyAction="http://tempuri.org/ITruckWebService/HaalOpenstaandeDczzRitOpnieuwOpResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfRit5SlwlhPY> HaalOpenstaandeDczzRitOpnieuwOpAsync(string runvolgnummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/HaalTeSluitenDczzRitOpnieuwOp", ReplyAction="http://tempuri.org/ITruckWebService/HaalTeSluitenDczzRitOpnieuwOpResponse")]
+        TruckWebService.ResultaatOfRit5SlwlhPY HaalTeSluitenDczzRitOpnieuwOp(string runvolgnummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/HaalTeSluitenDczzRitOpnieuwOp", ReplyAction="http://tempuri.org/ITruckWebService/HaalTeSluitenDczzRitOpnieuwOpResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfRit5SlwlhPY> HaalTeSluitenDczzRitOpnieuwOpAsync(string runvolgnummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GetPalletinfoVoorUitslagorder", ReplyAction="http://tempuri.org/ITruckWebService/GetPalletinfoVoorUitslagorderResponse")]
+        TruckWebService.ResultaatOfUitslagPalletInfo5SlwlhPY GetPalletinfoVoorUitslagorder(string runvolgnummer, string palletnr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GetPalletinfoVoorUitslagorder", ReplyAction="http://tempuri.org/ITruckWebService/GetPalletinfoVoorUitslagorderResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfUitslagPalletInfo5SlwlhPY> GetPalletinfoVoorUitslagorderAsync(string runvolgnummer, string palletnr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GetOpenstaandePalletsVoorUitslagorder", ReplyAction="http://tempuri.org/ITruckWebService/GetOpenstaandePalletsVoorUitslagorderResponse" +
             "")]
+        TruckWebService.ResultaatOfArrayOfUitslagPalletInfo5SlwlhPY GetOpenstaandePalletsVoorUitslagorder(string runvolgnummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GetOpenstaandePalletsVoorUitslagorder", ReplyAction="http://tempuri.org/ITruckWebService/GetOpenstaandePalletsVoorUitslagorderResponse" +
+            "")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfUitslagPalletInfo5SlwlhPY> GetOpenstaandePalletsVoorUitslagorderAsync(string runvolgnummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkAantalCorrectie", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkAantalCorrectieResponse")]
+        TruckWebService.Resultaat VerwerkAantalCorrectie(string palletnr, string idnr, int nieuwAantal, string verplaatsingsordernr, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkAantalCorrectie", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkAantalCorrectieResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkAantalCorrectieAsync(string palletnr, string idnr, int nieuwAantal, string verplaatsingsordernr, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkOverstapelen", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkOverstapelenResponse")]
+        TruckWebService.Resultaat VerwerkOverstapelen(string runvolgnummer, string palletnrvan, string palletnrnaar, string idnr, int aantal, string verplaatsingsordernr, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkOverstapelen", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkOverstapelenResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkOverstapelenAsync(string runvolgnummer, string palletnrvan, string palletnrnaar, string idnr, int aantal, string verplaatsingsordernr, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkPalletGoedkeuren", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkPalletGoedkeurenResponse")]
+        TruckWebService.Resultaat VerwerkPalletGoedkeuren(string palletnr, string pincode, string trucknummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkPalletGoedkeuren", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkPalletGoedkeurenResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkPalletGoedkeurenAsync(string palletnr, string pincode, string trucknummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintVerzendLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintVerzendLabelResponse")]
+        TruckWebService.Resultaat PrintVerzendLabel(string palletNummer, string trucknummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintVerzendLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintVerzendLabelResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintVerzendLabelAsync(string palletNummer, string trucknummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfsluitenRit", ReplyAction="http://tempuri.org/ITruckWebService/AfsluitenRitResponse")]
+        TruckWebService.Resultaat AfsluitenRit(string runvolgnummer, string pincode, bool forceerAfsluitenRit);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfsluitenRit", ReplyAction="http://tempuri.org/ITruckWebService/AfsluitenRitResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> AfsluitenRitAsync(string runvolgnummer, string pincode, bool forceerAfsluitenRit);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GetUitslagordersVoorRit", ReplyAction="http://tempuri.org/ITruckWebService/GetUitslagordersVoorRitResponse")]
+        TruckWebService.ResultaatOfArrayOfRitOrder5SlwlhPY GetUitslagordersVoorRit(string runvolgnummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GetUitslagordersVoorRit", ReplyAction="http://tempuri.org/ITruckWebService/GetUitslagordersVoorRitResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfRitOrder5SlwlhPY> GetUitslagordersVoorRitAsync(string runvolgnummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkenVerzendingMeermaligeLeenEmballage", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkenVerzendingMeermaligeLeenEmballageRes" +
             "ponse")]
+        TruckWebService.Resultaat VerwerkenVerzendingMeermaligeLeenEmballage(string lastdragerNr, string emballageNr, string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkenVerzendingMeermaligeLeenEmballage", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkenVerzendingMeermaligeLeenEmballageRes" +
+            "ponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkenVerzendingMeermaligeLeenEmballageAsync(string lastdragerNr, string emballageNr, string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefEersteRestverpakkingsregel", ReplyAction="http://tempuri.org/ITruckWebService/GeefEersteRestverpakkingsregelResponse")]
+        TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY GeefEersteRestverpakkingsregel(long[] orderaanvoeropdrachtids, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefEersteRestverpakkingsregel", ReplyAction="http://tempuri.org/ITruckWebService/GeefEersteRestverpakkingsregelResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY> GeefEersteRestverpakkingsregelAsync(long[] orderaanvoeropdrachtids, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkRestverpakkingsregel", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkRestverpakkingsregelResponse")]
+        TruckWebService.Resultaat VerwerkRestverpakkingsregel(TruckWebService.OrderAanvoerOpdrachtRegel regel, string scan, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkRestverpakkingsregel", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkRestverpakkingsregelResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkRestverpakkingsregelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel, string scan, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkenScanZegelnummer", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkenScanZegelnummerResponse")]
+        TruckWebService.Resultaat VerwerkenScanZegelnummer(string zegelNr, string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkenScanZegelnummer", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkenScanZegelnummerResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkenScanZegelnummerAsync(string zegelNr, string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGmagEindcontrolePallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefGmagEindcontrolePalletsResponse")]
+        TruckWebService.ResultaatOfArrayOfPalletEindcontrole5SlwlhPY GeefGmagEindcontrolePallets();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGmagEindcontrolePallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefGmagEindcontrolePalletsResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfPalletEindcontrole5SlwlhPY> GeefGmagEindcontrolePalletsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefFabriekslocatiesBijEindcontrolePallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefFabriekslocatiesBijEindcontrolePalletsRes" +
             "ponse")]
+        TruckWebService.Fabriekslocatie[] GeefFabriekslocatiesBijEindcontrolePallets();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefFabriekslocatiesBijEindcontrolePallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefFabriekslocatiesBijEindcontrolePalletsRes" +
+            "ponse")]
         System.Threading.Tasks.Task<TruckWebService.Fabriekslocatie[]> GeefFabriekslocatiesBijEindcontrolePalletsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefTeVerwerkenOntvangstorders", ReplyAction="http://tempuri.org/ITruckWebService/GeefTeVerwerkenOntvangstordersResponse")]
+        TruckWebService.ResultaatOfArrayOfOntvangstOrder5SlwlhPY GeefTeVerwerkenOntvangstorders(string gebiedcode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefTeVerwerkenOntvangstorders", ReplyAction="http://tempuri.org/ITruckWebService/GeefTeVerwerkenOntvangstordersResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfOntvangstOrder5SlwlhPY> GeefTeVerwerkenOntvangstordersAsync(string gebiedcode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/KoppelenTruckRun", ReplyAction="http://tempuri.org/ITruckWebService/KoppelenTruckRunResponse")]
+        TruckWebService.Resultaat KoppelenTruckRun(string runvolgnr, string trucknr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/KoppelenTruckRun", ReplyAction="http://tempuri.org/ITruckWebService/KoppelenTruckRunResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> KoppelenTruckRunAsync(string runvolgnr, string trucknr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OntkoppelenTruckRun", ReplyAction="http://tempuri.org/ITruckWebService/OntkoppelenTruckRunResponse")]
+        TruckWebService.Resultaat OntkoppelenTruckRun(string runvolgnr, string trucknr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OntkoppelenTruckRun", ReplyAction="http://tempuri.org/ITruckWebService/OntkoppelenTruckRunResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> OntkoppelenTruckRunAsync(string runvolgnr, string trucknr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/StartenOntvangstorderResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> StartenOntvangstorderAsync(string Ontvangstordernummer, string pincode);
+        TruckWebService.Resultaat StartenOntvangstorder(string ontvangstordernummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/StartenOntvangstorderResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> StartenOntvangstorderAsync(string ontvangstordernummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AanmakenOntvangstorderPallets", ReplyAction="http://tempuri.org/ITruckWebService/AanmakenOntvangstorderPalletsResponse")]
+        TruckWebService.Resultaat AanmakenOntvangstorderPallets(string gebiedcode, string ontvangstordernummer, int aantalPallets);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AanmakenOntvangstorderPallets", ReplyAction="http://tempuri.org/ITruckWebService/AanmakenOntvangstorderPalletsResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> AanmakenOntvangstorderPalletsAsync(string gebiedcode, string ontvangstordernummer, int aantalPallets);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOntvangstorderPallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefOntvangstorderPalletsResponse")]
+        TruckWebService.ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V GeefOntvangstorderPallets(string ontvangstordernummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOntvangstorderPallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefOntvangstorderPalletsResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstorderPalletsAsync(string ontvangstordernummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OnderbrekenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/OnderbrekenOntvangstorderResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> OnderbrekenOntvangstorderAsync(string Ontvangstordernummer, string pincode);
+        TruckWebService.Resultaat OnderbrekenOntvangstorder(string ontvangstordernummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OnderbrekenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/OnderbrekenOntvangstorderResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> OnderbrekenOntvangstorderAsync(string ontvangstordernummer, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOntvangstregistratiePallet", ReplyAction="http://tempuri.org/ITruckWebService/GeefOntvangstregistratiePalletResponse")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstregistratiePalletAsync(string Ontvangstordernummer, string palletnr);
+        TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V GeefOntvangstregistratiePallet(string ontvangstordernummer, string palletnr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOntvangstregistratiePallet", ReplyAction="http://tempuri.org/ITruckWebService/GeefOntvangstregistratiePalletResponse")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstregistratiePalletAsync(string ontvangstordernummer, string palletnr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OpslaanOntvangstregistratiePallet", ReplyAction="http://tempuri.org/ITruckWebService/OpslaanOntvangstregistratiePalletResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> OpslaanOntvangstregistratiePalletAsync(TruckWebService.OntvangstregistratiePallet OntvangstregistratiePallet, string trucknr);
+        TruckWebService.Resultaat OpslaanOntvangstregistratiePallet(TruckWebService.OntvangstregistratiePallet ontvangstregistratiePallet, string trucknr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OpslaanOntvangstregistratiePallet", ReplyAction="http://tempuri.org/ITruckWebService/OpslaanOntvangstregistratiePalletResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> OpslaanOntvangstregistratiePalletAsync(TruckWebService.OntvangstregistratiePallet ontvangstregistratiePallet, string trucknr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenOntvangstorderResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> AfrondenOntvangstorderAsync(string Ontvangstordernummer, string pincode);
+        TruckWebService.Resultaat AfrondenOntvangstorder(string ontvangstordernummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenOntvangstorderResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> AfrondenOntvangstorderAsync(string ontvangstordernummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintOntvangstPalletLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintOntvangstPalletLabelResponse")]
+        TruckWebService.Resultaat PrintOntvangstPalletLabel(string palletnr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintOntvangstPalletLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintOntvangstPalletLabelResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintOntvangstPalletLabelAsync(string palletnr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintMonsterLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintMonsterLabelResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintMonsterLabelAsync(string palletnr, string OntvangstOrdernr);
+        TruckWebService.Resultaat PrintMonsterLabel(string palletnr, string ontvangstOrdernr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintMonsterLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintMonsterLabelResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintMonsterLabelAsync(string palletnr, string ontvangstOrdernr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintLeggerSticker", ReplyAction="http://tempuri.org/ITruckWebService/PrintLeggerStickerResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintLeggerStickerAsync(string palletnr, string OntvangstOrdernr);
+        TruckWebService.Resultaat PrintLeggerSticker(string palletnr, string ontvangstOrdernr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintLeggerSticker", ReplyAction="http://tempuri.org/ITruckWebService/PrintLeggerStickerResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintLeggerStickerAsync(string palletnr, string ontvangstOrdernr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkGS1LabelLeverancier", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkGS1LabelLeverancierResponse")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V> VerwerkGS1LabelLeverancierAsync(string Ontvangstordernummer, string palletnr, string labelCode);
+        TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V VerwerkGS1LabelLeverancier(string ontvangstordernummer, string palletnr, string labelCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkGS1LabelLeverancier", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkGS1LabelLeverancierResponse")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V> VerwerkGS1LabelLeverancierAsync(string ontvangstordernummer, string palletnr, string labelCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLastdragers", ReplyAction="http://tempuri.org/ITruckWebService/GeefLastdragersResponse")]
+        TruckWebService.ResultaatOfArrayOfLastdragerDC5SlwlhPY GeefLastdragers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLastdragers", ReplyAction="http://tempuri.org/ITruckWebService/GeefLastdragersResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfLastdragerDC5SlwlhPY> GeefLastdragersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefNieuwPalletnummer", ReplyAction="http://tempuri.org/ITruckWebService/GeefNieuwPalletnummerResponse")]
+        TruckWebService.ResultaatOfstring GeefNieuwPalletnummer();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefNieuwPalletnummer", ReplyAction="http://tempuri.org/ITruckWebService/GeefNieuwPalletnummerResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfstring> GeefNieuwPalletnummerAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/CheckPalletTelOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/CheckPalletTelOpdrachtResponse")]
+        TruckWebService.ResultaatOfPalletInfo5SlwlhPY CheckPalletTelOpdracht(string palletnummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/CheckPalletTelOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/CheckPalletTelOpdrachtResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfPalletInfo5SlwlhPY> CheckPalletTelOpdrachtAsync(string palletnummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/BepaalGrondstofVoorraadVoorOpdrachten", ReplyAction="http://tempuri.org/ITruckWebService/BepaalGrondstofVoorraadVoorOpdrachtenResponse" +
             "")]
+        TruckWebService.ResultaatOfArrayOfGrondstofVoorraad5SlwlhPY BepaalGrondstofVoorraadVoorOpdrachten(long[] opdrachtIds);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/BepaalGrondstofVoorraadVoorOpdrachten", ReplyAction="http://tempuri.org/ITruckWebService/BepaalGrondstofVoorraadVoorOpdrachtenResponse" +
+            "")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfGrondstofVoorraad5SlwlhPY> BepaalGrondstofVoorraadVoorOpdrachtenAsync(long[] opdrachtIds);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/CheckService", ReplyAction="http://tempuri.org/ITruckWebService/CheckServiceResponse")]
+        bool CheckService();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/CheckService", ReplyAction="http://tempuri.org/ITruckWebService/CheckServiceResponse")]
         System.Threading.Tasks.Task<bool> CheckServiceAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/Inloggen", ReplyAction="http://tempuri.org/ITruckWebService/InloggenResponse")]
+        TruckWebService.LoginResultaat Inloggen(string truckNumber, string pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/Inloggen", ReplyAction="http://tempuri.org/ITruckWebService/InloggenResponse")]
         System.Threading.Tasks.Task<TruckWebService.LoginResultaat> InloggenAsync(string truckNumber, string pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/Uitloggen", ReplyAction="http://tempuri.org/ITruckWebService/UitloggenResponse")]
+        void Uitloggen(string truckNumber, string pin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/Uitloggen", ReplyAction="http://tempuri.org/ITruckWebService/UitloggenResponse")]
         System.Threading.Tasks.Task UitloggenAsync(string truckNumber, string pin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefTruckConfiguratie", ReplyAction="http://tempuri.org/ITruckWebService/GeefTruckConfiguratieResponse")]
+        TruckWebService.TruckSettings GeefTruckConfiguratie(string truckNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefTruckConfiguratie", ReplyAction="http://tempuri.org/ITruckWebService/GeefTruckConfiguratieResponse")]
         System.Threading.Tasks.Task<TruckWebService.TruckSettings> GeefTruckConfiguratieAsync(string truckNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OpslaanTruckConfiguratie", ReplyAction="http://tempuri.org/ITruckWebService/OpslaanTruckConfiguratieResponse")]
+        void OpslaanTruckConfiguratie(TruckWebService.TruckSettings settings);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OpslaanTruckConfiguratie", ReplyAction="http://tempuri.org/ITruckWebService/OpslaanTruckConfiguratieResponse")]
         System.Threading.Tasks.Task OpslaanTruckConfiguratieAsync(TruckWebService.TruckSettings settings);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefPalletInfo", ReplyAction="http://tempuri.org/ITruckWebService/GeefPalletInfoResponse")]
+        TruckWebService.PalletInfo GeefPalletInfo(string palletNummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefPalletInfo", ReplyAction="http://tempuri.org/ITruckWebService/GeefPalletInfoResponse")]
         System.Threading.Tasks.Task<TruckWebService.PalletInfo> GeefPalletInfoAsync(string palletNummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetPickorderPallet", ReplyAction="http://tempuri.org/ITruckWebService/ZetPickorderPalletResponse")]
+        TruckWebService.Resultaat ZetPickorderPallet(string palletNummer, string pin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetPickorderPallet", ReplyAction="http://tempuri.org/ITruckWebService/ZetPickorderPalletResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> ZetPickorderPalletAsync(string palletNummer, string pin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetDczzPickPallet", ReplyAction="http://tempuri.org/ITruckWebService/ZetDczzPickPalletResponse")]
+        TruckWebService.ResultaatOfVerzamelPallet5SlwlhPY ZetDczzPickPallet(string pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetDczzPickPallet", ReplyAction="http://tempuri.org/ITruckWebService/ZetDczzPickPalletResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfVerzamelPallet5SlwlhPY> ZetDczzPickPalletAsync(string pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwijderPickorderPallet", ReplyAction="http://tempuri.org/ITruckWebService/VerwijderPickorderPalletResponse")]
+        void VerwijderPickorderPallet(string palletNummer, string pin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwijderPickorderPallet", ReplyAction="http://tempuri.org/ITruckWebService/VerwijderPickorderPalletResponse")]
         System.Threading.Tasks.Task VerwijderPickorderPalletAsync(string palletNummer, string pin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieInfo", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieInfoResponse")]
+        TruckWebService.LocatieInfo GeefLocatieInfo(string locatieNummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieInfo", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieInfoResponse")]
         System.Threading.Tasks.Task<TruckWebService.LocatieInfo> GeefLocatieInfoAsync(string locatieNummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieInfoBijPalletnr", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieInfoBijPalletnrResponse")]
+        TruckWebService.LocatieInfo GeefLocatieInfoBijPalletnr(string palletnr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieInfoBijPalletnr", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieInfoBijPalletnrResponse")]
         System.Threading.Tasks.Task<TruckWebService.LocatieInfo> GeefLocatieInfoBijPalletnrAsync(string palletnr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieInfoVolgendeLocatie", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieInfoVolgendeLocatieResponse")]
+        TruckWebService.LocatieInfo GeefLocatieInfoVolgendeLocatie(string huidigLocatienummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieInfoVolgendeLocatie", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieInfoVolgendeLocatieResponse")]
         System.Threading.Tasks.Task<TruckWebService.LocatieInfo> GeefLocatieInfoVolgendeLocatieAsync(string huidigLocatienummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefBeschikbareRijenVoorLocatie", ReplyAction="http://tempuri.org/ITruckWebService/GeefBeschikbareRijenVoorLocatieResponse")]
+        TruckWebService.ResultaatOfLocatiePositie5SlwlhPY GeefBeschikbareRijenVoorLocatie(string locatienr, string palletnr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefBeschikbareRijenVoorLocatie", ReplyAction="http://tempuri.org/ITruckWebService/GeefBeschikbareRijenVoorLocatieResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfLocatiePositie5SlwlhPY> GeefBeschikbareRijenVoorLocatieAsync(string locatienr, string palletnr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkTelOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkTelOpdrachtResponse")]
+        void VerwerkTelOpdracht(TruckWebService.LocatieInfo locatieInfo, string pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkTelOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkTelOpdrachtResponse")]
         System.Threading.Tasks.Task VerwerkTelOpdrachtAsync(TruckWebService.LocatieInfo locatieInfo, string pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartMAMOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/StartMAMOpdrachtResponse")]
+        TruckWebService.Resultaat StartMAMOpdracht(string pincode, string gebied, string palletnummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartMAMOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/StartMAMOpdrachtResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> StartMAMOpdrachtAsync(string pincode, string gebied, string palletnummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkMAMOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkMAMOpdrachtResponse")]
+        TruckWebService.Resultaat VerwerkMAMOpdracht(string pincode, string palletnummer, long locatieId, bool ignoreMeldingen);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkMAMOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkMAMOpdrachtResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkMAMOpdrachtAsync(string pincode, string palletnummer, long locatieId, bool ignoreMeldingen);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/IsOrderVolledigGescand", ReplyAction="http://tempuri.org/ITruckWebService/IsOrderVolledigGescandResponse")]
+        bool IsOrderVolledigGescand(string ordernummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/IsOrderVolledigGescand", ReplyAction="http://tempuri.org/ITruckWebService/IsOrderVolledigGescandResponse")]
         System.Threading.Tasks.Task<bool> IsOrderVolledigGescandAsync(string ordernummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/HeeftPalletBelading", ReplyAction="http://tempuri.org/ITruckWebService/HeeftPalletBeladingResponse")]
+        bool HeeftPalletBelading(string palletnummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/HeeftPalletBelading", ReplyAction="http://tempuri.org/ITruckWebService/HeeftPalletBeladingResponse")]
         System.Threading.Tasks.Task<bool> HeeftPalletBeladingAsync(string palletnummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfsluitenPallet", ReplyAction="http://tempuri.org/ITruckWebService/AfsluitenPalletResponse")]
+        TruckWebService.ResultaatOfOpdracht5SlwlhPY AfsluitenPallet(string palletNummer, string eindlocatieNummer, string pincode, bool verplaatsNaarDock);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfsluitenPallet", ReplyAction="http://tempuri.org/ITruckWebService/AfsluitenPalletResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfOpdracht5SlwlhPY> AfsluitenPalletAsync(string palletNummer, string eindlocatieNummer, string pincode, bool verplaatsNaarDock);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenPickorderUitslag", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenPickorderUitslagResponse")]
+        TruckWebService.Resultaat AfrondenPickorderUitslag(TruckWebService.Opdracht uitslagOpdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenPickorderUitslag", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenPickorderUitslagResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> AfrondenPickorderUitslagAsync(TruckWebService.Opdracht uitslagOpdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefPickOrder", ReplyAction="http://tempuri.org/ITruckWebService/GeefPickOrderResponse")]
+        TruckWebService.PickOrder GeefPickOrder(string ordernummer, string gebied);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefPickOrder", ReplyAction="http://tempuri.org/ITruckWebService/GeefPickOrderResponse")]
         System.Threading.Tasks.Task<TruckWebService.PickOrder> GeefPickOrderAsync(string ordernummer, string gebied);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/IsValidePartijVoorPickorder", ReplyAction="http://tempuri.org/ITruckWebService/IsValidePartijVoorPickorderResponse")]
+        TruckWebService.PartijStatus IsValidePartijVoorPickorder(string ordernummer, string idnr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/IsValidePartijVoorPickorder", ReplyAction="http://tempuri.org/ITruckWebService/IsValidePartijVoorPickorderResponse")]
         System.Threading.Tasks.Task<TruckWebService.PartijStatus> IsValidePartijVoorPickorderAsync(string ordernummer, string idnr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkPickorderScan", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkPickorderScanResponse")]
+        TruckWebService.ResultaatOfScanResultaat5SlwlhPY VerwerkPickorderScan(string pin, string palletnummer, string ordernummer, string idnr, int aantal, bool isMenuScan);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkPickorderScan", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkPickorderScanResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfScanResultaat5SlwlhPY> VerwerkPickorderScanAsync(string pin, string palletnummer, string ordernummer, string idnr, int aantal, bool isMenuScan);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/IsValidePalletnummerVoorRetourOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/IsValidePalletnummerVoorRetourOpdrachtRespons" +
             "e")]
+        TruckWebService.Resultaat IsValidePalletnummerVoorRetourOpdracht(string palletnummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/IsValidePalletnummerVoorRetourOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/IsValidePalletnummerVoorRetourOpdrachtRespons" +
+            "e")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> IsValidePalletnummerVoorRetourOpdrachtAsync(string palletnummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/IsValideIdnummerVoorRetourOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/IsValideIdnummerVoorRetourOpdrachtResponse")]
+        TruckWebService.Resultaat IsValideIdnummerVoorRetourOpdracht(string idnr, string palletnummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/IsValideIdnummerVoorRetourOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/IsValideIdnummerVoorRetourOpdrachtResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> IsValideIdnummerVoorRetourOpdrachtAsync(string idnr, string palletnummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefRetouroorzaken", ReplyAction="http://tempuri.org/ITruckWebService/GeefRetouroorzakenResponse")]
+        System.Collections.Generic.Dictionary<string, string> GeefRetouroorzaken();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefRetouroorzaken", ReplyAction="http://tempuri.org/ITruckWebService/GeefRetouroorzakenResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>> GeefRetouroorzakenAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefArsLocatiesVan", ReplyAction="http://tempuri.org/ITruckWebService/GeefArsLocatiesVanResponse")]
+        TruckWebService.SimpleItem[] GeefArsLocatiesVan();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefArsLocatiesVan", ReplyAction="http://tempuri.org/ITruckWebService/GeefArsLocatiesVanResponse")]
         System.Threading.Tasks.Task<TruckWebService.SimpleItem[]> GeefArsLocatiesVanAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefArsLocatiesNaar", ReplyAction="http://tempuri.org/ITruckWebService/GeefArsLocatiesNaarResponse")]
+        TruckWebService.SimpleItem[] GeefArsLocatiesNaar();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefArsLocatiesNaar", ReplyAction="http://tempuri.org/ITruckWebService/GeefArsLocatiesNaarResponse")]
         System.Threading.Tasks.Task<TruckWebService.SimpleItem[]> GeefArsLocatiesNaarAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefArsRegistratietypes", ReplyAction="http://tempuri.org/ITruckWebService/GeefArsRegistratietypesResponse")]
+        TruckWebService.SimpleItem[] GeefArsRegistratietypes();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefArsRegistratietypes", ReplyAction="http://tempuri.org/ITruckWebService/GeefArsRegistratietypesResponse")]
         System.Threading.Tasks.Task<TruckWebService.SimpleItem[]> GeefArsRegistratietypesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkAfvalRegistratie", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkAfvalRegistratieResponse")]
+        TruckWebService.Resultaat VerwerkAfvalRegistratie(string registratieType, string locatieVan, string locatieNaar, string containerNummer, int aantalKg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkAfvalRegistratie", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkAfvalRegistratieResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkAfvalRegistratieAsync(string registratieType, string locatieVan, string locatieNaar, string containerNummer, int aantalKg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefRetourOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/GeefRetourOpdrachtResponse")]
+        TruckWebService.Opdracht GeefRetourOpdracht(string idnr, string palletnummer, string pin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefRetourOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/GeefRetourOpdrachtResponse")]
         System.Threading.Tasks.Task<TruckWebService.Opdracht> GeefRetourOpdrachtAsync(string idnr, string palletnummer, string pin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenRetourOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenRetourOpdrachtResponse")]
+        void AfrondenRetourOpdracht(TruckWebService.Opdracht opdracht, string retouroorzaakCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenRetourOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenRetourOpdrachtResponse")]
         System.Threading.Tasks.Task AfrondenRetourOpdrachtAsync(TruckWebService.Opdracht opdracht, string retouroorzaakCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/IsValideLocatieVoorAanvulverzoek", ReplyAction="http://tempuri.org/ITruckWebService/IsValideLocatieVoorAanvulverzoekResponse")]
+        TruckWebService.Resultaat IsValideLocatieVoorAanvulverzoek(string locatieNummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/IsValideLocatieVoorAanvulverzoek", ReplyAction="http://tempuri.org/ITruckWebService/IsValideLocatieVoorAanvulverzoekResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> IsValideLocatieVoorAanvulverzoekAsync(string locatieNummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AanvragenAanvulverzoek", ReplyAction="http://tempuri.org/ITruckWebService/AanvragenAanvulverzoekResponse")]
+        void AanvragenAanvulverzoek(string locatieNummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AanvragenAanvulverzoek", ReplyAction="http://tempuri.org/ITruckWebService/AanvragenAanvulverzoekResponse")]
         System.Threading.Tasks.Task AanvragenAanvulverzoekAsync(string locatieNummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartInslaanRetour", ReplyAction="http://tempuri.org/ITruckWebService/StartInslaanRetourResponse")]
+        TruckWebService.ResultaatOfOpdracht5SlwlhPY StartInslaanRetour(string gebied, string palletnummer, string pin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartInslaanRetour", ReplyAction="http://tempuri.org/ITruckWebService/StartInslaanRetourResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfOpdracht5SlwlhPY> StartInslaanRetourAsync(string gebied, string palletnummer, string pin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenInslaanRetour", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenInslaanRetourResponse")]
+        TruckWebService.Resultaat AfrondenInslaanRetour(TruckWebService.Opdracht opdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenInslaanRetour", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenInslaanRetourResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> AfrondenInslaanRetourAsync(TruckWebService.Opdracht opdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartUitslagSpijsOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/StartUitslagSpijsOpdrachtResponse")]
+        TruckWebService.ResultaatOfOpdracht5SlwlhPY StartUitslagSpijsOpdracht(string idnummer, string pin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartUitslagSpijsOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/StartUitslagSpijsOpdrachtResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfOpdracht5SlwlhPY> StartUitslagSpijsOpdrachtAsync(string idnummer, string pin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefFabriekslocaties", ReplyAction="http://tempuri.org/ITruckWebService/GeefFabriekslocatiesResponse")]
+        TruckWebService.Fabriekslocatie[] GeefFabriekslocaties();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefFabriekslocaties", ReplyAction="http://tempuri.org/ITruckWebService/GeefFabriekslocatiesResponse")]
         System.Threading.Tasks.Task<TruckWebService.Fabriekslocatie[]> GeefFabriekslocatiesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenUitslagSpijs", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenUitslagSpijsResponse")]
+        TruckWebService.Resultaat AfrondenUitslagSpijs(TruckWebService.Opdracht opdracht);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenUitslagSpijs", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenUitslagSpijsResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> AfrondenUitslagSpijsAsync(TruckWebService.Opdracht opdracht);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartUitslagGmag", ReplyAction="http://tempuri.org/ITruckWebService/StartUitslagGmagResponse")]
+        TruckWebService.ResultaatOfOpdracht5SlwlhPY StartUitslagGmag(string artikelnr, string idnr, string uitgezonderdPalletNr, bool zoekVolgende, string pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartUitslagGmag", ReplyAction="http://tempuri.org/ITruckWebService/StartUitslagGmagResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfOpdracht5SlwlhPY> StartUitslagGmagAsync(string artikelnr, string idnr, string uitgezonderdPalletNr, bool zoekVolgende, string pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerUitslagGmag", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerUitslagGmagResponse")]
+        void AnnuleerUitslagGmag(TruckWebService.Opdracht opdracht);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerUitslagGmag", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerUitslagGmagResponse")]
         System.Threading.Tasks.Task AnnuleerUitslagGmagAsync(TruckWebService.Opdracht opdracht);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/UitslagGmagAfronden", ReplyAction="http://tempuri.org/ITruckWebService/UitslagGmagAfrondenResponse")]
+        TruckWebService.Resultaat UitslagGmagAfronden(TruckWebService.Opdracht opdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/UitslagGmagAfronden", ReplyAction="http://tempuri.org/ITruckWebService/UitslagGmagAfrondenResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> UitslagGmagAfrondenAsync(TruckWebService.Opdracht opdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenOrderopdrachtGmag", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenOrderopdrachtGmagResponse")]
+        TruckWebService.ResultaatOfScanResultaat5SlwlhPY AfrondenOrderopdrachtGmag(TruckWebService.Opdracht opdracht, TruckWebService.PickOrderregel pickOrderRegel, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenOrderopdrachtGmag", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenOrderopdrachtGmagResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfScanResultaat5SlwlhPY> AfrondenOrderopdrachtGmagAsync(TruckWebService.Opdracht opdracht, TruckWebService.PickOrderregel pickOrderRegel, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefArtikelInfo", ReplyAction="http://tempuri.org/ITruckWebService/GeefArtikelInfoResponse")]
+        TruckWebService.ArtikelInfo GeefArtikelInfo(string artikelnr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefArtikelInfo", ReplyAction="http://tempuri.org/ITruckWebService/GeefArtikelInfoResponse")]
         System.Threading.Tasks.Task<TruckWebService.ArtikelInfo> GeefArtikelInfoAsync(string artikelnr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefFabriekInfo", ReplyAction="http://tempuri.org/ITruckWebService/GeefFabriekInfoResponse")]
+        TruckWebService.FabriekInfoRegel[] GeefFabriekInfo();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefFabriekInfo", ReplyAction="http://tempuri.org/ITruckWebService/GeefFabriekInfoResponse")]
         System.Threading.Tasks.Task<TruckWebService.FabriekInfoRegel[]> GeefFabriekInfoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefServerDatumTijd", ReplyAction="http://tempuri.org/ITruckWebService/GeefServerDatumTijdResponse")]
+        System.DateTime GeefServerDatumTijd();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefServerDatumTijd", ReplyAction="http://tempuri.org/ITruckWebService/GeefServerDatumTijdResponse")]
         System.Threading.Tasks.Task<System.DateTime> GeefServerDatumTijdAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/KoppelPrinter", ReplyAction="http://tempuri.org/ITruckWebService/KoppelPrinterResponse")]
+        void KoppelPrinter(string printnaam, string trucknummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/KoppelPrinter", ReplyAction="http://tempuri.org/ITruckWebService/KoppelPrinterResponse")]
         System.Threading.Tasks.Task KoppelPrinterAsync(string printnaam, string trucknummer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGekoppeldePrinter", ReplyAction="http://tempuri.org/ITruckWebService/GeefGekoppeldePrinterResponse")]
+        string GeefGekoppeldePrinter(string trucknummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGekoppeldePrinter", ReplyAction="http://tempuri.org/ITruckWebService/GeefGekoppeldePrinterResponse")]
         System.Threading.Tasks.Task<string> GeefGekoppeldePrinterAsync(string trucknummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefPrinters", ReplyAction="http://tempuri.org/ITruckWebService/GeefPrintersResponse")]
+        string[] GeefPrinters();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefPrinters", ReplyAction="http://tempuri.org/ITruckWebService/GeefPrintersResponse")]
         System.Threading.Tasks.Task<string[]> GeefPrintersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefVrijeLocatieAanvoerOpdrachtenPincode", ReplyAction="http://tempuri.org/ITruckWebService/GeefVrijeLocatieAanvoerOpdrachtenPincodeRespo" +
             "nse")]
+        TruckWebService.LocatieAanvoerOpdracht[] GeefVrijeLocatieAanvoerOpdrachtenPincode(System.Nullable<int> areanummer, System.Nullable<int> processsegmentnummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefVrijeLocatieAanvoerOpdrachtenPincode", ReplyAction="http://tempuri.org/ITruckWebService/GeefVrijeLocatieAanvoerOpdrachtenPincodeRespo" +
+            "nse")]
         System.Threading.Tasks.Task<TruckWebService.LocatieAanvoerOpdracht[]> GeefVrijeLocatieAanvoerOpdrachtenPincodeAsync(System.Nullable<int> areanummer, System.Nullable<int> processsegmentnummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefVrijeOrderAanvoerOpdrachten", ReplyAction="http://tempuri.org/ITruckWebService/GeefVrijeOrderAanvoerOpdrachtenResponse")]
+        TruckWebService.OrderAanvoerOpdracht[] GeefVrijeOrderAanvoerOpdrachten(System.Nullable<int> areanummer, System.Nullable<int> processsegmentnummer, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefVrijeOrderAanvoerOpdrachten", ReplyAction="http://tempuri.org/ITruckWebService/GeefVrijeOrderAanvoerOpdrachtenResponse")]
         System.Threading.Tasks.Task<TruckWebService.OrderAanvoerOpdracht[]> GeefVrijeOrderAanvoerOpdrachtenAsync(System.Nullable<int> areanummer, System.Nullable<int> processsegmentnummer, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OntkoppelOrderAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/OntkoppelOrderAanvoerOpdrachtResponse")]
+        TruckWebService.Resultaat OntkoppelOrderAanvoerOpdracht(long aanvoeropdrachtId, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OntkoppelOrderAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/OntkoppelOrderAanvoerOpdrachtResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> OntkoppelOrderAanvoerOpdrachtAsync(long aanvoeropdrachtId, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/KoppelOrderAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/KoppelOrderAanvoerOpdrachtResponse")]
+        TruckWebService.Resultaat KoppelOrderAanvoerOpdracht(long aanvoeropdrachtId, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/KoppelOrderAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/KoppelOrderAanvoerOpdrachtResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> KoppelOrderAanvoerOpdrachtAsync(long aanvoeropdrachtId, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartLocatieAanvoerOpdrachtGmag", ReplyAction="http://tempuri.org/ITruckWebService/StartLocatieAanvoerOpdrachtGmagResponse")]
+        TruckWebService.ResultaatOfLocatieAanvoerOpdracht5SlwlhPY StartLocatieAanvoerOpdrachtGmag(long locatieopdrachtId, string uitgezonderdPalletNr, string idnr, bool zoekVolgende, string pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartLocatieAanvoerOpdrachtGmag", ReplyAction="http://tempuri.org/ITruckWebService/StartLocatieAanvoerOpdrachtGmagResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfLocatieAanvoerOpdracht5SlwlhPY> StartLocatieAanvoerOpdrachtGmagAsync(long locatieopdrachtId, string uitgezonderdPalletNr, string idnr, bool zoekVolgende, string pin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerLocatieAanvoerOpdrachtGmag", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerLocatieAanvoerOpdrachtGmagResponse")]
+        void AnnuleerLocatieAanvoerOpdrachtGmag(TruckWebService.LocatieAanvoerOpdracht locatieaanvoeropdracht);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerLocatieAanvoerOpdrachtGmag", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerLocatieAanvoerOpdrachtGmagResponse")]
         System.Threading.Tasks.Task AnnuleerLocatieAanvoerOpdrachtGmagAsync(TruckWebService.LocatieAanvoerOpdracht locatieaanvoeropdracht);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerLocatieAanvoerOpdrachtGmagVolgende", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerLocatieAanvoerOpdrachtGmagVolgendeRes" +
             "ponse")]
+        void AnnuleerLocatieAanvoerOpdrachtGmagVolgende(TruckWebService.LocatieAanvoerOpdracht locatieaanvoeropdracht, bool volgendePallet);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerLocatieAanvoerOpdrachtGmagVolgende", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerLocatieAanvoerOpdrachtGmagVolgendeRes" +
+            "ponse")]
         System.Threading.Tasks.Task AnnuleerLocatieAanvoerOpdrachtGmagVolgendeAsync(TruckWebService.LocatieAanvoerOpdracht locatieaanvoeropdracht, bool volgendePallet);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/LocatieAanvoeropdrachtGmagAfronden", ReplyAction="http://tempuri.org/ITruckWebService/LocatieAanvoeropdrachtGmagAfrondenResponse")]
+        TruckWebService.ResultaatOfScanResultaat5SlwlhPY LocatieAanvoeropdrachtGmagAfronden(TruckWebService.LocatieAanvoerOpdracht locatieaanvoeropdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/LocatieAanvoeropdrachtGmagAfronden", ReplyAction="http://tempuri.org/ITruckWebService/LocatieAanvoeropdrachtGmagAfrondenResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfScanResultaat5SlwlhPY> LocatieAanvoeropdrachtGmagAfrondenAsync(TruckWebService.LocatieAanvoerOpdracht locatieaanvoeropdracht);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefProcessegmentenOpenstaandeLocatieopdracht" +
+            "en", ReplyAction="http://tempuri.org/ITruckWebService/GeefProcessegmentenOpenstaandeLocatieopdracht" +
+            "enResponse")]
+        TruckWebService.ResultaatOfArrayOfAreaProcesssegment5SlwlhPY GeefProcessegmentenOpenstaandeLocatieopdrachten(int processegmentNummer, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefProcessegmentenOpenstaandeLocatieopdracht" +
             "en", ReplyAction="http://tempuri.org/ITruckWebService/GeefProcessegmentenOpenstaandeLocatieopdracht" +
@@ -7968,17 +8348,36 @@ namespace TruckWebService
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefProcessegmentenOpenstaandeOrderopdrachten" +
             "", ReplyAction="http://tempuri.org/ITruckWebService/GeefProcessegmentenOpenstaandeOrderopdrachten" +
             "Response")]
+        TruckWebService.ResultaatOfArrayOfAreaProcesssegment5SlwlhPY GeefProcessegmentenOpenstaandeOrderopdrachten(int processegmentNummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefProcessegmentenOpenstaandeOrderopdrachten" +
+            "", ReplyAction="http://tempuri.org/ITruckWebService/GeefProcessegmentenOpenstaandeOrderopdrachten" +
+            "Response")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfAreaProcesssegment5SlwlhPY> GeefProcessegmentenOpenstaandeOrderopdrachtenAsync(int processegmentNummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintLocatieAanvoerOpdrachtLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintLocatieAanvoerOpdrachtLabelResponse")]
+        void PrintLocatieAanvoerOpdrachtLabel(long locatieopdrachtId, string truckNummer, bool extraSticker);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintLocatieAanvoerOpdrachtLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintLocatieAanvoerOpdrachtLabelResponse")]
         System.Threading.Tasks.Task PrintLocatieAanvoerOpdrachtLabelAsync(long locatieopdrachtId, string truckNummer, bool extraSticker);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieAanvoerOpdrachtGekoppeldePallet", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieAanvoerOpdrachtGekoppeldePalletRes" +
             "ponse")]
+        string GeefLocatieAanvoerOpdrachtGekoppeldePallet(string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieAanvoerOpdrachtGekoppeldePallet", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieAanvoerOpdrachtGekoppeldePalletRes" +
+            "ponse")]
         System.Threading.Tasks.Task<string> GeefLocatieAanvoerOpdrachtGekoppeldePalletAsync(string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetGmagPickPallet", ReplyAction="http://tempuri.org/ITruckWebService/ZetGmagPickPalletResponse")]
+        TruckWebService.ResultaatOfPalletInfo5SlwlhPY ZetGmagPickPallet(string palletNummer, string pin, long aanvoeropdrachtId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetGmagPickPallet", ReplyAction="http://tempuri.org/ITruckWebService/ZetGmagPickPalletResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfPalletInfo5SlwlhPY> ZetGmagPickPalletAsync(string palletNummer, string pin, long aanvoeropdrachtId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletAfrondenVerzamelAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletAfrondenVerzamelAanvoerOpdrachtResp" +
+            "onse")]
+        void PickpalletAfrondenVerzamelAanvoerOpdracht(string palletNr, string truckNr, string pincode, System.Nullable<int> productieorderNr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletAfrondenVerzamelAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletAfrondenVerzamelAanvoerOpdrachtResp" +
             "onse")]
@@ -7986,11 +8385,24 @@ namespace TruckWebService
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletAfrondenOrderAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletAfrondenOrderAanvoerOpdrachtRespons" +
             "e")]
+        void PickpalletAfrondenOrderAanvoerOpdracht(string palletNr, string truckNr, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletAfrondenOrderAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletAfrondenOrderAanvoerOpdrachtRespons" +
+            "e")]
         System.Threading.Tasks.Task PickpalletAfrondenOrderAanvoerOpdrachtAsync(string palletNr, string truckNr, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieOrderAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieOrderAanvoerOpdrachtResp" +
             "onse")]
+        string PickpalletDoelLocatieOrderAanvoerOpdracht(string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieOrderAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieOrderAanvoerOpdrachtResp" +
+            "onse")]
         System.Threading.Tasks.Task<string> PickpalletDoelLocatieOrderAanvoerOpdrachtAsync(string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamVerzamelAanvoerOpdra" +
+            "cht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamVerzamelAanvoerOpdra" +
+            "chtResponse")]
+        string PickpalletDoelLocatieNaamVerzamelAanvoerOpdracht(string palletNr, System.Nullable<int> productieorderNr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamVerzamelAanvoerOpdra" +
             "cht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamVerzamelAanvoerOpdra" +
@@ -8000,19 +8412,40 @@ namespace TruckWebService
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamOrderAanvoerOpdracht" +
             "", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamOrderAanvoerOpdracht" +
             "Response")]
+        string PickpalletDoelLocatieNaamOrderAanvoerOpdracht(string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamOrderAanvoerOpdracht" +
+            "", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamOrderAanvoerOpdracht" +
+            "Response")]
         System.Threading.Tasks.Task<string> PickpalletDoelLocatieNaamOrderAanvoerOpdrachtAsync(string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachten", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtenResponse")]
+        TruckWebService.OrderAanvoerOpdracht[] GeefOrderAanvoerOpdrachten(long[] aanvoeropdrachtIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachten", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtenResponse")]
         System.Threading.Tasks.Task<TruckWebService.OrderAanvoerOpdracht[]> GeefOrderAanvoerOpdrachtenAsync(long[] aanvoeropdrachtIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtRegels", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtRegelsResponse")]
+        TruckWebService.OrderAanvoerOpdrachtRegel[] GeefOrderAanvoerOpdrachtRegels(long[] aanvoeropdrachtId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtRegels", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtRegelsResponse")]
         System.Threading.Tasks.Task<TruckWebService.OrderAanvoerOpdrachtRegel[]> GeefOrderAanvoerOpdrachtRegelsAsync(long[] aanvoeropdrachtId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartOrderAanvoerOpdrachtRegel", ReplyAction="http://tempuri.org/ITruckWebService/StartOrderAanvoerOpdrachtRegelResponse")]
+        TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY StartOrderAanvoerOpdrachtRegel(TruckWebService.OrderAanvoerOpdrachtRegel regel, string uitgezonderdPalletNr, string idnr, bool zoekVolgende, string pin, bool gtm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartOrderAanvoerOpdrachtRegel", ReplyAction="http://tempuri.org/ITruckWebService/StartOrderAanvoerOpdrachtRegelResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY> StartOrderAanvoerOpdrachtRegelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel, string uitgezonderdPalletNr, string idnr, bool zoekVolgende, string pin, bool gtm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerOrderAanvoerOpdrachtRegel", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerOrderAanvoerOpdrachtRegelResponse")]
+        void AnnuleerOrderAanvoerOpdrachtRegel(TruckWebService.OrderAanvoerOpdrachtRegel regel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerOrderAanvoerOpdrachtRegel", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerOrderAanvoerOpdrachtRegelResponse")]
         System.Threading.Tasks.Task AnnuleerOrderAanvoerOpdrachtRegelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenOrderAanvoeropdrachtRegelGmag", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenOrderAanvoeropdrachtRegelGmagResponse" +
+            "")]
+        TruckWebService.ResultaatOfScanResultaat5SlwlhPY AfrondenOrderAanvoeropdrachtRegelGmag(TruckWebService.OrderAanvoerOpdrachtRegel regel);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenOrderAanvoeropdrachtRegelGmag", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenOrderAanvoeropdrachtRegelGmagResponse" +
             "")]
@@ -8020,7 +8453,15 @@ namespace TruckWebService
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletAfrondenLocatieAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletAfrondenLocatieAanvoerOpdrachtRespo" +
             "nse")]
+        void PickpalletAfrondenLocatieAanvoerOpdracht(string palletNr, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletAfrondenLocatieAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletAfrondenLocatieAanvoerOpdrachtRespo" +
+            "nse")]
         System.Threading.Tasks.Task PickpalletAfrondenLocatieAanvoerOpdrachtAsync(string palletNr, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieLocatieAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieLocatieAanvoerOpdrachtRe" +
+            "sponse")]
+        string PickpalletDoelLocatieLocatieAanvoerOpdracht(string palletNr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieLocatieAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieLocatieAanvoerOpdrachtRe" +
             "sponse")]
@@ -8029,36 +8470,73 @@ namespace TruckWebService
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatienaamLocatieAanvoerOpdrac" +
             "ht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatienaamLocatieAanvoerOpdrac" +
             "htResponse")]
+        string PickpalletDoelLocatienaamLocatieAanvoerOpdracht(string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatienaamLocatieAanvoerOpdrac" +
+            "ht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatienaamLocatieAanvoerOpdrac" +
+            "htResponse")]
         System.Threading.Tasks.Task<string> PickpalletDoelLocatienaamLocatieAanvoerOpdrachtAsync(string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerPickpallet", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerPickpalletResponse")]
+        void AnnuleerPickpallet(string palletNr, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerPickpallet", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerPickpalletResponse")]
         System.Threading.Tasks.Task AnnuleerPickpalletAsync(string palletNr, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/LabelPrintenLocatieAanvoerOpdrachtPallet", ReplyAction="http://tempuri.org/ITruckWebService/LabelPrintenLocatieAanvoerOpdrachtPalletRespo" +
             "nse")]
+        bool LabelPrintenLocatieAanvoerOpdrachtPallet(System.Nullable<int> procesSegmentnummer, string locatieType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/LabelPrintenLocatieAanvoerOpdrachtPallet", ReplyAction="http://tempuri.org/ITruckWebService/LabelPrintenLocatieAanvoerOpdrachtPalletRespo" +
+            "nse")]
         System.Threading.Tasks.Task<bool> LabelPrintenLocatieAanvoerOpdrachtPalletAsync(System.Nullable<int> procesSegmentnummer, string locatieType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieopdrachtDetailmenuSetting", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieopdrachtDetailmenuSettingResponse")]
+        TruckWebService.ResultaatOfArrayOfstringuHEDJ7Dj GeefLocatieopdrachtDetailmenuSetting();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieopdrachtDetailmenuSetting", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieopdrachtDetailmenuSettingResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfstringuHEDJ7Dj> GeefLocatieopdrachtDetailmenuSettingAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderopdrachtRootProcessegmentnummers", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderopdrachtRootProcessegmentnummersResp" +
             "onse")]
+        TruckWebService.ResultaatOfArrayOfintuHEDJ7Dj GeefOrderopdrachtRootProcessegmentnummers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderopdrachtRootProcessegmentnummers", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderopdrachtRootProcessegmentnummersResp" +
+            "onse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfintuHEDJ7Dj> GeefOrderopdrachtRootProcessegmentnummersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefVrijeGTMGebieden", ReplyAction="http://tempuri.org/ITruckWebService/GeefVrijeGTMGebiedenResponse")]
+        TruckWebService.GTMGebiedInfo[] GeefVrijeGTMGebieden(string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefVrijeGTMGebieden", ReplyAction="http://tempuri.org/ITruckWebService/GeefVrijeGTMGebiedenResponse")]
         System.Threading.Tasks.Task<TruckWebService.GTMGebiedInfo[]> GeefVrijeGTMGebiedenAsync(string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGTMGebiedVrij", ReplyAction="http://tempuri.org/ITruckWebService/GeefGTMGebiedVrijResponse")]
+        TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY GeefGTMGebiedVrij(long gebiedId, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGTMGebiedVrij", ReplyAction="http://tempuri.org/ITruckWebService/GeefGTMGebiedVrijResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY> GeefGTMGebiedVrijAsync(long gebiedId, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/KoppelGTMGebied", ReplyAction="http://tempuri.org/ITruckWebService/KoppelGTMGebiedResponse")]
+        TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY KoppelGTMGebied(long gebiedId, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/KoppelGTMGebied", ReplyAction="http://tempuri.org/ITruckWebService/KoppelGTMGebiedResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY> KoppelGTMGebiedAsync(long gebiedId, string pincode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetGTMAanvoerverzoeken", ReplyAction="http://tempuri.org/ITruckWebService/ZetGTMAanvoerverzoekenResponse")]
+        TruckWebService.Resultaat ZetGTMAanvoerverzoeken(long[] aanvoeropdrachtIds, long gebiedId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetGTMAanvoerverzoeken", ReplyAction="http://tempuri.org/ITruckWebService/ZetGTMAanvoerverzoekenResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> ZetGTMAanvoerverzoekenAsync(long[] aanvoeropdrachtIds, long gebiedId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetGTMAfvoerverzoeken", ReplyAction="http://tempuri.org/ITruckWebService/ZetGTMAfvoerverzoekenResponse")]
+        TruckWebService.Resultaat ZetGTMAfvoerverzoeken(long gebiedId, bool alleRegels);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetGTMAfvoerverzoeken", ReplyAction="http://tempuri.org/ITruckWebService/ZetGTMAfvoerverzoekenResponse")]
         System.Threading.Tasks.Task<TruckWebService.Resultaat> ZetGTMAfvoerverzoekenAsync(long gebiedId, bool alleRegels);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieStatusGTM", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieStatusGTMResponse")]
+        string GeefLocatieStatusGTM(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieStatusGTM", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieStatusGTMResponse")]
         System.Threading.Tasks.Task<string> GeefLocatieStatusGTMAsync(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr);
@@ -8114,9 +8592,19 @@ namespace TruckWebService
         {
         }
         
+        public TruckWebService.LocatieInfo GeefLocatieInfoGTM(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr)
+        {
+            return base.Channel.GeefLocatieInfoGTM(gtmgebied, artikelnr);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.LocatieInfo> GeefLocatieInfoGTMAsync(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr)
         {
             return base.Channel.GeefLocatieInfoGTMAsync(gtmgebied, artikelnr);
+        }
+        
+        public TruckWebService.Resultaat ZetAanvulVerzoekGTM(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr)
+        {
+            return base.Channel.ZetAanvulVerzoekGTM(gtmgebied, artikelnr);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> ZetAanvulVerzoekGTMAsync(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr)
@@ -8124,9 +8612,19 @@ namespace TruckWebService
             return base.Channel.ZetAanvulVerzoekGTMAsync(gtmgebied, artikelnr);
         }
         
+        public bool ArtikelLabelAfdrukken(string artikelnr, string idnr, int aantal, string trucknummer)
+        {
+            return base.Channel.ArtikelLabelAfdrukken(artikelnr, idnr, aantal, trucknummer);
+        }
+        
         public System.Threading.Tasks.Task<bool> ArtikelLabelAfdrukkenAsync(string artikelnr, string idnr, int aantal, string trucknummer)
         {
             return base.Channel.ArtikelLabelAfdrukkenAsync(artikelnr, idnr, aantal, trucknummer);
+        }
+        
+        public void GTMPickorderstickerAfdrukken(long aanvoeropdrachtId, string trucknummer)
+        {
+            base.Channel.GTMPickorderstickerAfdrukken(aanvoeropdrachtId, trucknummer);
         }
         
         public System.Threading.Tasks.Task GTMPickorderstickerAfdrukkenAsync(long aanvoeropdrachtId, string trucknummer)
@@ -8134,9 +8632,19 @@ namespace TruckWebService
             return base.Channel.GTMPickorderstickerAfdrukkenAsync(aanvoeropdrachtId, trucknummer);
         }
         
+        public TruckWebService.ResultaatOfArrayOfEindcontroleRegel5SlwlhPY StartEindcontrole(string palletnr, string pincode)
+        {
+            return base.Channel.StartEindcontrole(palletnr, pincode);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfEindcontroleRegel5SlwlhPY> StartEindcontroleAsync(string palletnr, string pincode)
         {
             return base.Channel.StartEindcontroleAsync(palletnr, pincode);
+        }
+        
+        public TruckWebService.Resultaat AnnuleerEindcontrole(string palletnr, string pincode)
+        {
+            return base.Channel.AnnuleerEindcontrole(palletnr, pincode);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> AnnuleerEindcontroleAsync(string palletnr, string pincode)
@@ -8144,9 +8652,19 @@ namespace TruckWebService
             return base.Channel.AnnuleerEindcontroleAsync(palletnr, pincode);
         }
         
+        public TruckWebService.Resultaat AfrondenEindcontrolePalletnummmer(string palletnr, string pincode)
+        {
+            return base.Channel.AfrondenEindcontrolePalletnummmer(palletnr, pincode);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> AfrondenEindcontrolePalletnummmerAsync(string palletnr, string pincode)
         {
             return base.Channel.AfrondenEindcontrolePalletnummmerAsync(palletnr, pincode);
+        }
+        
+        public TruckWebService.Scorebord[] GeefScorebord()
+        {
+            return base.Channel.GeefScorebord();
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Scorebord[]> GeefScorebordAsync()
@@ -8154,9 +8672,19 @@ namespace TruckWebService
             return base.Channel.GeefScorebordAsync();
         }
         
+        public TruckWebService.ResultaatOfAantalOpenstaandeOpdrachtenGTM5SlwlhPY GeefAantalOpenstaandeOpdrachtenGTM()
+        {
+            return base.Channel.GeefAantalOpenstaandeOpdrachtenGTM();
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfAantalOpenstaandeOpdrachtenGTM5SlwlhPY> GeefAantalOpenstaandeOpdrachtenGTMAsync()
         {
             return base.Channel.GeefAantalOpenstaandeOpdrachtenGTMAsync();
+        }
+        
+        public TruckWebService.ResultaatOfAantalOpenstaandeOpdrachtenGMAG5SlwlhPY GeefAantalOpenstaandeOpdrachtenGMAG()
+        {
+            return base.Channel.GeefAantalOpenstaandeOpdrachtenGMAG();
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfAantalOpenstaandeOpdrachtenGMAG5SlwlhPY> GeefAantalOpenstaandeOpdrachtenGMAGAsync()
@@ -8164,9 +8692,19 @@ namespace TruckWebService
             return base.Channel.GeefAantalOpenstaandeOpdrachtenGMAGAsync();
         }
         
+        public TruckWebService.ResultaatOfint GeefAantalOpenstaandeFabriekOpdrachten(string truckNumber, string pincode, int[] processegmentcodes)
+        {
+            return base.Channel.GeefAantalOpenstaandeFabriekOpdrachten(truckNumber, pincode, processegmentcodes);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfint> GeefAantalOpenstaandeFabriekOpdrachtenAsync(string truckNumber, string pincode, int[] processegmentcodes)
         {
             return base.Channel.GeefAantalOpenstaandeFabriekOpdrachtenAsync(truckNumber, pincode, processegmentcodes);
+        }
+        
+        public TruckWebService.Resultaat PrintArtikelLabel(string artikelnr, string idnr, int aantal, string trucknummer)
+        {
+            return base.Channel.PrintArtikelLabel(artikelnr, idnr, aantal, trucknummer);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintArtikelLabelAsync(string artikelnr, string idnr, int aantal, string trucknummer)
@@ -8174,9 +8712,19 @@ namespace TruckWebService
             return base.Channel.PrintArtikelLabelAsync(artikelnr, idnr, aantal, trucknummer);
         }
         
+        public TruckWebService.Resultaat PrintColliLabel(string palletnummer, int aantal, string trucknummer)
+        {
+            return base.Channel.PrintColliLabel(palletnummer, aantal, trucknummer);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintColliLabelAsync(string palletnummer, int aantal, string trucknummer)
         {
             return base.Channel.PrintColliLabelAsync(palletnummer, aantal, trucknummer);
+        }
+        
+        public TruckWebService.Resultaat PrintKlantLabel(string palletNummer, string pincode)
+        {
+            return base.Channel.PrintKlantLabel(palletNummer, pincode);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintKlantLabelAsync(string palletNummer, string pincode)
@@ -8184,9 +8732,19 @@ namespace TruckWebService
             return base.Channel.PrintKlantLabelAsync(palletNummer, pincode);
         }
         
+        public TruckWebService.Resultaat PrintPickorderLabel(string palletnummer, string trucknummer)
+        {
+            return base.Channel.PrintPickorderLabel(palletnummer, trucknummer);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintPickorderLabelAsync(string palletnummer, string trucknummer)
         {
             return base.Channel.PrintPickorderLabelAsync(palletnummer, trucknummer);
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfFabriekOpdracht5SlwlhPY GeefVrijeFabriekopdrachten(string pincode, System.Nullable<int> processegmentcode)
+        {
+            return base.Channel.GeefVrijeFabriekopdrachten(pincode, processegmentcode);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfFabriekOpdracht5SlwlhPY> GeefVrijeFabriekopdrachtenAsync(string pincode, System.Nullable<int> processegmentcode)
@@ -8194,9 +8752,19 @@ namespace TruckWebService
             return base.Channel.GeefVrijeFabriekopdrachtenAsync(pincode, processegmentcode);
         }
         
+        public TruckWebService.ResultaatOfArrayOfFabriekOpdracht5SlwlhPY GeefVrijeFabriekopdrachtenVoorFabrieken(string pincode, int[] processegmentcodes)
+        {
+            return base.Channel.GeefVrijeFabriekopdrachtenVoorFabrieken(pincode, processegmentcodes);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfFabriekOpdracht5SlwlhPY> GeefVrijeFabriekopdrachtenVoorFabriekenAsync(string pincode, int[] processegmentcodes)
         {
             return base.Channel.GeefVrijeFabriekopdrachtenVoorFabriekenAsync(pincode, processegmentcodes);
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfProcessegment5SlwlhPY GeefProcessegmentenBijFabriekopdrachten(string pincode)
+        {
+            return base.Channel.GeefProcessegmentenBijFabriekopdrachten(pincode);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfProcessegment5SlwlhPY> GeefProcessegmentenBijFabriekopdrachtenAsync(string pincode)
@@ -8204,9 +8772,19 @@ namespace TruckWebService
             return base.Channel.GeefProcessegmentenBijFabriekopdrachtenAsync(pincode);
         }
         
+        public TruckWebService.ResultaatOflong GeefOrderaanvoeropdrachtIdVoorPallet(string palletnummer)
+        {
+            return base.Channel.GeefOrderaanvoeropdrachtIdVoorPallet(palletnummer);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOflong> GeefOrderaanvoeropdrachtIdVoorPalletAsync(string palletnummer)
         {
             return base.Channel.GeefOrderaanvoeropdrachtIdVoorPalletAsync(palletnummer);
+        }
+        
+        public void StartOrderOpdracht(string verplaatsingsordernummer, string pin)
+        {
+            base.Channel.StartOrderOpdracht(verplaatsingsordernummer, pin);
         }
         
         public System.Threading.Tasks.Task StartOrderOpdrachtAsync(string verplaatsingsordernummer, string pin)
@@ -8214,9 +8792,19 @@ namespace TruckWebService
             return base.Channel.StartOrderOpdrachtAsync(verplaatsingsordernummer, pin);
         }
         
+        public void AnnuleerOrderOpdracht(string verplaatsingsordernummer, string pin)
+        {
+            base.Channel.AnnuleerOrderOpdracht(verplaatsingsordernummer, pin);
+        }
+        
         public System.Threading.Tasks.Task AnnuleerOrderOpdrachtAsync(string verplaatsingsordernummer, string pin)
         {
             return base.Channel.AnnuleerOrderOpdrachtAsync(verplaatsingsordernummer, pin);
+        }
+        
+        public void AnnuleerOrderOpdrachtRegel(TruckWebService.Opdracht opdracht, string verplaatsingsordernummer, string orderregelnr, string pincode, bool volgendePallet)
+        {
+            base.Channel.AnnuleerOrderOpdrachtRegel(opdracht, verplaatsingsordernummer, orderregelnr, pincode, volgendePallet);
         }
         
         public System.Threading.Tasks.Task AnnuleerOrderOpdrachtRegelAsync(TruckWebService.Opdracht opdracht, string verplaatsingsordernummer, string orderregelnr, string pincode, bool volgendePallet)
@@ -8224,9 +8812,19 @@ namespace TruckWebService
             return base.Channel.AnnuleerOrderOpdrachtRegelAsync(opdracht, verplaatsingsordernummer, orderregelnr, pincode, volgendePallet);
         }
         
+        public TruckWebService.ResultaatOfOpdracht5SlwlhPY StartOrderOpdrachtRegel(string verplaatsingsordernummer, string orderregelnr, string artikelnr, string idnr, string uitgezonderdPalletNr, bool zoekVolgende, string pin)
+        {
+            return base.Channel.StartOrderOpdrachtRegel(verplaatsingsordernummer, orderregelnr, artikelnr, idnr, uitgezonderdPalletNr, zoekVolgende, pin);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOpdracht5SlwlhPY> StartOrderOpdrachtRegelAsync(string verplaatsingsordernummer, string orderregelnr, string artikelnr, string idnr, string uitgezonderdPalletNr, bool zoekVolgende, string pin)
         {
             return base.Channel.StartOrderOpdrachtRegelAsync(verplaatsingsordernummer, orderregelnr, artikelnr, idnr, uitgezonderdPalletNr, zoekVolgende, pin);
+        }
+        
+        public void StartVerzendingControle(string palletnr, string pin)
+        {
+            base.Channel.StartVerzendingControle(palletnr, pin);
         }
         
         public System.Threading.Tasks.Task StartVerzendingControleAsync(string palletnr, string pin)
@@ -8234,9 +8832,19 @@ namespace TruckWebService
             return base.Channel.StartVerzendingControleAsync(palletnr, pin);
         }
         
+        public TruckWebService.ResultaatOfArrayOfPickOrder5SlwlhPY GeefGmagUitslagorders()
+        {
+            return base.Channel.GeefGmagUitslagorders();
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfPickOrder5SlwlhPY> GeefGmagUitslagordersAsync()
         {
             return base.Channel.GeefGmagUitslagordersAsync();
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfPickOrder5SlwlhPY GeefDczzUitslagorders()
+        {
+            return base.Channel.GeefDczzUitslagorders();
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfPickOrder5SlwlhPY> GeefDczzUitslagordersAsync()
@@ -8244,9 +8852,19 @@ namespace TruckWebService
             return base.Channel.GeefDczzUitslagordersAsync();
         }
         
+        public TruckWebService.ResultaatOfArrayOfPickOrder5SlwlhPY GeefGmagOpenstaandeUitslagorders()
+        {
+            return base.Channel.GeefGmagOpenstaandeUitslagorders();
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfPickOrder5SlwlhPY> GeefGmagOpenstaandeUitslagordersAsync()
         {
             return base.Channel.GeefGmagOpenstaandeUitslagordersAsync();
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfPickOrder5SlwlhPY GeefPickorders(string runvolgnummer)
+        {
+            return base.Channel.GeefPickorders(runvolgnummer);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfPickOrder5SlwlhPY> GeefPickordersAsync(string runvolgnummer)
@@ -8254,9 +8872,19 @@ namespace TruckWebService
             return base.Channel.GeefPickordersAsync(runvolgnummer);
         }
         
+        public TruckWebService.ResultaatOfArrayOfRitTeVerzamelenay1Gw99V GeefRittenTeVerzamelen()
+        {
+            return base.Channel.GeefRittenTeVerzamelen();
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfRitTeVerzamelenay1Gw99V> GeefRittenTeVerzamelenAsync()
         {
             return base.Channel.GeefRittenTeVerzamelenAsync();
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfRit5SlwlhPY GeefDczzTeControlerenRitten()
+        {
+            return base.Channel.GeefDczzTeControlerenRitten();
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfRit5SlwlhPY> GeefDczzTeControlerenRittenAsync()
@@ -8264,9 +8892,19 @@ namespace TruckWebService
             return base.Channel.GeefDczzTeControlerenRittenAsync();
         }
         
+        public TruckWebService.ResultaatOfArrayOfRit5SlwlhPY GeefDczzTeSluitenRitten()
+        {
+            return base.Channel.GeefDczzTeSluitenRitten();
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfRit5SlwlhPY> GeefDczzTeSluitenRittenAsync()
         {
             return base.Channel.GeefDczzTeSluitenRittenAsync();
+        }
+        
+        public TruckWebService.ResultaatOfRit5SlwlhPY HaalOpenstaandeDczzRitOpnieuwOp(string runvolgnummer)
+        {
+            return base.Channel.HaalOpenstaandeDczzRitOpnieuwOp(runvolgnummer);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfRit5SlwlhPY> HaalOpenstaandeDczzRitOpnieuwOpAsync(string runvolgnummer)
@@ -8274,9 +8912,19 @@ namespace TruckWebService
             return base.Channel.HaalOpenstaandeDczzRitOpnieuwOpAsync(runvolgnummer);
         }
         
+        public TruckWebService.ResultaatOfRit5SlwlhPY HaalTeSluitenDczzRitOpnieuwOp(string runvolgnummer)
+        {
+            return base.Channel.HaalTeSluitenDczzRitOpnieuwOp(runvolgnummer);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfRit5SlwlhPY> HaalTeSluitenDczzRitOpnieuwOpAsync(string runvolgnummer)
         {
             return base.Channel.HaalTeSluitenDczzRitOpnieuwOpAsync(runvolgnummer);
+        }
+        
+        public TruckWebService.ResultaatOfUitslagPalletInfo5SlwlhPY GetPalletinfoVoorUitslagorder(string runvolgnummer, string palletnr)
+        {
+            return base.Channel.GetPalletinfoVoorUitslagorder(runvolgnummer, palletnr);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfUitslagPalletInfo5SlwlhPY> GetPalletinfoVoorUitslagorderAsync(string runvolgnummer, string palletnr)
@@ -8284,9 +8932,19 @@ namespace TruckWebService
             return base.Channel.GetPalletinfoVoorUitslagorderAsync(runvolgnummer, palletnr);
         }
         
+        public TruckWebService.ResultaatOfArrayOfUitslagPalletInfo5SlwlhPY GetOpenstaandePalletsVoorUitslagorder(string runvolgnummer)
+        {
+            return base.Channel.GetOpenstaandePalletsVoorUitslagorder(runvolgnummer);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfUitslagPalletInfo5SlwlhPY> GetOpenstaandePalletsVoorUitslagorderAsync(string runvolgnummer)
         {
             return base.Channel.GetOpenstaandePalletsVoorUitslagorderAsync(runvolgnummer);
+        }
+        
+        public TruckWebService.Resultaat VerwerkAantalCorrectie(string palletnr, string idnr, int nieuwAantal, string verplaatsingsordernr, string pincode)
+        {
+            return base.Channel.VerwerkAantalCorrectie(palletnr, idnr, nieuwAantal, verplaatsingsordernr, pincode);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkAantalCorrectieAsync(string palletnr, string idnr, int nieuwAantal, string verplaatsingsordernr, string pincode)
@@ -8294,9 +8952,19 @@ namespace TruckWebService
             return base.Channel.VerwerkAantalCorrectieAsync(palletnr, idnr, nieuwAantal, verplaatsingsordernr, pincode);
         }
         
+        public TruckWebService.Resultaat VerwerkOverstapelen(string runvolgnummer, string palletnrvan, string palletnrnaar, string idnr, int aantal, string verplaatsingsordernr, string pincode)
+        {
+            return base.Channel.VerwerkOverstapelen(runvolgnummer, palletnrvan, palletnrnaar, idnr, aantal, verplaatsingsordernr, pincode);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkOverstapelenAsync(string runvolgnummer, string palletnrvan, string palletnrnaar, string idnr, int aantal, string verplaatsingsordernr, string pincode)
         {
             return base.Channel.VerwerkOverstapelenAsync(runvolgnummer, palletnrvan, palletnrnaar, idnr, aantal, verplaatsingsordernr, pincode);
+        }
+        
+        public TruckWebService.Resultaat VerwerkPalletGoedkeuren(string palletnr, string pincode, string trucknummer)
+        {
+            return base.Channel.VerwerkPalletGoedkeuren(palletnr, pincode, trucknummer);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkPalletGoedkeurenAsync(string palletnr, string pincode, string trucknummer)
@@ -8304,9 +8972,19 @@ namespace TruckWebService
             return base.Channel.VerwerkPalletGoedkeurenAsync(palletnr, pincode, trucknummer);
         }
         
+        public TruckWebService.Resultaat PrintVerzendLabel(string palletNummer, string trucknummer)
+        {
+            return base.Channel.PrintVerzendLabel(palletNummer, trucknummer);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintVerzendLabelAsync(string palletNummer, string trucknummer)
         {
             return base.Channel.PrintVerzendLabelAsync(palletNummer, trucknummer);
+        }
+        
+        public TruckWebService.Resultaat AfsluitenRit(string runvolgnummer, string pincode, bool forceerAfsluitenRit)
+        {
+            return base.Channel.AfsluitenRit(runvolgnummer, pincode, forceerAfsluitenRit);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> AfsluitenRitAsync(string runvolgnummer, string pincode, bool forceerAfsluitenRit)
@@ -8314,9 +8992,19 @@ namespace TruckWebService
             return base.Channel.AfsluitenRitAsync(runvolgnummer, pincode, forceerAfsluitenRit);
         }
         
+        public TruckWebService.ResultaatOfArrayOfRitOrder5SlwlhPY GetUitslagordersVoorRit(string runvolgnummer)
+        {
+            return base.Channel.GetUitslagordersVoorRit(runvolgnummer);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfRitOrder5SlwlhPY> GetUitslagordersVoorRitAsync(string runvolgnummer)
         {
             return base.Channel.GetUitslagordersVoorRitAsync(runvolgnummer);
+        }
+        
+        public TruckWebService.Resultaat VerwerkenVerzendingMeermaligeLeenEmballage(string lastdragerNr, string emballageNr, string palletNr)
+        {
+            return base.Channel.VerwerkenVerzendingMeermaligeLeenEmballage(lastdragerNr, emballageNr, palletNr);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkenVerzendingMeermaligeLeenEmballageAsync(string lastdragerNr, string emballageNr, string palletNr)
@@ -8324,9 +9012,19 @@ namespace TruckWebService
             return base.Channel.VerwerkenVerzendingMeermaligeLeenEmballageAsync(lastdragerNr, emballageNr, palletNr);
         }
         
+        public TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY GeefEersteRestverpakkingsregel(long[] orderaanvoeropdrachtids, string pincode)
+        {
+            return base.Channel.GeefEersteRestverpakkingsregel(orderaanvoeropdrachtids, pincode);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY> GeefEersteRestverpakkingsregelAsync(long[] orderaanvoeropdrachtids, string pincode)
         {
             return base.Channel.GeefEersteRestverpakkingsregelAsync(orderaanvoeropdrachtids, pincode);
+        }
+        
+        public TruckWebService.Resultaat VerwerkRestverpakkingsregel(TruckWebService.OrderAanvoerOpdrachtRegel regel, string scan, string pincode)
+        {
+            return base.Channel.VerwerkRestverpakkingsregel(regel, scan, pincode);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkRestverpakkingsregelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel, string scan, string pincode)
@@ -8334,9 +9032,19 @@ namespace TruckWebService
             return base.Channel.VerwerkRestverpakkingsregelAsync(regel, scan, pincode);
         }
         
+        public TruckWebService.Resultaat VerwerkenScanZegelnummer(string zegelNr, string palletNr)
+        {
+            return base.Channel.VerwerkenScanZegelnummer(zegelNr, palletNr);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkenScanZegelnummerAsync(string zegelNr, string palletNr)
         {
             return base.Channel.VerwerkenScanZegelnummerAsync(zegelNr, palletNr);
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfPalletEindcontrole5SlwlhPY GeefGmagEindcontrolePallets()
+        {
+            return base.Channel.GeefGmagEindcontrolePallets();
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfPalletEindcontrole5SlwlhPY> GeefGmagEindcontrolePalletsAsync()
@@ -8344,9 +9052,19 @@ namespace TruckWebService
             return base.Channel.GeefGmagEindcontrolePalletsAsync();
         }
         
+        public TruckWebService.Fabriekslocatie[] GeefFabriekslocatiesBijEindcontrolePallets()
+        {
+            return base.Channel.GeefFabriekslocatiesBijEindcontrolePallets();
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Fabriekslocatie[]> GeefFabriekslocatiesBijEindcontrolePalletsAsync()
         {
             return base.Channel.GeefFabriekslocatiesBijEindcontrolePalletsAsync();
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfOntvangstOrder5SlwlhPY GeefTeVerwerkenOntvangstorders(string gebiedcode)
+        {
+            return base.Channel.GeefTeVerwerkenOntvangstorders(gebiedcode);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfOntvangstOrder5SlwlhPY> GeefTeVerwerkenOntvangstordersAsync(string gebiedcode)
@@ -8354,9 +9072,19 @@ namespace TruckWebService
             return base.Channel.GeefTeVerwerkenOntvangstordersAsync(gebiedcode);
         }
         
+        public TruckWebService.Resultaat KoppelenTruckRun(string runvolgnr, string trucknr)
+        {
+            return base.Channel.KoppelenTruckRun(runvolgnr, trucknr);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> KoppelenTruckRunAsync(string runvolgnr, string trucknr)
         {
             return base.Channel.KoppelenTruckRunAsync(runvolgnr, trucknr);
+        }
+        
+        public TruckWebService.Resultaat OntkoppelenTruckRun(string runvolgnr, string trucknr)
+        {
+            return base.Channel.OntkoppelenTruckRun(runvolgnr, trucknr);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> OntkoppelenTruckRunAsync(string runvolgnr, string trucknr)
@@ -8364,9 +9092,19 @@ namespace TruckWebService
             return base.Channel.OntkoppelenTruckRunAsync(runvolgnr, trucknr);
         }
         
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> StartenOntvangstorderAsync(string Ontvangstordernummer, string pincode)
+        public TruckWebService.Resultaat StartenOntvangstorder(string ontvangstordernummer, string pincode)
         {
-            return base.Channel.StartenOntvangstorderAsync(Ontvangstordernummer, pincode);
+            return base.Channel.StartenOntvangstorder(ontvangstordernummer, pincode);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> StartenOntvangstorderAsync(string ontvangstordernummer, string pincode)
+        {
+            return base.Channel.StartenOntvangstorderAsync(ontvangstordernummer, pincode);
+        }
+        
+        public TruckWebService.Resultaat AanmakenOntvangstorderPallets(string gebiedcode, string ontvangstordernummer, int aantalPallets)
+        {
+            return base.Channel.AanmakenOntvangstorderPallets(gebiedcode, ontvangstordernummer, aantalPallets);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> AanmakenOntvangstorderPalletsAsync(string gebiedcode, string ontvangstordernummer, int aantalPallets)
@@ -8374,29 +9112,59 @@ namespace TruckWebService
             return base.Channel.AanmakenOntvangstorderPalletsAsync(gebiedcode, ontvangstordernummer, aantalPallets);
         }
         
+        public TruckWebService.ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V GeefOntvangstorderPallets(string ontvangstordernummer)
+        {
+            return base.Channel.GeefOntvangstorderPallets(ontvangstordernummer);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstorderPalletsAsync(string ontvangstordernummer)
         {
             return base.Channel.GeefOntvangstorderPalletsAsync(ontvangstordernummer);
         }
         
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> OnderbrekenOntvangstorderAsync(string Ontvangstordernummer, string pincode)
+        public TruckWebService.Resultaat OnderbrekenOntvangstorder(string ontvangstordernummer, string pincode)
         {
-            return base.Channel.OnderbrekenOntvangstorderAsync(Ontvangstordernummer, pincode);
+            return base.Channel.OnderbrekenOntvangstorder(ontvangstordernummer, pincode);
         }
         
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstregistratiePalletAsync(string Ontvangstordernummer, string palletnr)
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> OnderbrekenOntvangstorderAsync(string ontvangstordernummer, string pincode)
         {
-            return base.Channel.GeefOntvangstregistratiePalletAsync(Ontvangstordernummer, palletnr);
+            return base.Channel.OnderbrekenOntvangstorderAsync(ontvangstordernummer, pincode);
         }
         
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> OpslaanOntvangstregistratiePalletAsync(TruckWebService.OntvangstregistratiePallet OntvangstregistratiePallet, string trucknr)
+        public TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V GeefOntvangstregistratiePallet(string ontvangstordernummer, string palletnr)
         {
-            return base.Channel.OpslaanOntvangstregistratiePalletAsync(OntvangstregistratiePallet, trucknr);
+            return base.Channel.GeefOntvangstregistratiePallet(ontvangstordernummer, palletnr);
         }
         
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> AfrondenOntvangstorderAsync(string Ontvangstordernummer, string pincode)
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstregistratiePalletAsync(string ontvangstordernummer, string palletnr)
         {
-            return base.Channel.AfrondenOntvangstorderAsync(Ontvangstordernummer, pincode);
+            return base.Channel.GeefOntvangstregistratiePalletAsync(ontvangstordernummer, palletnr);
+        }
+        
+        public TruckWebService.Resultaat OpslaanOntvangstregistratiePallet(TruckWebService.OntvangstregistratiePallet ontvangstregistratiePallet, string trucknr)
+        {
+            return base.Channel.OpslaanOntvangstregistratiePallet(ontvangstregistratiePallet, trucknr);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> OpslaanOntvangstregistratiePalletAsync(TruckWebService.OntvangstregistratiePallet ontvangstregistratiePallet, string trucknr)
+        {
+            return base.Channel.OpslaanOntvangstregistratiePalletAsync(ontvangstregistratiePallet, trucknr);
+        }
+        
+        public TruckWebService.Resultaat AfrondenOntvangstorder(string ontvangstordernummer, string pincode)
+        {
+            return base.Channel.AfrondenOntvangstorder(ontvangstordernummer, pincode);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> AfrondenOntvangstorderAsync(string ontvangstordernummer, string pincode)
+        {
+            return base.Channel.AfrondenOntvangstorderAsync(ontvangstordernummer, pincode);
+        }
+        
+        public TruckWebService.Resultaat PrintOntvangstPalletLabel(string palletnr)
+        {
+            return base.Channel.PrintOntvangstPalletLabel(palletnr);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintOntvangstPalletLabelAsync(string palletnr)
@@ -8404,19 +9172,39 @@ namespace TruckWebService
             return base.Channel.PrintOntvangstPalletLabelAsync(palletnr);
         }
         
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintMonsterLabelAsync(string palletnr, string OntvangstOrdernr)
+        public TruckWebService.Resultaat PrintMonsterLabel(string palletnr, string ontvangstOrdernr)
         {
-            return base.Channel.PrintMonsterLabelAsync(palletnr, OntvangstOrdernr);
+            return base.Channel.PrintMonsterLabel(palletnr, ontvangstOrdernr);
         }
         
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintLeggerStickerAsync(string palletnr, string OntvangstOrdernr)
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintMonsterLabelAsync(string palletnr, string ontvangstOrdernr)
         {
-            return base.Channel.PrintLeggerStickerAsync(palletnr, OntvangstOrdernr);
+            return base.Channel.PrintMonsterLabelAsync(palletnr, ontvangstOrdernr);
         }
         
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V> VerwerkGS1LabelLeverancierAsync(string Ontvangstordernummer, string palletnr, string labelCode)
+        public TruckWebService.Resultaat PrintLeggerSticker(string palletnr, string ontvangstOrdernr)
         {
-            return base.Channel.VerwerkGS1LabelLeverancierAsync(Ontvangstordernummer, palletnr, labelCode);
+            return base.Channel.PrintLeggerSticker(palletnr, ontvangstOrdernr);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintLeggerStickerAsync(string palletnr, string ontvangstOrdernr)
+        {
+            return base.Channel.PrintLeggerStickerAsync(palletnr, ontvangstOrdernr);
+        }
+        
+        public TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V VerwerkGS1LabelLeverancier(string ontvangstordernummer, string palletnr, string labelCode)
+        {
+            return base.Channel.VerwerkGS1LabelLeverancier(ontvangstordernummer, palletnr, labelCode);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V> VerwerkGS1LabelLeverancierAsync(string ontvangstordernummer, string palletnr, string labelCode)
+        {
+            return base.Channel.VerwerkGS1LabelLeverancierAsync(ontvangstordernummer, palletnr, labelCode);
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfLastdragerDC5SlwlhPY GeefLastdragers()
+        {
+            return base.Channel.GeefLastdragers();
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfLastdragerDC5SlwlhPY> GeefLastdragersAsync()
@@ -8424,9 +9212,19 @@ namespace TruckWebService
             return base.Channel.GeefLastdragersAsync();
         }
         
+        public TruckWebService.ResultaatOfstring GeefNieuwPalletnummer()
+        {
+            return base.Channel.GeefNieuwPalletnummer();
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfstring> GeefNieuwPalletnummerAsync()
         {
             return base.Channel.GeefNieuwPalletnummerAsync();
+        }
+        
+        public TruckWebService.ResultaatOfPalletInfo5SlwlhPY CheckPalletTelOpdracht(string palletnummer)
+        {
+            return base.Channel.CheckPalletTelOpdracht(palletnummer);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfPalletInfo5SlwlhPY> CheckPalletTelOpdrachtAsync(string palletnummer)
@@ -8434,9 +9232,19 @@ namespace TruckWebService
             return base.Channel.CheckPalletTelOpdrachtAsync(palletnummer);
         }
         
+        public TruckWebService.ResultaatOfArrayOfGrondstofVoorraad5SlwlhPY BepaalGrondstofVoorraadVoorOpdrachten(long[] opdrachtIds)
+        {
+            return base.Channel.BepaalGrondstofVoorraadVoorOpdrachten(opdrachtIds);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfGrondstofVoorraad5SlwlhPY> BepaalGrondstofVoorraadVoorOpdrachtenAsync(long[] opdrachtIds)
         {
             return base.Channel.BepaalGrondstofVoorraadVoorOpdrachtenAsync(opdrachtIds);
+        }
+        
+        public bool CheckService()
+        {
+            return base.Channel.CheckService();
         }
         
         public System.Threading.Tasks.Task<bool> CheckServiceAsync()
@@ -8444,9 +9252,19 @@ namespace TruckWebService
             return base.Channel.CheckServiceAsync();
         }
         
+        public TruckWebService.LoginResultaat Inloggen(string truckNumber, string pin)
+        {
+            return base.Channel.Inloggen(truckNumber, pin);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.LoginResultaat> InloggenAsync(string truckNumber, string pin)
         {
             return base.Channel.InloggenAsync(truckNumber, pin);
+        }
+        
+        public void Uitloggen(string truckNumber, string pin)
+        {
+            base.Channel.Uitloggen(truckNumber, pin);
         }
         
         public System.Threading.Tasks.Task UitloggenAsync(string truckNumber, string pin)
@@ -8454,9 +9272,19 @@ namespace TruckWebService
             return base.Channel.UitloggenAsync(truckNumber, pin);
         }
         
+        public TruckWebService.TruckSettings GeefTruckConfiguratie(string truckNumber)
+        {
+            return base.Channel.GeefTruckConfiguratie(truckNumber);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.TruckSettings> GeefTruckConfiguratieAsync(string truckNumber)
         {
             return base.Channel.GeefTruckConfiguratieAsync(truckNumber);
+        }
+        
+        public void OpslaanTruckConfiguratie(TruckWebService.TruckSettings settings)
+        {
+            base.Channel.OpslaanTruckConfiguratie(settings);
         }
         
         public System.Threading.Tasks.Task OpslaanTruckConfiguratieAsync(TruckWebService.TruckSettings settings)
@@ -8464,9 +9292,19 @@ namespace TruckWebService
             return base.Channel.OpslaanTruckConfiguratieAsync(settings);
         }
         
+        public TruckWebService.PalletInfo GeefPalletInfo(string palletNummer)
+        {
+            return base.Channel.GeefPalletInfo(palletNummer);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.PalletInfo> GeefPalletInfoAsync(string palletNummer)
         {
             return base.Channel.GeefPalletInfoAsync(palletNummer);
+        }
+        
+        public TruckWebService.Resultaat ZetPickorderPallet(string palletNummer, string pin)
+        {
+            return base.Channel.ZetPickorderPallet(palletNummer, pin);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> ZetPickorderPalletAsync(string palletNummer, string pin)
@@ -8474,9 +9312,19 @@ namespace TruckWebService
             return base.Channel.ZetPickorderPalletAsync(palletNummer, pin);
         }
         
+        public TruckWebService.ResultaatOfVerzamelPallet5SlwlhPY ZetDczzPickPallet(string pin)
+        {
+            return base.Channel.ZetDczzPickPallet(pin);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfVerzamelPallet5SlwlhPY> ZetDczzPickPalletAsync(string pin)
         {
             return base.Channel.ZetDczzPickPalletAsync(pin);
+        }
+        
+        public void VerwijderPickorderPallet(string palletNummer, string pin)
+        {
+            base.Channel.VerwijderPickorderPallet(palletNummer, pin);
         }
         
         public System.Threading.Tasks.Task VerwijderPickorderPalletAsync(string palletNummer, string pin)
@@ -8484,9 +9332,19 @@ namespace TruckWebService
             return base.Channel.VerwijderPickorderPalletAsync(palletNummer, pin);
         }
         
+        public TruckWebService.LocatieInfo GeefLocatieInfo(string locatieNummer)
+        {
+            return base.Channel.GeefLocatieInfo(locatieNummer);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.LocatieInfo> GeefLocatieInfoAsync(string locatieNummer)
         {
             return base.Channel.GeefLocatieInfoAsync(locatieNummer);
+        }
+        
+        public TruckWebService.LocatieInfo GeefLocatieInfoBijPalletnr(string palletnr)
+        {
+            return base.Channel.GeefLocatieInfoBijPalletnr(palletnr);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.LocatieInfo> GeefLocatieInfoBijPalletnrAsync(string palletnr)
@@ -8494,9 +9352,19 @@ namespace TruckWebService
             return base.Channel.GeefLocatieInfoBijPalletnrAsync(palletnr);
         }
         
+        public TruckWebService.LocatieInfo GeefLocatieInfoVolgendeLocatie(string huidigLocatienummer)
+        {
+            return base.Channel.GeefLocatieInfoVolgendeLocatie(huidigLocatienummer);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.LocatieInfo> GeefLocatieInfoVolgendeLocatieAsync(string huidigLocatienummer)
         {
             return base.Channel.GeefLocatieInfoVolgendeLocatieAsync(huidigLocatienummer);
+        }
+        
+        public TruckWebService.ResultaatOfLocatiePositie5SlwlhPY GeefBeschikbareRijenVoorLocatie(string locatienr, string palletnr)
+        {
+            return base.Channel.GeefBeschikbareRijenVoorLocatie(locatienr, palletnr);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfLocatiePositie5SlwlhPY> GeefBeschikbareRijenVoorLocatieAsync(string locatienr, string palletnr)
@@ -8504,9 +9372,19 @@ namespace TruckWebService
             return base.Channel.GeefBeschikbareRijenVoorLocatieAsync(locatienr, palletnr);
         }
         
+        public void VerwerkTelOpdracht(TruckWebService.LocatieInfo locatieInfo, string pin)
+        {
+            base.Channel.VerwerkTelOpdracht(locatieInfo, pin);
+        }
+        
         public System.Threading.Tasks.Task VerwerkTelOpdrachtAsync(TruckWebService.LocatieInfo locatieInfo, string pin)
         {
             return base.Channel.VerwerkTelOpdrachtAsync(locatieInfo, pin);
+        }
+        
+        public TruckWebService.Resultaat StartMAMOpdracht(string pincode, string gebied, string palletnummer)
+        {
+            return base.Channel.StartMAMOpdracht(pincode, gebied, palletnummer);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> StartMAMOpdrachtAsync(string pincode, string gebied, string palletnummer)
@@ -8514,9 +9392,19 @@ namespace TruckWebService
             return base.Channel.StartMAMOpdrachtAsync(pincode, gebied, palletnummer);
         }
         
+        public TruckWebService.Resultaat VerwerkMAMOpdracht(string pincode, string palletnummer, long locatieId, bool ignoreMeldingen)
+        {
+            return base.Channel.VerwerkMAMOpdracht(pincode, palletnummer, locatieId, ignoreMeldingen);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkMAMOpdrachtAsync(string pincode, string palletnummer, long locatieId, bool ignoreMeldingen)
         {
             return base.Channel.VerwerkMAMOpdrachtAsync(pincode, palletnummer, locatieId, ignoreMeldingen);
+        }
+        
+        public bool IsOrderVolledigGescand(string ordernummer)
+        {
+            return base.Channel.IsOrderVolledigGescand(ordernummer);
         }
         
         public System.Threading.Tasks.Task<bool> IsOrderVolledigGescandAsync(string ordernummer)
@@ -8524,9 +9412,19 @@ namespace TruckWebService
             return base.Channel.IsOrderVolledigGescandAsync(ordernummer);
         }
         
+        public bool HeeftPalletBelading(string palletnummer)
+        {
+            return base.Channel.HeeftPalletBelading(palletnummer);
+        }
+        
         public System.Threading.Tasks.Task<bool> HeeftPalletBeladingAsync(string palletnummer)
         {
             return base.Channel.HeeftPalletBeladingAsync(palletnummer);
+        }
+        
+        public TruckWebService.ResultaatOfOpdracht5SlwlhPY AfsluitenPallet(string palletNummer, string eindlocatieNummer, string pincode, bool verplaatsNaarDock)
+        {
+            return base.Channel.AfsluitenPallet(palletNummer, eindlocatieNummer, pincode, verplaatsNaarDock);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOpdracht5SlwlhPY> AfsluitenPalletAsync(string palletNummer, string eindlocatieNummer, string pincode, bool verplaatsNaarDock)
@@ -8534,9 +9432,19 @@ namespace TruckWebService
             return base.Channel.AfsluitenPalletAsync(palletNummer, eindlocatieNummer, pincode, verplaatsNaarDock);
         }
         
+        public TruckWebService.Resultaat AfrondenPickorderUitslag(TruckWebService.Opdracht uitslagOpdracht)
+        {
+            return base.Channel.AfrondenPickorderUitslag(uitslagOpdracht);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> AfrondenPickorderUitslagAsync(TruckWebService.Opdracht uitslagOpdracht)
         {
             return base.Channel.AfrondenPickorderUitslagAsync(uitslagOpdracht);
+        }
+        
+        public TruckWebService.PickOrder GeefPickOrder(string ordernummer, string gebied)
+        {
+            return base.Channel.GeefPickOrder(ordernummer, gebied);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.PickOrder> GeefPickOrderAsync(string ordernummer, string gebied)
@@ -8544,9 +9452,19 @@ namespace TruckWebService
             return base.Channel.GeefPickOrderAsync(ordernummer, gebied);
         }
         
+        public TruckWebService.PartijStatus IsValidePartijVoorPickorder(string ordernummer, string idnr)
+        {
+            return base.Channel.IsValidePartijVoorPickorder(ordernummer, idnr);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.PartijStatus> IsValidePartijVoorPickorderAsync(string ordernummer, string idnr)
         {
             return base.Channel.IsValidePartijVoorPickorderAsync(ordernummer, idnr);
+        }
+        
+        public TruckWebService.ResultaatOfScanResultaat5SlwlhPY VerwerkPickorderScan(string pin, string palletnummer, string ordernummer, string idnr, int aantal, bool isMenuScan)
+        {
+            return base.Channel.VerwerkPickorderScan(pin, palletnummer, ordernummer, idnr, aantal, isMenuScan);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfScanResultaat5SlwlhPY> VerwerkPickorderScanAsync(string pin, string palletnummer, string ordernummer, string idnr, int aantal, bool isMenuScan)
@@ -8554,9 +9472,19 @@ namespace TruckWebService
             return base.Channel.VerwerkPickorderScanAsync(pin, palletnummer, ordernummer, idnr, aantal, isMenuScan);
         }
         
+        public TruckWebService.Resultaat IsValidePalletnummerVoorRetourOpdracht(string palletnummer)
+        {
+            return base.Channel.IsValidePalletnummerVoorRetourOpdracht(palletnummer);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> IsValidePalletnummerVoorRetourOpdrachtAsync(string palletnummer)
         {
             return base.Channel.IsValidePalletnummerVoorRetourOpdrachtAsync(palletnummer);
+        }
+        
+        public TruckWebService.Resultaat IsValideIdnummerVoorRetourOpdracht(string idnr, string palletnummer)
+        {
+            return base.Channel.IsValideIdnummerVoorRetourOpdracht(idnr, palletnummer);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> IsValideIdnummerVoorRetourOpdrachtAsync(string idnr, string palletnummer)
@@ -8564,9 +9492,19 @@ namespace TruckWebService
             return base.Channel.IsValideIdnummerVoorRetourOpdrachtAsync(idnr, palletnummer);
         }
         
+        public System.Collections.Generic.Dictionary<string, string> GeefRetouroorzaken()
+        {
+            return base.Channel.GeefRetouroorzaken();
+        }
+        
         public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, string>> GeefRetouroorzakenAsync()
         {
             return base.Channel.GeefRetouroorzakenAsync();
+        }
+        
+        public TruckWebService.SimpleItem[] GeefArsLocatiesVan()
+        {
+            return base.Channel.GeefArsLocatiesVan();
         }
         
         public System.Threading.Tasks.Task<TruckWebService.SimpleItem[]> GeefArsLocatiesVanAsync()
@@ -8574,9 +9512,19 @@ namespace TruckWebService
             return base.Channel.GeefArsLocatiesVanAsync();
         }
         
+        public TruckWebService.SimpleItem[] GeefArsLocatiesNaar()
+        {
+            return base.Channel.GeefArsLocatiesNaar();
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.SimpleItem[]> GeefArsLocatiesNaarAsync()
         {
             return base.Channel.GeefArsLocatiesNaarAsync();
+        }
+        
+        public TruckWebService.SimpleItem[] GeefArsRegistratietypes()
+        {
+            return base.Channel.GeefArsRegistratietypes();
         }
         
         public System.Threading.Tasks.Task<TruckWebService.SimpleItem[]> GeefArsRegistratietypesAsync()
@@ -8584,9 +9532,19 @@ namespace TruckWebService
             return base.Channel.GeefArsRegistratietypesAsync();
         }
         
+        public TruckWebService.Resultaat VerwerkAfvalRegistratie(string registratieType, string locatieVan, string locatieNaar, string containerNummer, int aantalKg)
+        {
+            return base.Channel.VerwerkAfvalRegistratie(registratieType, locatieVan, locatieNaar, containerNummer, aantalKg);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkAfvalRegistratieAsync(string registratieType, string locatieVan, string locatieNaar, string containerNummer, int aantalKg)
         {
             return base.Channel.VerwerkAfvalRegistratieAsync(registratieType, locatieVan, locatieNaar, containerNummer, aantalKg);
+        }
+        
+        public TruckWebService.Opdracht GeefRetourOpdracht(string idnr, string palletnummer, string pin)
+        {
+            return base.Channel.GeefRetourOpdracht(idnr, palletnummer, pin);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Opdracht> GeefRetourOpdrachtAsync(string idnr, string palletnummer, string pin)
@@ -8594,9 +9552,19 @@ namespace TruckWebService
             return base.Channel.GeefRetourOpdrachtAsync(idnr, palletnummer, pin);
         }
         
+        public void AfrondenRetourOpdracht(TruckWebService.Opdracht opdracht, string retouroorzaakCode)
+        {
+            base.Channel.AfrondenRetourOpdracht(opdracht, retouroorzaakCode);
+        }
+        
         public System.Threading.Tasks.Task AfrondenRetourOpdrachtAsync(TruckWebService.Opdracht opdracht, string retouroorzaakCode)
         {
             return base.Channel.AfrondenRetourOpdrachtAsync(opdracht, retouroorzaakCode);
+        }
+        
+        public TruckWebService.Resultaat IsValideLocatieVoorAanvulverzoek(string locatieNummer)
+        {
+            return base.Channel.IsValideLocatieVoorAanvulverzoek(locatieNummer);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> IsValideLocatieVoorAanvulverzoekAsync(string locatieNummer)
@@ -8604,9 +9572,19 @@ namespace TruckWebService
             return base.Channel.IsValideLocatieVoorAanvulverzoekAsync(locatieNummer);
         }
         
+        public void AanvragenAanvulverzoek(string locatieNummer)
+        {
+            base.Channel.AanvragenAanvulverzoek(locatieNummer);
+        }
+        
         public System.Threading.Tasks.Task AanvragenAanvulverzoekAsync(string locatieNummer)
         {
             return base.Channel.AanvragenAanvulverzoekAsync(locatieNummer);
+        }
+        
+        public TruckWebService.ResultaatOfOpdracht5SlwlhPY StartInslaanRetour(string gebied, string palletnummer, string pin)
+        {
+            return base.Channel.StartInslaanRetour(gebied, palletnummer, pin);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOpdracht5SlwlhPY> StartInslaanRetourAsync(string gebied, string palletnummer, string pin)
@@ -8614,9 +9592,19 @@ namespace TruckWebService
             return base.Channel.StartInslaanRetourAsync(gebied, palletnummer, pin);
         }
         
+        public TruckWebService.Resultaat AfrondenInslaanRetour(TruckWebService.Opdracht opdracht)
+        {
+            return base.Channel.AfrondenInslaanRetour(opdracht);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> AfrondenInslaanRetourAsync(TruckWebService.Opdracht opdracht)
         {
             return base.Channel.AfrondenInslaanRetourAsync(opdracht);
+        }
+        
+        public TruckWebService.ResultaatOfOpdracht5SlwlhPY StartUitslagSpijsOpdracht(string idnummer, string pin)
+        {
+            return base.Channel.StartUitslagSpijsOpdracht(idnummer, pin);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOpdracht5SlwlhPY> StartUitslagSpijsOpdrachtAsync(string idnummer, string pin)
@@ -8624,9 +9612,19 @@ namespace TruckWebService
             return base.Channel.StartUitslagSpijsOpdrachtAsync(idnummer, pin);
         }
         
+        public TruckWebService.Fabriekslocatie[] GeefFabriekslocaties()
+        {
+            return base.Channel.GeefFabriekslocaties();
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Fabriekslocatie[]> GeefFabriekslocatiesAsync()
         {
             return base.Channel.GeefFabriekslocatiesAsync();
+        }
+        
+        public TruckWebService.Resultaat AfrondenUitslagSpijs(TruckWebService.Opdracht opdracht)
+        {
+            return base.Channel.AfrondenUitslagSpijs(opdracht);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> AfrondenUitslagSpijsAsync(TruckWebService.Opdracht opdracht)
@@ -8634,9 +9632,19 @@ namespace TruckWebService
             return base.Channel.AfrondenUitslagSpijsAsync(opdracht);
         }
         
+        public TruckWebService.ResultaatOfOpdracht5SlwlhPY StartUitslagGmag(string artikelnr, string idnr, string uitgezonderdPalletNr, bool zoekVolgende, string pin)
+        {
+            return base.Channel.StartUitslagGmag(artikelnr, idnr, uitgezonderdPalletNr, zoekVolgende, pin);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOpdracht5SlwlhPY> StartUitslagGmagAsync(string artikelnr, string idnr, string uitgezonderdPalletNr, bool zoekVolgende, string pin)
         {
             return base.Channel.StartUitslagGmagAsync(artikelnr, idnr, uitgezonderdPalletNr, zoekVolgende, pin);
+        }
+        
+        public void AnnuleerUitslagGmag(TruckWebService.Opdracht opdracht)
+        {
+            base.Channel.AnnuleerUitslagGmag(opdracht);
         }
         
         public System.Threading.Tasks.Task AnnuleerUitslagGmagAsync(TruckWebService.Opdracht opdracht)
@@ -8644,9 +9652,19 @@ namespace TruckWebService
             return base.Channel.AnnuleerUitslagGmagAsync(opdracht);
         }
         
+        public TruckWebService.Resultaat UitslagGmagAfronden(TruckWebService.Opdracht opdracht)
+        {
+            return base.Channel.UitslagGmagAfronden(opdracht);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> UitslagGmagAfrondenAsync(TruckWebService.Opdracht opdracht)
         {
             return base.Channel.UitslagGmagAfrondenAsync(opdracht);
+        }
+        
+        public TruckWebService.ResultaatOfScanResultaat5SlwlhPY AfrondenOrderopdrachtGmag(TruckWebService.Opdracht opdracht, TruckWebService.PickOrderregel pickOrderRegel, string pincode)
+        {
+            return base.Channel.AfrondenOrderopdrachtGmag(opdracht, pickOrderRegel, pincode);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfScanResultaat5SlwlhPY> AfrondenOrderopdrachtGmagAsync(TruckWebService.Opdracht opdracht, TruckWebService.PickOrderregel pickOrderRegel, string pincode)
@@ -8654,9 +9672,19 @@ namespace TruckWebService
             return base.Channel.AfrondenOrderopdrachtGmagAsync(opdracht, pickOrderRegel, pincode);
         }
         
+        public TruckWebService.ArtikelInfo GeefArtikelInfo(string artikelnr)
+        {
+            return base.Channel.GeefArtikelInfo(artikelnr);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ArtikelInfo> GeefArtikelInfoAsync(string artikelnr)
         {
             return base.Channel.GeefArtikelInfoAsync(artikelnr);
+        }
+        
+        public TruckWebService.FabriekInfoRegel[] GeefFabriekInfo()
+        {
+            return base.Channel.GeefFabriekInfo();
         }
         
         public System.Threading.Tasks.Task<TruckWebService.FabriekInfoRegel[]> GeefFabriekInfoAsync()
@@ -8664,9 +9692,19 @@ namespace TruckWebService
             return base.Channel.GeefFabriekInfoAsync();
         }
         
+        public System.DateTime GeefServerDatumTijd()
+        {
+            return base.Channel.GeefServerDatumTijd();
+        }
+        
         public System.Threading.Tasks.Task<System.DateTime> GeefServerDatumTijdAsync()
         {
             return base.Channel.GeefServerDatumTijdAsync();
+        }
+        
+        public void KoppelPrinter(string printnaam, string trucknummer)
+        {
+            base.Channel.KoppelPrinter(printnaam, trucknummer);
         }
         
         public System.Threading.Tasks.Task KoppelPrinterAsync(string printnaam, string trucknummer)
@@ -8674,9 +9712,19 @@ namespace TruckWebService
             return base.Channel.KoppelPrinterAsync(printnaam, trucknummer);
         }
         
+        public string GeefGekoppeldePrinter(string trucknummer)
+        {
+            return base.Channel.GeefGekoppeldePrinter(trucknummer);
+        }
+        
         public System.Threading.Tasks.Task<string> GeefGekoppeldePrinterAsync(string trucknummer)
         {
             return base.Channel.GeefGekoppeldePrinterAsync(trucknummer);
+        }
+        
+        public string[] GeefPrinters()
+        {
+            return base.Channel.GeefPrinters();
         }
         
         public System.Threading.Tasks.Task<string[]> GeefPrintersAsync()
@@ -8684,9 +9732,19 @@ namespace TruckWebService
             return base.Channel.GeefPrintersAsync();
         }
         
+        public TruckWebService.LocatieAanvoerOpdracht[] GeefVrijeLocatieAanvoerOpdrachtenPincode(System.Nullable<int> areanummer, System.Nullable<int> processsegmentnummer, string pincode)
+        {
+            return base.Channel.GeefVrijeLocatieAanvoerOpdrachtenPincode(areanummer, processsegmentnummer, pincode);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.LocatieAanvoerOpdracht[]> GeefVrijeLocatieAanvoerOpdrachtenPincodeAsync(System.Nullable<int> areanummer, System.Nullable<int> processsegmentnummer, string pincode)
         {
             return base.Channel.GeefVrijeLocatieAanvoerOpdrachtenPincodeAsync(areanummer, processsegmentnummer, pincode);
+        }
+        
+        public TruckWebService.OrderAanvoerOpdracht[] GeefVrijeOrderAanvoerOpdrachten(System.Nullable<int> areanummer, System.Nullable<int> processsegmentnummer, string pincode)
+        {
+            return base.Channel.GeefVrijeOrderAanvoerOpdrachten(areanummer, processsegmentnummer, pincode);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.OrderAanvoerOpdracht[]> GeefVrijeOrderAanvoerOpdrachtenAsync(System.Nullable<int> areanummer, System.Nullable<int> processsegmentnummer, string pincode)
@@ -8694,9 +9752,19 @@ namespace TruckWebService
             return base.Channel.GeefVrijeOrderAanvoerOpdrachtenAsync(areanummer, processsegmentnummer, pincode);
         }
         
+        public TruckWebService.Resultaat OntkoppelOrderAanvoerOpdracht(long aanvoeropdrachtId, string pincode)
+        {
+            return base.Channel.OntkoppelOrderAanvoerOpdracht(aanvoeropdrachtId, pincode);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> OntkoppelOrderAanvoerOpdrachtAsync(long aanvoeropdrachtId, string pincode)
         {
             return base.Channel.OntkoppelOrderAanvoerOpdrachtAsync(aanvoeropdrachtId, pincode);
+        }
+        
+        public TruckWebService.Resultaat KoppelOrderAanvoerOpdracht(long aanvoeropdrachtId, string pincode)
+        {
+            return base.Channel.KoppelOrderAanvoerOpdracht(aanvoeropdrachtId, pincode);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> KoppelOrderAanvoerOpdrachtAsync(long aanvoeropdrachtId, string pincode)
@@ -8704,9 +9772,19 @@ namespace TruckWebService
             return base.Channel.KoppelOrderAanvoerOpdrachtAsync(aanvoeropdrachtId, pincode);
         }
         
+        public TruckWebService.ResultaatOfLocatieAanvoerOpdracht5SlwlhPY StartLocatieAanvoerOpdrachtGmag(long locatieopdrachtId, string uitgezonderdPalletNr, string idnr, bool zoekVolgende, string pin)
+        {
+            return base.Channel.StartLocatieAanvoerOpdrachtGmag(locatieopdrachtId, uitgezonderdPalletNr, idnr, zoekVolgende, pin);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfLocatieAanvoerOpdracht5SlwlhPY> StartLocatieAanvoerOpdrachtGmagAsync(long locatieopdrachtId, string uitgezonderdPalletNr, string idnr, bool zoekVolgende, string pin)
         {
             return base.Channel.StartLocatieAanvoerOpdrachtGmagAsync(locatieopdrachtId, uitgezonderdPalletNr, idnr, zoekVolgende, pin);
+        }
+        
+        public void AnnuleerLocatieAanvoerOpdrachtGmag(TruckWebService.LocatieAanvoerOpdracht locatieaanvoeropdracht)
+        {
+            base.Channel.AnnuleerLocatieAanvoerOpdrachtGmag(locatieaanvoeropdracht);
         }
         
         public System.Threading.Tasks.Task AnnuleerLocatieAanvoerOpdrachtGmagAsync(TruckWebService.LocatieAanvoerOpdracht locatieaanvoeropdracht)
@@ -8714,9 +9792,19 @@ namespace TruckWebService
             return base.Channel.AnnuleerLocatieAanvoerOpdrachtGmagAsync(locatieaanvoeropdracht);
         }
         
+        public void AnnuleerLocatieAanvoerOpdrachtGmagVolgende(TruckWebService.LocatieAanvoerOpdracht locatieaanvoeropdracht, bool volgendePallet)
+        {
+            base.Channel.AnnuleerLocatieAanvoerOpdrachtGmagVolgende(locatieaanvoeropdracht, volgendePallet);
+        }
+        
         public System.Threading.Tasks.Task AnnuleerLocatieAanvoerOpdrachtGmagVolgendeAsync(TruckWebService.LocatieAanvoerOpdracht locatieaanvoeropdracht, bool volgendePallet)
         {
             return base.Channel.AnnuleerLocatieAanvoerOpdrachtGmagVolgendeAsync(locatieaanvoeropdracht, volgendePallet);
+        }
+        
+        public TruckWebService.ResultaatOfScanResultaat5SlwlhPY LocatieAanvoeropdrachtGmagAfronden(TruckWebService.LocatieAanvoerOpdracht locatieaanvoeropdracht)
+        {
+            return base.Channel.LocatieAanvoeropdrachtGmagAfronden(locatieaanvoeropdracht);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfScanResultaat5SlwlhPY> LocatieAanvoeropdrachtGmagAfrondenAsync(TruckWebService.LocatieAanvoerOpdracht locatieaanvoeropdracht)
@@ -8724,9 +9812,19 @@ namespace TruckWebService
             return base.Channel.LocatieAanvoeropdrachtGmagAfrondenAsync(locatieaanvoeropdracht);
         }
         
+        public TruckWebService.ResultaatOfArrayOfAreaProcesssegment5SlwlhPY GeefProcessegmentenOpenstaandeLocatieopdrachten(int processegmentNummer, string pincode)
+        {
+            return base.Channel.GeefProcessegmentenOpenstaandeLocatieopdrachten(processegmentNummer, pincode);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfAreaProcesssegment5SlwlhPY> GeefProcessegmentenOpenstaandeLocatieopdrachtenAsync(int processegmentNummer, string pincode)
         {
             return base.Channel.GeefProcessegmentenOpenstaandeLocatieopdrachtenAsync(processegmentNummer, pincode);
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfAreaProcesssegment5SlwlhPY GeefProcessegmentenOpenstaandeOrderopdrachten(int processegmentNummer, string pincode)
+        {
+            return base.Channel.GeefProcessegmentenOpenstaandeOrderopdrachten(processegmentNummer, pincode);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfAreaProcesssegment5SlwlhPY> GeefProcessegmentenOpenstaandeOrderopdrachtenAsync(int processegmentNummer, string pincode)
@@ -8734,9 +9832,19 @@ namespace TruckWebService
             return base.Channel.GeefProcessegmentenOpenstaandeOrderopdrachtenAsync(processegmentNummer, pincode);
         }
         
+        public void PrintLocatieAanvoerOpdrachtLabel(long locatieopdrachtId, string truckNummer, bool extraSticker)
+        {
+            base.Channel.PrintLocatieAanvoerOpdrachtLabel(locatieopdrachtId, truckNummer, extraSticker);
+        }
+        
         public System.Threading.Tasks.Task PrintLocatieAanvoerOpdrachtLabelAsync(long locatieopdrachtId, string truckNummer, bool extraSticker)
         {
             return base.Channel.PrintLocatieAanvoerOpdrachtLabelAsync(locatieopdrachtId, truckNummer, extraSticker);
+        }
+        
+        public string GeefLocatieAanvoerOpdrachtGekoppeldePallet(string pincode)
+        {
+            return base.Channel.GeefLocatieAanvoerOpdrachtGekoppeldePallet(pincode);
         }
         
         public System.Threading.Tasks.Task<string> GeefLocatieAanvoerOpdrachtGekoppeldePalletAsync(string pincode)
@@ -8744,9 +9852,19 @@ namespace TruckWebService
             return base.Channel.GeefLocatieAanvoerOpdrachtGekoppeldePalletAsync(pincode);
         }
         
+        public TruckWebService.ResultaatOfPalletInfo5SlwlhPY ZetGmagPickPallet(string palletNummer, string pin, long aanvoeropdrachtId)
+        {
+            return base.Channel.ZetGmagPickPallet(palletNummer, pin, aanvoeropdrachtId);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfPalletInfo5SlwlhPY> ZetGmagPickPalletAsync(string palletNummer, string pin, long aanvoeropdrachtId)
         {
             return base.Channel.ZetGmagPickPalletAsync(palletNummer, pin, aanvoeropdrachtId);
+        }
+        
+        public void PickpalletAfrondenVerzamelAanvoerOpdracht(string palletNr, string truckNr, string pincode, System.Nullable<int> productieorderNr)
+        {
+            base.Channel.PickpalletAfrondenVerzamelAanvoerOpdracht(palletNr, truckNr, pincode, productieorderNr);
         }
         
         public System.Threading.Tasks.Task PickpalletAfrondenVerzamelAanvoerOpdrachtAsync(string palletNr, string truckNr, string pincode, System.Nullable<int> productieorderNr)
@@ -8754,9 +9872,19 @@ namespace TruckWebService
             return base.Channel.PickpalletAfrondenVerzamelAanvoerOpdrachtAsync(palletNr, truckNr, pincode, productieorderNr);
         }
         
+        public void PickpalletAfrondenOrderAanvoerOpdracht(string palletNr, string truckNr, string pincode)
+        {
+            base.Channel.PickpalletAfrondenOrderAanvoerOpdracht(palletNr, truckNr, pincode);
+        }
+        
         public System.Threading.Tasks.Task PickpalletAfrondenOrderAanvoerOpdrachtAsync(string palletNr, string truckNr, string pincode)
         {
             return base.Channel.PickpalletAfrondenOrderAanvoerOpdrachtAsync(palletNr, truckNr, pincode);
+        }
+        
+        public string PickpalletDoelLocatieOrderAanvoerOpdracht(string palletNr)
+        {
+            return base.Channel.PickpalletDoelLocatieOrderAanvoerOpdracht(palletNr);
         }
         
         public System.Threading.Tasks.Task<string> PickpalletDoelLocatieOrderAanvoerOpdrachtAsync(string palletNr)
@@ -8764,9 +9892,19 @@ namespace TruckWebService
             return base.Channel.PickpalletDoelLocatieOrderAanvoerOpdrachtAsync(palletNr);
         }
         
+        public string PickpalletDoelLocatieNaamVerzamelAanvoerOpdracht(string palletNr, System.Nullable<int> productieorderNr)
+        {
+            return base.Channel.PickpalletDoelLocatieNaamVerzamelAanvoerOpdracht(palletNr, productieorderNr);
+        }
+        
         public System.Threading.Tasks.Task<string> PickpalletDoelLocatieNaamVerzamelAanvoerOpdrachtAsync(string palletNr, System.Nullable<int> productieorderNr)
         {
             return base.Channel.PickpalletDoelLocatieNaamVerzamelAanvoerOpdrachtAsync(palletNr, productieorderNr);
+        }
+        
+        public string PickpalletDoelLocatieNaamOrderAanvoerOpdracht(string palletNr)
+        {
+            return base.Channel.PickpalletDoelLocatieNaamOrderAanvoerOpdracht(palletNr);
         }
         
         public System.Threading.Tasks.Task<string> PickpalletDoelLocatieNaamOrderAanvoerOpdrachtAsync(string palletNr)
@@ -8774,9 +9912,19 @@ namespace TruckWebService
             return base.Channel.PickpalletDoelLocatieNaamOrderAanvoerOpdrachtAsync(palletNr);
         }
         
+        public TruckWebService.OrderAanvoerOpdracht[] GeefOrderAanvoerOpdrachten(long[] aanvoeropdrachtIds)
+        {
+            return base.Channel.GeefOrderAanvoerOpdrachten(aanvoeropdrachtIds);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.OrderAanvoerOpdracht[]> GeefOrderAanvoerOpdrachtenAsync(long[] aanvoeropdrachtIds)
         {
             return base.Channel.GeefOrderAanvoerOpdrachtenAsync(aanvoeropdrachtIds);
+        }
+        
+        public TruckWebService.OrderAanvoerOpdrachtRegel[] GeefOrderAanvoerOpdrachtRegels(long[] aanvoeropdrachtId)
+        {
+            return base.Channel.GeefOrderAanvoerOpdrachtRegels(aanvoeropdrachtId);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.OrderAanvoerOpdrachtRegel[]> GeefOrderAanvoerOpdrachtRegelsAsync(long[] aanvoeropdrachtId)
@@ -8784,9 +9932,19 @@ namespace TruckWebService
             return base.Channel.GeefOrderAanvoerOpdrachtRegelsAsync(aanvoeropdrachtId);
         }
         
+        public TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY StartOrderAanvoerOpdrachtRegel(TruckWebService.OrderAanvoerOpdrachtRegel regel, string uitgezonderdPalletNr, string idnr, bool zoekVolgende, string pin, bool gtm)
+        {
+            return base.Channel.StartOrderAanvoerOpdrachtRegel(regel, uitgezonderdPalletNr, idnr, zoekVolgende, pin, gtm);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY> StartOrderAanvoerOpdrachtRegelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel, string uitgezonderdPalletNr, string idnr, bool zoekVolgende, string pin, bool gtm)
         {
             return base.Channel.StartOrderAanvoerOpdrachtRegelAsync(regel, uitgezonderdPalletNr, idnr, zoekVolgende, pin, gtm);
+        }
+        
+        public void AnnuleerOrderAanvoerOpdrachtRegel(TruckWebService.OrderAanvoerOpdrachtRegel regel)
+        {
+            base.Channel.AnnuleerOrderAanvoerOpdrachtRegel(regel);
         }
         
         public System.Threading.Tasks.Task AnnuleerOrderAanvoerOpdrachtRegelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel)
@@ -8794,9 +9952,19 @@ namespace TruckWebService
             return base.Channel.AnnuleerOrderAanvoerOpdrachtRegelAsync(regel);
         }
         
+        public TruckWebService.ResultaatOfScanResultaat5SlwlhPY AfrondenOrderAanvoeropdrachtRegelGmag(TruckWebService.OrderAanvoerOpdrachtRegel regel)
+        {
+            return base.Channel.AfrondenOrderAanvoeropdrachtRegelGmag(regel);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfScanResultaat5SlwlhPY> AfrondenOrderAanvoeropdrachtRegelGmagAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel)
         {
             return base.Channel.AfrondenOrderAanvoeropdrachtRegelGmagAsync(regel);
+        }
+        
+        public void PickpalletAfrondenLocatieAanvoerOpdracht(string palletNr, string pincode)
+        {
+            base.Channel.PickpalletAfrondenLocatieAanvoerOpdracht(palletNr, pincode);
         }
         
         public System.Threading.Tasks.Task PickpalletAfrondenLocatieAanvoerOpdrachtAsync(string palletNr, string pincode)
@@ -8804,9 +9972,19 @@ namespace TruckWebService
             return base.Channel.PickpalletAfrondenLocatieAanvoerOpdrachtAsync(palletNr, pincode);
         }
         
+        public string PickpalletDoelLocatieLocatieAanvoerOpdracht(string palletNr)
+        {
+            return base.Channel.PickpalletDoelLocatieLocatieAanvoerOpdracht(palletNr);
+        }
+        
         public System.Threading.Tasks.Task<string> PickpalletDoelLocatieLocatieAanvoerOpdrachtAsync(string palletNr)
         {
             return base.Channel.PickpalletDoelLocatieLocatieAanvoerOpdrachtAsync(palletNr);
+        }
+        
+        public string PickpalletDoelLocatienaamLocatieAanvoerOpdracht(string palletNr)
+        {
+            return base.Channel.PickpalletDoelLocatienaamLocatieAanvoerOpdracht(palletNr);
         }
         
         public System.Threading.Tasks.Task<string> PickpalletDoelLocatienaamLocatieAanvoerOpdrachtAsync(string palletNr)
@@ -8814,9 +9992,19 @@ namespace TruckWebService
             return base.Channel.PickpalletDoelLocatienaamLocatieAanvoerOpdrachtAsync(palletNr);
         }
         
+        public void AnnuleerPickpallet(string palletNr, string pincode)
+        {
+            base.Channel.AnnuleerPickpallet(palletNr, pincode);
+        }
+        
         public System.Threading.Tasks.Task AnnuleerPickpalletAsync(string palletNr, string pincode)
         {
             return base.Channel.AnnuleerPickpalletAsync(palletNr, pincode);
+        }
+        
+        public bool LabelPrintenLocatieAanvoerOpdrachtPallet(System.Nullable<int> procesSegmentnummer, string locatieType)
+        {
+            return base.Channel.LabelPrintenLocatieAanvoerOpdrachtPallet(procesSegmentnummer, locatieType);
         }
         
         public System.Threading.Tasks.Task<bool> LabelPrintenLocatieAanvoerOpdrachtPalletAsync(System.Nullable<int> procesSegmentnummer, string locatieType)
@@ -8824,9 +10012,19 @@ namespace TruckWebService
             return base.Channel.LabelPrintenLocatieAanvoerOpdrachtPalletAsync(procesSegmentnummer, locatieType);
         }
         
+        public TruckWebService.ResultaatOfArrayOfstringuHEDJ7Dj GeefLocatieopdrachtDetailmenuSetting()
+        {
+            return base.Channel.GeefLocatieopdrachtDetailmenuSetting();
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfstringuHEDJ7Dj> GeefLocatieopdrachtDetailmenuSettingAsync()
         {
             return base.Channel.GeefLocatieopdrachtDetailmenuSettingAsync();
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfintuHEDJ7Dj GeefOrderopdrachtRootProcessegmentnummers()
+        {
+            return base.Channel.GeefOrderopdrachtRootProcessegmentnummers();
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfintuHEDJ7Dj> GeefOrderopdrachtRootProcessegmentnummersAsync()
@@ -8834,9 +10032,19 @@ namespace TruckWebService
             return base.Channel.GeefOrderopdrachtRootProcessegmentnummersAsync();
         }
         
+        public TruckWebService.GTMGebiedInfo[] GeefVrijeGTMGebieden(string pincode)
+        {
+            return base.Channel.GeefVrijeGTMGebieden(pincode);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.GTMGebiedInfo[]> GeefVrijeGTMGebiedenAsync(string pincode)
         {
             return base.Channel.GeefVrijeGTMGebiedenAsync(pincode);
+        }
+        
+        public TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY GeefGTMGebiedVrij(long gebiedId, string pincode)
+        {
+            return base.Channel.GeefGTMGebiedVrij(gebiedId, pincode);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY> GeefGTMGebiedVrijAsync(long gebiedId, string pincode)
@@ -8844,9 +10052,19 @@ namespace TruckWebService
             return base.Channel.GeefGTMGebiedVrijAsync(gebiedId, pincode);
         }
         
+        public TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY KoppelGTMGebied(long gebiedId, string pincode)
+        {
+            return base.Channel.KoppelGTMGebied(gebiedId, pincode);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY> KoppelGTMGebiedAsync(long gebiedId, string pincode)
         {
             return base.Channel.KoppelGTMGebiedAsync(gebiedId, pincode);
+        }
+        
+        public TruckWebService.Resultaat ZetGTMAanvoerverzoeken(long[] aanvoeropdrachtIds, long gebiedId)
+        {
+            return base.Channel.ZetGTMAanvoerverzoeken(aanvoeropdrachtIds, gebiedId);
         }
         
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> ZetGTMAanvoerverzoekenAsync(long[] aanvoeropdrachtIds, long gebiedId)
@@ -8854,9 +10072,19 @@ namespace TruckWebService
             return base.Channel.ZetGTMAanvoerverzoekenAsync(aanvoeropdrachtIds, gebiedId);
         }
         
+        public TruckWebService.Resultaat ZetGTMAfvoerverzoeken(long gebiedId, bool alleRegels)
+        {
+            return base.Channel.ZetGTMAfvoerverzoeken(gebiedId, alleRegels);
+        }
+        
         public System.Threading.Tasks.Task<TruckWebService.Resultaat> ZetGTMAfvoerverzoekenAsync(long gebiedId, bool alleRegels)
         {
             return base.Channel.ZetGTMAfvoerverzoekenAsync(gebiedId, alleRegels);
+        }
+        
+        public string GeefLocatieStatusGTM(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr)
+        {
+            return base.Channel.GeefLocatieStatusGTM(gtmgebied, artikelnr);
         }
         
         public System.Threading.Tasks.Task<string> GeefLocatieStatusGTMAsync(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr)
