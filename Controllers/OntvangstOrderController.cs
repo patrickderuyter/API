@@ -34,6 +34,13 @@ namespace LESAPI.Controllers
             using (var serviceClient = new TruckWebServiceClient())
             {
                 var result = await serviceClient.GeefOntvangstorderPalletsAsync(ontvangstordernummer);
+                foreach (var regel in result.ResultaatObject)
+                {
+                    //slechte afhanddeling in de service. Slag nog een keer ophalen.
+                    var resultIndivi = await serviceClient.GeefOntvangstregistratiePalletAsync(regel.Ontvangstordernr,regel.Palletnr);
+
+                    regel.Slag = resultIndivi.ResultaatObject.Slag;
+                }
                 return result.ResultaatObject;
             }
         }
