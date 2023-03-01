@@ -2,7 +2,9 @@
 
 namespace LESAPI.Controllers
 {
+    using Helpers;
     using LESAPI.Models;
+    using Microsoft.AspNetCore.Mvc.Infrastructure;
     using TruckWebService;
 
     [ApiController]
@@ -45,6 +47,7 @@ namespace LESAPI.Controllers
         {
             await using var serviceClient = new TruckWebServiceClient();
             var result = await serviceClient.GeefLocatieInfoAsync(locatienummer);
+
             return result;
         }
 
@@ -63,6 +66,23 @@ namespace LESAPI.Controllers
             }
 
             return true;
+        }
+
+        [HttpGet("GetCheckPalletTelOpdracht/{palletnummer}")]
+        public async Task<PalletInfo?> GetCheckPalletTelOpdracht(string palletnummer)
+        {
+            try
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.CheckPalletTelOpdrachtAsync(palletnummer);
+                var palletinfo = Mapper.MapPalletInfo(result);
+                return palletinfo;
+            }
+            catch
+            {
+                return null;
+
+            }
         }
 
     }
