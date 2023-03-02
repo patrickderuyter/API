@@ -28,5 +28,16 @@ namespace LESAPI.Controllers
             return areaProcesssegments;
         }
 
+        [HttpGet("GeefProcessegmentenOpenstaandeOrderopdrachten/{processSegmentNumber}/{pincode}")]
+        public async Task<List<AreaProcesssegment>> GeefOpenopdrachten(int processSegmentNumber, string pincode)
+        {
+            var areaProcesssegments = new List<AreaProcesssegment>();
+            await using var serviceClient = new TruckWebServiceClient();
+            var result = await serviceClient.GeefProcessegmentenOpenstaandeOrderopdrachtenAsync(processSegmentNumber, pincode);
+
+            areaProcesssegments = result.ResultaatObject.ToList();
+
+            return areaProcesssegments;
+        }
     }
 }
