@@ -39,5 +39,37 @@ namespace LESAPI.Controllers
 
             return areaProcesssegments;
         }
+
+        [HttpGet("GeefVrijeOrderAanvoerOpdrachten/{areanummer}/{processsegmentnummer}/{pincode}")]
+        public async Task<List<OrderAanvoerOpdracht>> GeefVrijeOrderAanvoerOpdrachten(int areanummer, int processsegmentnummer, string pincode)
+        {
+            await using var serviceClient = new TruckWebServiceClient();
+            int? localareanummer = null;
+            int? localprocesssegmentnummer = null;
+            if (areanummer != 0)
+            {
+                localareanummer = areanummer;
+            }
+            if (processsegmentnummer != 0)
+            {
+                localprocesssegmentnummer = processsegmentnummer;
+            }
+
+
+            var result = await serviceClient.GeefVrijeOrderAanvoerOpdrachtenAsync(localareanummer, localprocesssegmentnummer, pincode);
+
+            var orderAanvoerOpdrachts = result;
+
+            return orderAanvoerOpdrachts.ToList();
+        }
+
+        [HttpPost("BepaalGrondstofVoorraadVoorOpdrachten")]
+        public async Task<List<GrondstofVoorraad>> BepaalGrondstofVoorraadVoorOpdrachten([FromBody]long[] opdrachtIds)
+        {
+            await using var serviceClient = new TruckWebServiceClient();
+            var result = await serviceClient.BepaalGrondstofVoorraadVoorOpdrachtenAsync(opdrachtIds);
+            return result.ResultaatObject.ToList();
+        }
+
     }
 }
