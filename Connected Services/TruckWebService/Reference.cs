@@ -14,127 +14,213 @@ namespace TruckWebService
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GTMGebiedInfo", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class GTMGebiedInfo : object
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderAanvoerOpdrachtRegel", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class OrderAanvoerOpdrachtRegel : object
     {
         
-        private string GangField;
+        private int AantalColliField;
         
-        private string GebiedcodeField;
+        private double AantalGepicktField;
         
-        private long IdField;
+        private long AanvoerOpdrachtIdField;
         
-        private string PincodeField;
+        private string ArtikelKenmerkenField;
         
-        private string StatusField;
+        private string ArtikelNaamField;
         
-        private TruckWebService.GTMVakInfo[] VakkenField;
+        private string ArtikelNummerField;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Gang
-        {
-            get
-            {
-                return this.GangField;
-            }
-            set
-            {
-                this.GangField = value;
-            }
-        }
+        private string BeginLocatieNrField;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Gebiedcode
-        {
-            get
-            {
-                return this.GebiedcodeField;
-            }
-            set
-            {
-                this.GebiedcodeField = value;
-            }
-        }
+        private int ColliGepicktField;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Id
-        {
-            get
-            {
-                return this.IdField;
-            }
-            set
-            {
-                this.IdField = value;
-            }
-        }
+        private double ColliGevraagdField;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Pincode
-        {
-            get
-            {
-                return this.PincodeField;
-            }
-            set
-            {
-                this.PincodeField = value;
-            }
-        }
+        private string ControleNummerField;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Status
-        {
-            get
-            {
-                return this.StatusField;
-            }
-            set
-            {
-                this.StatusField = value;
-            }
-        }
+        private double EenheidsHoeveelheidField;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TruckWebService.GTMVakInfo[] Vakken
-        {
-            get
-            {
-                return this.VakkenField;
-            }
-            set
-            {
-                this.VakkenField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GTMVakInfo", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class GTMVakInfo : object
-    {
-        
-        private string ArtikelnrField;
+        private string EindLocatieNrField;
         
         private long IdField;
         
         private string IdnrField;
         
-        private string LocatienrField;
+        private string LocatieNrDisplayField;
         
-        private string LocatienrvanField;
+        private string MESLocatieField;
+        
+        private string PalletNummerNaarField;
+        
+        private string[] PalletNummerReedsVerzameldField;
+        
+        private string PalletNummerVanField;
+        
+        private int PosField;
+        
+        private int ProcesVolgNummerField;
+        
+        private int ProductNummerField;
+        
+        private int ProductieOrderNummerField;
+        
+        private string RetournummerField;
+        
+        private string StatusField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Artikelnr
+        public int AantalColli
         {
             get
             {
-                return this.ArtikelnrField;
+                return this.AantalColliField;
             }
             set
             {
-                this.ArtikelnrField = value;
+                this.AantalColliField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double AantalGepickt
+        {
+            get
+            {
+                return this.AantalGepicktField;
+            }
+            set
+            {
+                this.AantalGepicktField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long AanvoerOpdrachtId
+        {
+            get
+            {
+                return this.AanvoerOpdrachtIdField;
+            }
+            set
+            {
+                this.AanvoerOpdrachtIdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ArtikelKenmerken
+        {
+            get
+            {
+                return this.ArtikelKenmerkenField;
+            }
+            set
+            {
+                this.ArtikelKenmerkenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ArtikelNaam
+        {
+            get
+            {
+                return this.ArtikelNaamField;
+            }
+            set
+            {
+                this.ArtikelNaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ArtikelNummer
+        {
+            get
+            {
+                return this.ArtikelNummerField;
+            }
+            set
+            {
+                this.ArtikelNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BeginLocatieNr
+        {
+            get
+            {
+                return this.BeginLocatieNrField;
+            }
+            set
+            {
+                this.BeginLocatieNrField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ColliGepickt
+        {
+            get
+            {
+                return this.ColliGepicktField;
+            }
+            set
+            {
+                this.ColliGepicktField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double ColliGevraagd
+        {
+            get
+            {
+                return this.ColliGevraagdField;
+            }
+            set
+            {
+                this.ColliGevraagdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ControleNummer
+        {
+            get
+            {
+                return this.ControleNummerField;
+            }
+            set
+            {
+                this.ControleNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double EenheidsHoeveelheid
+        {
+            get
+            {
+                return this.EenheidsHoeveelheidField;
+            }
+            set
+            {
+                this.EenheidsHoeveelheidField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EindLocatieNr
+        {
+            get
+            {
+                return this.EindLocatieNrField;
+            }
+            set
+            {
+                this.EindLocatieNrField = value;
             }
         }
         
@@ -165,71 +251,322 @@ namespace TruckWebService
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Locatienr
+        public string LocatieNrDisplay
         {
             get
             {
-                return this.LocatienrField;
+                return this.LocatieNrDisplayField;
             }
             set
             {
-                this.LocatienrField = value;
+                this.LocatieNrDisplayField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Locatienrvan
+        public string MESLocatie
         {
             get
             {
-                return this.LocatienrvanField;
+                return this.MESLocatieField;
             }
             set
             {
-                this.LocatienrvanField = value;
+                this.MESLocatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PalletNummerNaar
+        {
+            get
+            {
+                return this.PalletNummerNaarField;
+            }
+            set
+            {
+                this.PalletNummerNaarField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] PalletNummerReedsVerzameld
+        {
+            get
+            {
+                return this.PalletNummerReedsVerzameldField;
+            }
+            set
+            {
+                this.PalletNummerReedsVerzameldField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PalletNummerVan
+        {
+            get
+            {
+                return this.PalletNummerVanField;
+            }
+            set
+            {
+                this.PalletNummerVanField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Pos
+        {
+            get
+            {
+                return this.PosField;
+            }
+            set
+            {
+                this.PosField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProcesVolgNummer
+        {
+            get
+            {
+                return this.ProcesVolgNummerField;
+            }
+            set
+            {
+                this.ProcesVolgNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProductNummer
+        {
+            get
+            {
+                return this.ProductNummerField;
+            }
+            set
+            {
+                this.ProductNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProductieOrderNummer
+        {
+            get
+            {
+                return this.ProductieOrderNummerField;
+            }
+            set
+            {
+                this.ProductieOrderNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Retournummer
+        {
+            get
+            {
+                return this.RetournummerField;
+            }
+            set
+            {
+                this.RetournummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status
+        {
+            get
+            {
+                return this.StatusField;
+            }
+            set
+            {
+                this.StatusField = value;
             }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="LocatieInfo", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class LocatieInfo : object
+    [System.Runtime.Serialization.DataContractAttribute(Name="Resultaat", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class Resultaat : object
     {
         
-        private int AantalPalletsOpLocatieField;
+        private string FoutmeldingField;
         
-        private bool LocatieKanGeteldWordenField;
-        
-        private string LocatieNummerField;
-        
-        private string LocatienrForDisplayField;
-        
-        private TruckWebService.PalletInfo[] PalletsOpLocatieField;
+        private bool IsValideField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AantalPalletsOpLocatie
+        public string Foutmelding
         {
             get
             {
-                return this.AantalPalletsOpLocatieField;
+                return this.FoutmeldingField;
             }
             set
             {
-                this.AantalPalletsOpLocatieField = value;
+                this.FoutmeldingField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool LocatieKanGeteldWorden
+        public bool IsValide
         {
             get
             {
-                return this.LocatieKanGeteldWordenField;
+                return this.IsValideField;
             }
             set
             {
-                this.LocatieKanGeteldWordenField = value;
+                this.IsValideField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfArrayOfPalletEindcontrole5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class ResultaatOfArrayOfPalletEindcontrole5SlwlhPY : object
+    {
+        
+        private string FoutmeldingField;
+        
+        private bool IsValideField;
+        
+        private TruckWebService.PalletEindcontrole[] ResultaatObjectField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Foutmelding
+        {
+            get
+            {
+                return this.FoutmeldingField;
+            }
+            set
+            {
+                this.FoutmeldingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsValide
+        {
+            get
+            {
+                return this.IsValideField;
+            }
+            set
+            {
+                this.IsValideField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TruckWebService.PalletEindcontrole[] ResultaatObject
+        {
+            get
+            {
+                return this.ResultaatObjectField;
+            }
+            set
+            {
+                this.ResultaatObjectField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PalletEindcontrole", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class PalletEindcontrole : object
+    {
+        
+        private System.Nullable<double> AantalColliField;
+        
+        private string AreanaamField;
+        
+        private int AreanummerField;
+        
+        private string LijnNaamField;
+        
+        private int LijnNummerField;
+        
+        private string LocatieNummerField;
+        
+        private string LocatieNummerForDisplayShortField;
+        
+        private string PalletnummerField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> AantalColli
+        {
+            get
+            {
+                return this.AantalColliField;
+            }
+            set
+            {
+                this.AantalColliField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Areanaam
+        {
+            get
+            {
+                return this.AreanaamField;
+            }
+            set
+            {
+                this.AreanaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Areanummer
+        {
+            get
+            {
+                return this.AreanummerField;
+            }
+            set
+            {
+                this.AreanummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LijnNaam
+        {
+            get
+            {
+                return this.LijnNaamField;
+            }
+            set
+            {
+                this.LijnNaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LijnNummer
+        {
+            get
+            {
+                return this.LijnNummerField;
+            }
+            set
+            {
+                this.LijnNummerField = value;
             }
         }
         
@@ -247,28 +584,983 @@ namespace TruckWebService
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LocatienrForDisplay
+        public string LocatieNummerForDisplayShort
         {
             get
             {
-                return this.LocatienrForDisplayField;
+                return this.LocatieNummerForDisplayShortField;
             }
             set
             {
-                this.LocatienrForDisplayField = value;
+                this.LocatieNummerForDisplayShortField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public TruckWebService.PalletInfo[] PalletsOpLocatie
+        public string Palletnummer
         {
             get
             {
-                return this.PalletsOpLocatieField;
+                return this.PalletnummerField;
             }
             set
             {
-                this.PalletsOpLocatieField = value;
+                this.PalletnummerField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Fabriekslocatie", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class Fabriekslocatie : object
+    {
+        
+        private string ArtikelPalletField;
+        
+        private string CodeField;
+        
+        private string EindlocatieField;
+        
+        private string NaamField;
+        
+        private int ProcesssegmentnumberField;
+        
+        private string ZoneCodeNrField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ArtikelPallet
+        {
+            get
+            {
+                return this.ArtikelPalletField;
+            }
+            set
+            {
+                this.ArtikelPalletField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code
+        {
+            get
+            {
+                return this.CodeField;
+            }
+            set
+            {
+                this.CodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Eindlocatie
+        {
+            get
+            {
+                return this.EindlocatieField;
+            }
+            set
+            {
+                this.EindlocatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Naam
+        {
+            get
+            {
+                return this.NaamField;
+            }
+            set
+            {
+                this.NaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Processsegmentnumber
+        {
+            get
+            {
+                return this.ProcesssegmentnumberField;
+            }
+            set
+            {
+                this.ProcesssegmentnumberField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ZoneCodeNr
+        {
+            get
+            {
+                return this.ZoneCodeNrField;
+            }
+            set
+            {
+                this.ZoneCodeNrField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfArrayOfOntvangstOrder5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class ResultaatOfArrayOfOntvangstOrder5SlwlhPY : object
+    {
+        
+        private string FoutmeldingField;
+        
+        private bool IsValideField;
+        
+        private TruckWebService.OntvangstOrder[] ResultaatObjectField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Foutmelding
+        {
+            get
+            {
+                return this.FoutmeldingField;
+            }
+            set
+            {
+                this.FoutmeldingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsValide
+        {
+            get
+            {
+                return this.IsValideField;
+            }
+            set
+            {
+                this.IsValideField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TruckWebService.OntvangstOrder[] ResultaatObject
+        {
+            get
+            {
+                return this.ResultaatObjectField;
+            }
+            set
+            {
+                this.ResultaatObjectField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OntvangstOrder", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class OntvangstOrder : object
+    {
+        
+        private bool AdviesPBMField;
+        
+        private string ArtikelnaamField;
+        
+        private string ArtikelnrField;
+        
+        private System.Nullable<int> BesteldAantalField;
+        
+        private string InkoopordernrField;
+        
+        private string LeverancierField;
+        
+        private string MonsternameField;
+        
+        private string MonsternameExtraField;
+        
+        private string OntvangstordernrField;
+        
+        private string OrdervolgnrField;
+        
+        private string StatusField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool AdviesPBM
+        {
+            get
+            {
+                return this.AdviesPBMField;
+            }
+            set
+            {
+                this.AdviesPBMField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Artikelnaam
+        {
+            get
+            {
+                return this.ArtikelnaamField;
+            }
+            set
+            {
+                this.ArtikelnaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Artikelnr
+        {
+            get
+            {
+                return this.ArtikelnrField;
+            }
+            set
+            {
+                this.ArtikelnrField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> BesteldAantal
+        {
+            get
+            {
+                return this.BesteldAantalField;
+            }
+            set
+            {
+                this.BesteldAantalField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Inkoopordernr
+        {
+            get
+            {
+                return this.InkoopordernrField;
+            }
+            set
+            {
+                this.InkoopordernrField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Leverancier
+        {
+            get
+            {
+                return this.LeverancierField;
+            }
+            set
+            {
+                this.LeverancierField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Monstername
+        {
+            get
+            {
+                return this.MonsternameField;
+            }
+            set
+            {
+                this.MonsternameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MonsternameExtra
+        {
+            get
+            {
+                return this.MonsternameExtraField;
+            }
+            set
+            {
+                this.MonsternameExtraField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ontvangstordernr
+        {
+            get
+            {
+                return this.OntvangstordernrField;
+            }
+            set
+            {
+                this.OntvangstordernrField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ordervolgnr
+        {
+            get
+            {
+                return this.OrdervolgnrField;
+            }
+            set
+            {
+                this.OrdervolgnrField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status
+        {
+            get
+            {
+                return this.StatusField;
+            }
+            set
+            {
+                this.StatusField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V : object
+    {
+        
+        private string FoutmeldingField;
+        
+        private bool IsValideField;
+        
+        private TruckWebService.OntvangstregistratiePallet[] ResultaatObjectField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Foutmelding
+        {
+            get
+            {
+                return this.FoutmeldingField;
+            }
+            set
+            {
+                this.FoutmeldingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsValide
+        {
+            get
+            {
+                return this.IsValideField;
+            }
+            set
+            {
+                this.IsValideField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TruckWebService.OntvangstregistratiePallet[] ResultaatObject
+        {
+            get
+            {
+                return this.ResultaatObjectField;
+            }
+            set
+            {
+                this.ResultaatObjectField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OntvangstregistratiePallet", Namespace="http://schemas.datacontract.org/2004/07/ICT.Les.Entities.Custom")]
+    public partial class OntvangstregistratiePallet : object
+    {
+        
+        private string ArtikelZoneField;
+        
+        private System.Nullable<int> ColliaantalField;
+        
+        private bool GS1ScanField;
+        
+        private string GTINBronField;
+        
+        private System.Collections.Generic.KeyValuePair<string, string>[] Gs1CodesField;
+        
+        private string IdNrField;
+        
+        private bool IsNieuwField;
+        
+        private string LastdragerNrField;
+        
+        private string LastdragerNrEnNaamField;
+        
+        private string LotnummerField;
+        
+        private bool MonstergenomenField;
+        
+        private bool MonsternameTonenField;
+        
+        private string OntvangstordernrField;
+        
+        private System.Nullable<long> OntvangstregistratieIdField;
+        
+        private System.Nullable<int> PalletbreedteField;
+        
+        private System.Nullable<int> PallethoogteField;
+        
+        private System.Nullable<int> PallethoogteBerekendField;
+        
+        private string PalletnrField;
+        
+        private System.Nullable<System.DateTime> ProductiedatumField;
+        
+        private System.Nullable<int> SlagField;
+        
+        private System.Nullable<System.DateTime> ThtdatumField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ArtikelZone
+        {
+            get
+            {
+                return this.ArtikelZoneField;
+            }
+            set
+            {
+                this.ArtikelZoneField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Colliaantal
+        {
+            get
+            {
+                return this.ColliaantalField;
+            }
+            set
+            {
+                this.ColliaantalField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool GS1Scan
+        {
+            get
+            {
+                return this.GS1ScanField;
+            }
+            set
+            {
+                this.GS1ScanField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GTINBron
+        {
+            get
+            {
+                return this.GTINBronField;
+            }
+            set
+            {
+                this.GTINBronField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.KeyValuePair<string, string>[] Gs1Codes
+        {
+            get
+            {
+                return this.Gs1CodesField;
+            }
+            set
+            {
+                this.Gs1CodesField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IdNr
+        {
+            get
+            {
+                return this.IdNrField;
+            }
+            set
+            {
+                this.IdNrField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsNieuw
+        {
+            get
+            {
+                return this.IsNieuwField;
+            }
+            set
+            {
+                this.IsNieuwField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastdragerNr
+        {
+            get
+            {
+                return this.LastdragerNrField;
+            }
+            set
+            {
+                this.LastdragerNrField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastdragerNrEnNaam
+        {
+            get
+            {
+                return this.LastdragerNrEnNaamField;
+            }
+            set
+            {
+                this.LastdragerNrEnNaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Lotnummer
+        {
+            get
+            {
+                return this.LotnummerField;
+            }
+            set
+            {
+                this.LotnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Monstergenomen
+        {
+            get
+            {
+                return this.MonstergenomenField;
+            }
+            set
+            {
+                this.MonstergenomenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool MonsternameTonen
+        {
+            get
+            {
+                return this.MonsternameTonenField;
+            }
+            set
+            {
+                this.MonsternameTonenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ontvangstordernr
+        {
+            get
+            {
+                return this.OntvangstordernrField;
+            }
+            set
+            {
+                this.OntvangstordernrField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> OntvangstregistratieId
+        {
+            get
+            {
+                return this.OntvangstregistratieIdField;
+            }
+            set
+            {
+                this.OntvangstregistratieIdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Palletbreedte
+        {
+            get
+            {
+                return this.PalletbreedteField;
+            }
+            set
+            {
+                this.PalletbreedteField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Pallethoogte
+        {
+            get
+            {
+                return this.PallethoogteField;
+            }
+            set
+            {
+                this.PallethoogteField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> PallethoogteBerekend
+        {
+            get
+            {
+                return this.PallethoogteBerekendField;
+            }
+            set
+            {
+                this.PallethoogteBerekendField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Palletnr
+        {
+            get
+            {
+                return this.PalletnrField;
+            }
+            set
+            {
+                this.PalletnrField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> Productiedatum
+        {
+            get
+            {
+                return this.ProductiedatumField;
+            }
+            set
+            {
+                this.ProductiedatumField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Slag
+        {
+            get
+            {
+                return this.SlagField;
+            }
+            set
+            {
+                this.SlagField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> Thtdatum
+        {
+            get
+            {
+                return this.ThtdatumField;
+            }
+            set
+            {
+                this.ThtdatumField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfOntvangstregistratiePalletay1Gw99V", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class ResultaatOfOntvangstregistratiePalletay1Gw99V : object
+    {
+        
+        private string FoutmeldingField;
+        
+        private bool IsValideField;
+        
+        private TruckWebService.OntvangstregistratiePallet ResultaatObjectField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Foutmelding
+        {
+            get
+            {
+                return this.FoutmeldingField;
+            }
+            set
+            {
+                this.FoutmeldingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsValide
+        {
+            get
+            {
+                return this.IsValideField;
+            }
+            set
+            {
+                this.IsValideField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TruckWebService.OntvangstregistratiePallet ResultaatObject
+        {
+            get
+            {
+                return this.ResultaatObjectField;
+            }
+            set
+            {
+                this.ResultaatObjectField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfArrayOfLastdragerDC5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class ResultaatOfArrayOfLastdragerDC5SlwlhPY : object
+    {
+        
+        private string FoutmeldingField;
+        
+        private bool IsValideField;
+        
+        private TruckWebService.LastdragerDC[] ResultaatObjectField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Foutmelding
+        {
+            get
+            {
+                return this.FoutmeldingField;
+            }
+            set
+            {
+                this.FoutmeldingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsValide
+        {
+            get
+            {
+                return this.IsValideField;
+            }
+            set
+            {
+                this.IsValideField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TruckWebService.LastdragerDC[] ResultaatObject
+        {
+            get
+            {
+                return this.ResultaatObjectField;
+            }
+            set
+            {
+                this.ResultaatObjectField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LastdragerDC", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class LastdragerDC : object
+    {
+        
+        private string LastdragerNaamField;
+        
+        private string LastdragerNrField;
+        
+        private string LastdragerNrEnNaamField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastdragerNaam
+        {
+            get
+            {
+                return this.LastdragerNaamField;
+            }
+            set
+            {
+                this.LastdragerNaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastdragerNr
+        {
+            get
+            {
+                return this.LastdragerNrField;
+            }
+            set
+            {
+                this.LastdragerNrField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastdragerNrEnNaam
+        {
+            get
+            {
+                return this.LastdragerNrEnNaamField;
+            }
+            set
+            {
+                this.LastdragerNrEnNaamField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfstring", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class ResultaatOfstring : object
+    {
+        
+        private string FoutmeldingField;
+        
+        private bool IsValideField;
+        
+        private string ResultaatObjectField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Foutmelding
+        {
+            get
+            {
+                return this.FoutmeldingField;
+            }
+            set
+            {
+                this.FoutmeldingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsValide
+        {
+            get
+            {
+                return this.IsValideField;
+            }
+            set
+            {
+                this.IsValideField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ResultaatObject
+        {
+            get
+            {
+                return this.ResultaatObjectField;
+            }
+            set
+            {
+                this.ResultaatObjectField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfPalletInfo5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class ResultaatOfPalletInfo5SlwlhPY : object
+    {
+        
+        private string FoutmeldingField;
+        
+        private bool IsValideField;
+        
+        private TruckWebService.PalletInfo ResultaatObjectField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Foutmelding
+        {
+            get
+            {
+                return this.FoutmeldingField;
+            }
+            set
+            {
+                this.FoutmeldingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsValide
+        {
+            get
+            {
+                return this.IsValideField;
+            }
+            set
+            {
+                this.IsValideField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TruckWebService.PalletInfo ResultaatObject
+        {
+            get
+            {
+                return this.ResultaatObjectField;
+            }
+            set
+            {
+                this.ResultaatObjectField = value;
             }
         }
     }
@@ -1025,13 +2317,15 @@ namespace TruckWebService
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Resultaat", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class Resultaat : object
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfArrayOfGrondstofVoorraad5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class ResultaatOfArrayOfGrondstofVoorraad5SlwlhPY : object
     {
         
         private string FoutmeldingField;
         
         private bool IsValideField;
+        
+        private TruckWebService.GrondstofVoorraad[] ResultaatObjectField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Foutmelding
@@ -1056,6 +2350,1011 @@ namespace TruckWebService
             set
             {
                 this.IsValideField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TruckWebService.GrondstofVoorraad[] ResultaatObject
+        {
+            get
+            {
+                return this.ResultaatObjectField;
+            }
+            set
+            {
+                this.ResultaatObjectField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GrondstofVoorraad", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class GrondstofVoorraad : object
+    {
+        
+        private string ArtikelNaamField;
+        
+        private string ArtikelNummerField;
+        
+        private string ProductNummerField;
+        
+        private int TotaalColliBeschikbaarField;
+        
+        private int TotaalColliGevraagdField;
+        
+        private int TotaalColliInQuarantaineField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ArtikelNaam
+        {
+            get
+            {
+                return this.ArtikelNaamField;
+            }
+            set
+            {
+                this.ArtikelNaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ArtikelNummer
+        {
+            get
+            {
+                return this.ArtikelNummerField;
+            }
+            set
+            {
+                this.ArtikelNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProductNummer
+        {
+            get
+            {
+                return this.ProductNummerField;
+            }
+            set
+            {
+                this.ProductNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotaalColliBeschikbaar
+        {
+            get
+            {
+                return this.TotaalColliBeschikbaarField;
+            }
+            set
+            {
+                this.TotaalColliBeschikbaarField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotaalColliGevraagd
+        {
+            get
+            {
+                return this.TotaalColliGevraagdField;
+            }
+            set
+            {
+                this.TotaalColliGevraagdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotaalColliInQuarantaine
+        {
+            get
+            {
+                return this.TotaalColliInQuarantaineField;
+            }
+            set
+            {
+                this.TotaalColliInQuarantaineField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderAanvoerOpdracht", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class OrderAanvoerOpdracht : object
+    {
+        
+        private int AantalField;
+        
+        private long AanvoerOpdrachtIdField;
+        
+        private string AreaNaamField;
+        
+        private int AreaNummerField;
+        
+        private double ColliAantalField;
+        
+        private System.DateTime DatumGeplandField;
+        
+        private double EenheidsHoeveelheidField;
+        
+        private bool GestartField;
+        
+        private string LijnNaamField;
+        
+        private int LijnNummerField;
+        
+        private string LotCodeField;
+        
+        private int LotVolgNummerField;
+        
+        private TruckWebService.OrderAanvoerOpdrachtRegel[] OrderAanvoerOpdrachtRegelsField;
+        
+        private string ProductNaamField;
+        
+        private int ProductNummerField;
+        
+        private int ProductieOrderNummerField;
+        
+        private string StatusField;
+        
+        private double VolgNummerField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Aantal
+        {
+            get
+            {
+                return this.AantalField;
+            }
+            set
+            {
+                this.AantalField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long AanvoerOpdrachtId
+        {
+            get
+            {
+                return this.AanvoerOpdrachtIdField;
+            }
+            set
+            {
+                this.AanvoerOpdrachtIdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AreaNaam
+        {
+            get
+            {
+                return this.AreaNaamField;
+            }
+            set
+            {
+                this.AreaNaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AreaNummer
+        {
+            get
+            {
+                return this.AreaNummerField;
+            }
+            set
+            {
+                this.AreaNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double ColliAantal
+        {
+            get
+            {
+                return this.ColliAantalField;
+            }
+            set
+            {
+                this.ColliAantalField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DatumGepland
+        {
+            get
+            {
+                return this.DatumGeplandField;
+            }
+            set
+            {
+                this.DatumGeplandField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double EenheidsHoeveelheid
+        {
+            get
+            {
+                return this.EenheidsHoeveelheidField;
+            }
+            set
+            {
+                this.EenheidsHoeveelheidField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Gestart
+        {
+            get
+            {
+                return this.GestartField;
+            }
+            set
+            {
+                this.GestartField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LijnNaam
+        {
+            get
+            {
+                return this.LijnNaamField;
+            }
+            set
+            {
+                this.LijnNaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LijnNummer
+        {
+            get
+            {
+                return this.LijnNummerField;
+            }
+            set
+            {
+                this.LijnNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LotCode
+        {
+            get
+            {
+                return this.LotCodeField;
+            }
+            set
+            {
+                this.LotCodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LotVolgNummer
+        {
+            get
+            {
+                return this.LotVolgNummerField;
+            }
+            set
+            {
+                this.LotVolgNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TruckWebService.OrderAanvoerOpdrachtRegel[] OrderAanvoerOpdrachtRegels
+        {
+            get
+            {
+                return this.OrderAanvoerOpdrachtRegelsField;
+            }
+            set
+            {
+                this.OrderAanvoerOpdrachtRegelsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProductNaam
+        {
+            get
+            {
+                return this.ProductNaamField;
+            }
+            set
+            {
+                this.ProductNaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProductNummer
+        {
+            get
+            {
+                return this.ProductNummerField;
+            }
+            set
+            {
+                this.ProductNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProductieOrderNummer
+        {
+            get
+            {
+                return this.ProductieOrderNummerField;
+            }
+            set
+            {
+                this.ProductieOrderNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status
+        {
+            get
+            {
+                return this.StatusField;
+            }
+            set
+            {
+                this.StatusField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double VolgNummer
+        {
+            get
+            {
+                return this.VolgNummerField;
+            }
+            set
+            {
+                this.VolgNummerField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY : object
+    {
+        
+        private string FoutmeldingField;
+        
+        private bool IsValideField;
+        
+        private TruckWebService.OrderAanvoerOpdrachtRegel ResultaatObjectField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Foutmelding
+        {
+            get
+            {
+                return this.FoutmeldingField;
+            }
+            set
+            {
+                this.FoutmeldingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsValide
+        {
+            get
+            {
+                return this.IsValideField;
+            }
+            set
+            {
+                this.IsValideField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TruckWebService.OrderAanvoerOpdrachtRegel ResultaatObject
+        {
+            get
+            {
+                return this.ResultaatObjectField;
+            }
+            set
+            {
+                this.ResultaatObjectField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfScanResultaat5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class ResultaatOfScanResultaat5SlwlhPY : object
+    {
+        
+        private string FoutmeldingField;
+        
+        private bool IsValideField;
+        
+        private TruckWebService.ScanResultaat ResultaatObjectField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Foutmelding
+        {
+            get
+            {
+                return this.FoutmeldingField;
+            }
+            set
+            {
+                this.FoutmeldingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsValide
+        {
+            get
+            {
+                return this.IsValideField;
+            }
+            set
+            {
+                this.IsValideField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TruckWebService.ScanResultaat ResultaatObject
+        {
+            get
+            {
+                return this.ResultaatObjectField;
+            }
+            set
+            {
+                this.ResultaatObjectField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ScanResultaat", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class ScanResultaat : object
+    {
+        
+        private bool AanvulopdrachtVerzondenField;
+        
+        private int BeschikbaarAantalField;
+        
+        private string GescandOrderregelNummerField;
+        
+        private bool IsDecoArtikelField;
+        
+        private bool OrderregelCompleetField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool AanvulopdrachtVerzonden
+        {
+            get
+            {
+                return this.AanvulopdrachtVerzondenField;
+            }
+            set
+            {
+                this.AanvulopdrachtVerzondenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BeschikbaarAantal
+        {
+            get
+            {
+                return this.BeschikbaarAantalField;
+            }
+            set
+            {
+                this.BeschikbaarAantalField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GescandOrderregelNummer
+        {
+            get
+            {
+                return this.GescandOrderregelNummerField;
+            }
+            set
+            {
+                this.GescandOrderregelNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsDecoArtikel
+        {
+            get
+            {
+                return this.IsDecoArtikelField;
+            }
+            set
+            {
+                this.IsDecoArtikelField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool OrderregelCompleet
+        {
+            get
+            {
+                return this.OrderregelCompleetField;
+            }
+            set
+            {
+                this.OrderregelCompleetField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfArrayOfstringuHEDJ7Dj", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class ResultaatOfArrayOfstringuHEDJ7Dj : object
+    {
+        
+        private string FoutmeldingField;
+        
+        private bool IsValideField;
+        
+        private string[] ResultaatObjectField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Foutmelding
+        {
+            get
+            {
+                return this.FoutmeldingField;
+            }
+            set
+            {
+                this.FoutmeldingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsValide
+        {
+            get
+            {
+                return this.IsValideField;
+            }
+            set
+            {
+                this.IsValideField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] ResultaatObject
+        {
+            get
+            {
+                return this.ResultaatObjectField;
+            }
+            set
+            {
+                this.ResultaatObjectField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfArrayOfintuHEDJ7Dj", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class ResultaatOfArrayOfintuHEDJ7Dj : object
+    {
+        
+        private string FoutmeldingField;
+        
+        private bool IsValideField;
+        
+        private int[] ResultaatObjectField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Foutmelding
+        {
+            get
+            {
+                return this.FoutmeldingField;
+            }
+            set
+            {
+                this.FoutmeldingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsValide
+        {
+            get
+            {
+                return this.IsValideField;
+            }
+            set
+            {
+                this.IsValideField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int[] ResultaatObject
+        {
+            get
+            {
+                return this.ResultaatObjectField;
+            }
+            set
+            {
+                this.ResultaatObjectField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GTMGebiedInfo", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class GTMGebiedInfo : object
+    {
+        
+        private string GangField;
+        
+        private string GebiedcodeField;
+        
+        private long IdField;
+        
+        private string PincodeField;
+        
+        private string StatusField;
+        
+        private TruckWebService.GTMVakInfo[] VakkenField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Gang
+        {
+            get
+            {
+                return this.GangField;
+            }
+            set
+            {
+                this.GangField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Gebiedcode
+        {
+            get
+            {
+                return this.GebiedcodeField;
+            }
+            set
+            {
+                this.GebiedcodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                this.IdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Pincode
+        {
+            get
+            {
+                return this.PincodeField;
+            }
+            set
+            {
+                this.PincodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status
+        {
+            get
+            {
+                return this.StatusField;
+            }
+            set
+            {
+                this.StatusField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TruckWebService.GTMVakInfo[] Vakken
+        {
+            get
+            {
+                return this.VakkenField;
+            }
+            set
+            {
+                this.VakkenField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GTMVakInfo", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class GTMVakInfo : object
+    {
+        
+        private string ArtikelnrField;
+        
+        private long IdField;
+        
+        private string IdnrField;
+        
+        private string LocatienrField;
+        
+        private string LocatienrvanField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Artikelnr
+        {
+            get
+            {
+                return this.ArtikelnrField;
+            }
+            set
+            {
+                this.ArtikelnrField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                this.IdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Idnr
+        {
+            get
+            {
+                return this.IdnrField;
+            }
+            set
+            {
+                this.IdnrField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Locatienr
+        {
+            get
+            {
+                return this.LocatienrField;
+            }
+            set
+            {
+                this.LocatienrField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Locatienrvan
+        {
+            get
+            {
+                return this.LocatienrvanField;
+            }
+            set
+            {
+                this.LocatienrvanField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfGTMGebiedInfo5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class ResultaatOfGTMGebiedInfo5SlwlhPY : object
+    {
+        
+        private string FoutmeldingField;
+        
+        private bool IsValideField;
+        
+        private TruckWebService.GTMGebiedInfo ResultaatObjectField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Foutmelding
+        {
+            get
+            {
+                return this.FoutmeldingField;
+            }
+            set
+            {
+                this.FoutmeldingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsValide
+        {
+            get
+            {
+                return this.IsValideField;
+            }
+            set
+            {
+                this.IsValideField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TruckWebService.GTMGebiedInfo ResultaatObject
+        {
+            get
+            {
+                return this.ResultaatObjectField;
+            }
+            set
+            {
+                this.ResultaatObjectField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LocatieInfo", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
+    public partial class LocatieInfo : object
+    {
+        
+        private int AantalPalletsOpLocatieField;
+        
+        private string ControleNrField;
+        
+        private bool LocatieKanGeteldWordenField;
+        
+        private string LocatieNummerField;
+        
+        private string LocatienrForDisplayField;
+        
+        private TruckWebService.PalletInfo[] PalletsOpLocatieField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AantalPalletsOpLocatie
+        {
+            get
+            {
+                return this.AantalPalletsOpLocatieField;
+            }
+            set
+            {
+                this.AantalPalletsOpLocatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ControleNr
+        {
+            get
+            {
+                return this.ControleNrField;
+            }
+            set
+            {
+                this.ControleNrField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool LocatieKanGeteldWorden
+        {
+            get
+            {
+                return this.LocatieKanGeteldWordenField;
+            }
+            set
+            {
+                this.LocatieKanGeteldWordenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LocatieNummer
+        {
+            get
+            {
+                return this.LocatieNummerField;
+            }
+            set
+            {
+                this.LocatieNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LocatienrForDisplay
+        {
+            get
+            {
+                return this.LocatienrForDisplayField;
+            }
+            set
+            {
+                this.LocatienrForDisplayField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TruckWebService.PalletInfo[] PalletsOpLocatie
+        {
+            get
+            {
+                return this.PalletsOpLocatieField;
+            }
+            set
+            {
+                this.PalletsOpLocatieField = value;
             }
         }
     }
@@ -3838,1723 +6137,6 @@ namespace TruckWebService
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY : object
-    {
-        
-        private string FoutmeldingField;
-        
-        private bool IsValideField;
-        
-        private TruckWebService.OrderAanvoerOpdrachtRegel ResultaatObjectField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Foutmelding
-        {
-            get
-            {
-                return this.FoutmeldingField;
-            }
-            set
-            {
-                this.FoutmeldingField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsValide
-        {
-            get
-            {
-                return this.IsValideField;
-            }
-            set
-            {
-                this.IsValideField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TruckWebService.OrderAanvoerOpdrachtRegel ResultaatObject
-        {
-            get
-            {
-                return this.ResultaatObjectField;
-            }
-            set
-            {
-                this.ResultaatObjectField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OrderAanvoerOpdrachtRegel", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class OrderAanvoerOpdrachtRegel : object
-    {
-        
-        private int AantalColliField;
-        
-        private double AantalGepicktField;
-        
-        private long AanvoerOpdrachtIdField;
-        
-        private string ArtikelKenmerkenField;
-        
-        private string ArtikelNaamField;
-        
-        private string ArtikelNummerField;
-        
-        private string BeginLocatieNrField;
-        
-        private int ColliGepicktField;
-        
-        private double ColliGevraagdField;
-        
-        private string ControleNummerField;
-        
-        private double EenheidsHoeveelheidField;
-        
-        private string EindLocatieNrField;
-        
-        private long IdField;
-        
-        private string IdnrField;
-        
-        private string LocatieNrDisplayField;
-        
-        private string MESLocatieField;
-        
-        private string PalletNummerNaarField;
-        
-        private string[] PalletNummerReedsVerzameldField;
-        
-        private string PalletNummerVanField;
-        
-        private int PosField;
-        
-        private int ProcesVolgNummerField;
-        
-        private int ProductNummerField;
-        
-        private int ProductieOrderNummerField;
-        
-        private string RetournummerField;
-        
-        private string StatusField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AantalColli
-        {
-            get
-            {
-                return this.AantalColliField;
-            }
-            set
-            {
-                this.AantalColliField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double AantalGepickt
-        {
-            get
-            {
-                return this.AantalGepicktField;
-            }
-            set
-            {
-                this.AantalGepicktField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long AanvoerOpdrachtId
-        {
-            get
-            {
-                return this.AanvoerOpdrachtIdField;
-            }
-            set
-            {
-                this.AanvoerOpdrachtIdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ArtikelKenmerken
-        {
-            get
-            {
-                return this.ArtikelKenmerkenField;
-            }
-            set
-            {
-                this.ArtikelKenmerkenField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ArtikelNaam
-        {
-            get
-            {
-                return this.ArtikelNaamField;
-            }
-            set
-            {
-                this.ArtikelNaamField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ArtikelNummer
-        {
-            get
-            {
-                return this.ArtikelNummerField;
-            }
-            set
-            {
-                this.ArtikelNummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BeginLocatieNr
-        {
-            get
-            {
-                return this.BeginLocatieNrField;
-            }
-            set
-            {
-                this.BeginLocatieNrField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ColliGepickt
-        {
-            get
-            {
-                return this.ColliGepicktField;
-            }
-            set
-            {
-                this.ColliGepicktField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double ColliGevraagd
-        {
-            get
-            {
-                return this.ColliGevraagdField;
-            }
-            set
-            {
-                this.ColliGevraagdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ControleNummer
-        {
-            get
-            {
-                return this.ControleNummerField;
-            }
-            set
-            {
-                this.ControleNummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double EenheidsHoeveelheid
-        {
-            get
-            {
-                return this.EenheidsHoeveelheidField;
-            }
-            set
-            {
-                this.EenheidsHoeveelheidField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EindLocatieNr
-        {
-            get
-            {
-                return this.EindLocatieNrField;
-            }
-            set
-            {
-                this.EindLocatieNrField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Id
-        {
-            get
-            {
-                return this.IdField;
-            }
-            set
-            {
-                this.IdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Idnr
-        {
-            get
-            {
-                return this.IdnrField;
-            }
-            set
-            {
-                this.IdnrField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LocatieNrDisplay
-        {
-            get
-            {
-                return this.LocatieNrDisplayField;
-            }
-            set
-            {
-                this.LocatieNrDisplayField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MESLocatie
-        {
-            get
-            {
-                return this.MESLocatieField;
-            }
-            set
-            {
-                this.MESLocatieField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PalletNummerNaar
-        {
-            get
-            {
-                return this.PalletNummerNaarField;
-            }
-            set
-            {
-                this.PalletNummerNaarField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] PalletNummerReedsVerzameld
-        {
-            get
-            {
-                return this.PalletNummerReedsVerzameldField;
-            }
-            set
-            {
-                this.PalletNummerReedsVerzameldField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PalletNummerVan
-        {
-            get
-            {
-                return this.PalletNummerVanField;
-            }
-            set
-            {
-                this.PalletNummerVanField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Pos
-        {
-            get
-            {
-                return this.PosField;
-            }
-            set
-            {
-                this.PosField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ProcesVolgNummer
-        {
-            get
-            {
-                return this.ProcesVolgNummerField;
-            }
-            set
-            {
-                this.ProcesVolgNummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ProductNummer
-        {
-            get
-            {
-                return this.ProductNummerField;
-            }
-            set
-            {
-                this.ProductNummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ProductieOrderNummer
-        {
-            get
-            {
-                return this.ProductieOrderNummerField;
-            }
-            set
-            {
-                this.ProductieOrderNummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Retournummer
-        {
-            get
-            {
-                return this.RetournummerField;
-            }
-            set
-            {
-                this.RetournummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Status
-        {
-            get
-            {
-                return this.StatusField;
-            }
-            set
-            {
-                this.StatusField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfArrayOfPalletEindcontrole5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class ResultaatOfArrayOfPalletEindcontrole5SlwlhPY : object
-    {
-        
-        private string FoutmeldingField;
-        
-        private bool IsValideField;
-        
-        private TruckWebService.PalletEindcontrole[] ResultaatObjectField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Foutmelding
-        {
-            get
-            {
-                return this.FoutmeldingField;
-            }
-            set
-            {
-                this.FoutmeldingField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsValide
-        {
-            get
-            {
-                return this.IsValideField;
-            }
-            set
-            {
-                this.IsValideField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TruckWebService.PalletEindcontrole[] ResultaatObject
-        {
-            get
-            {
-                return this.ResultaatObjectField;
-            }
-            set
-            {
-                this.ResultaatObjectField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PalletEindcontrole", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class PalletEindcontrole : object
-    {
-        
-        private System.Nullable<double> AantalColliField;
-        
-        private string AreanaamField;
-        
-        private int AreanummerField;
-        
-        private string LijnNaamField;
-        
-        private int LijnNummerField;
-        
-        private string LocatieNummerField;
-        
-        private string LocatieNummerForDisplayShortField;
-        
-        private string PalletnummerField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> AantalColli
-        {
-            get
-            {
-                return this.AantalColliField;
-            }
-            set
-            {
-                this.AantalColliField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Areanaam
-        {
-            get
-            {
-                return this.AreanaamField;
-            }
-            set
-            {
-                this.AreanaamField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Areanummer
-        {
-            get
-            {
-                return this.AreanummerField;
-            }
-            set
-            {
-                this.AreanummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LijnNaam
-        {
-            get
-            {
-                return this.LijnNaamField;
-            }
-            set
-            {
-                this.LijnNaamField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int LijnNummer
-        {
-            get
-            {
-                return this.LijnNummerField;
-            }
-            set
-            {
-                this.LijnNummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LocatieNummer
-        {
-            get
-            {
-                return this.LocatieNummerField;
-            }
-            set
-            {
-                this.LocatieNummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LocatieNummerForDisplayShort
-        {
-            get
-            {
-                return this.LocatieNummerForDisplayShortField;
-            }
-            set
-            {
-                this.LocatieNummerForDisplayShortField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Palletnummer
-        {
-            get
-            {
-                return this.PalletnummerField;
-            }
-            set
-            {
-                this.PalletnummerField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Fabriekslocatie", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class Fabriekslocatie : object
-    {
-        
-        private string ArtikelPalletField;
-        
-        private string CodeField;
-        
-        private string EindlocatieField;
-        
-        private string NaamField;
-        
-        private int ProcesssegmentnumberField;
-        
-        private string ZoneCodeNrField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ArtikelPallet
-        {
-            get
-            {
-                return this.ArtikelPalletField;
-            }
-            set
-            {
-                this.ArtikelPalletField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Code
-        {
-            get
-            {
-                return this.CodeField;
-            }
-            set
-            {
-                this.CodeField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Eindlocatie
-        {
-            get
-            {
-                return this.EindlocatieField;
-            }
-            set
-            {
-                this.EindlocatieField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Naam
-        {
-            get
-            {
-                return this.NaamField;
-            }
-            set
-            {
-                this.NaamField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Processsegmentnumber
-        {
-            get
-            {
-                return this.ProcesssegmentnumberField;
-            }
-            set
-            {
-                this.ProcesssegmentnumberField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ZoneCodeNr
-        {
-            get
-            {
-                return this.ZoneCodeNrField;
-            }
-            set
-            {
-                this.ZoneCodeNrField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfArrayOfOntvangstOrder5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class ResultaatOfArrayOfOntvangstOrder5SlwlhPY : object
-    {
-        
-        private string FoutmeldingField;
-        
-        private bool IsValideField;
-        
-        private TruckWebService.OntvangstOrder[] ResultaatObjectField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Foutmelding
-        {
-            get
-            {
-                return this.FoutmeldingField;
-            }
-            set
-            {
-                this.FoutmeldingField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsValide
-        {
-            get
-            {
-                return this.IsValideField;
-            }
-            set
-            {
-                this.IsValideField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TruckWebService.OntvangstOrder[] ResultaatObject
-        {
-            get
-            {
-                return this.ResultaatObjectField;
-            }
-            set
-            {
-                this.ResultaatObjectField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OntvangstOrder", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class OntvangstOrder : object
-    {
-        
-        private bool AdviesPBMField;
-        
-        private string ArtikelnaamField;
-        
-        private string ArtikelnrField;
-        
-        private System.Nullable<int> BesteldAantalField;
-        
-        private string InkoopordernrField;
-        
-        private string LeverancierField;
-        
-        private string MonsternameField;
-        
-        private string MonsternameExtraField;
-        
-        private string OntvangstordernrField;
-        
-        private string OrdervolgnrField;
-        
-        private string StatusField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool AdviesPBM
-        {
-            get
-            {
-                return this.AdviesPBMField;
-            }
-            set
-            {
-                this.AdviesPBMField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Artikelnaam
-        {
-            get
-            {
-                return this.ArtikelnaamField;
-            }
-            set
-            {
-                this.ArtikelnaamField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Artikelnr
-        {
-            get
-            {
-                return this.ArtikelnrField;
-            }
-            set
-            {
-                this.ArtikelnrField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> BesteldAantal
-        {
-            get
-            {
-                return this.BesteldAantalField;
-            }
-            set
-            {
-                this.BesteldAantalField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Inkoopordernr
-        {
-            get
-            {
-                return this.InkoopordernrField;
-            }
-            set
-            {
-                this.InkoopordernrField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Leverancier
-        {
-            get
-            {
-                return this.LeverancierField;
-            }
-            set
-            {
-                this.LeverancierField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Monstername
-        {
-            get
-            {
-                return this.MonsternameField;
-            }
-            set
-            {
-                this.MonsternameField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MonsternameExtra
-        {
-            get
-            {
-                return this.MonsternameExtraField;
-            }
-            set
-            {
-                this.MonsternameExtraField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ontvangstordernr
-        {
-            get
-            {
-                return this.OntvangstordernrField;
-            }
-            set
-            {
-                this.OntvangstordernrField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ordervolgnr
-        {
-            get
-            {
-                return this.OrdervolgnrField;
-            }
-            set
-            {
-                this.OrdervolgnrField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Status
-        {
-            get
-            {
-                return this.StatusField;
-            }
-            set
-            {
-                this.StatusField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V : object
-    {
-        
-        private string FoutmeldingField;
-        
-        private bool IsValideField;
-        
-        private TruckWebService.OntvangstregistratiePallet[] ResultaatObjectField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Foutmelding
-        {
-            get
-            {
-                return this.FoutmeldingField;
-            }
-            set
-            {
-                this.FoutmeldingField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsValide
-        {
-            get
-            {
-                return this.IsValideField;
-            }
-            set
-            {
-                this.IsValideField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TruckWebService.OntvangstregistratiePallet[] ResultaatObject
-        {
-            get
-            {
-                return this.ResultaatObjectField;
-            }
-            set
-            {
-                this.ResultaatObjectField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OntvangstregistratiePallet", Namespace="http://schemas.datacontract.org/2004/07/ICT.Les.Entities.Custom")]
-    public partial class OntvangstregistratiePallet : object
-    {
-        
-        private string ArtikelZoneField;
-        
-        private System.Nullable<int> ColliaantalField;
-        
-        private bool GS1ScanField;
-        
-        private string GTINBronField;
-        
-        private System.Collections.Generic.KeyValuePair<string, string>[] Gs1CodesField;
-        
-        private string IdNrField;
-        
-        private bool IsNieuwField;
-        
-        private string LastdragerNrField;
-        
-        private string LastdragerNrEnNaamField;
-        
-        private string LotnummerField;
-        
-        private bool MonstergenomenField;
-        
-        private bool MonsternameTonenField;
-        
-        private string OntvangstordernrField;
-        
-        private System.Nullable<long> OntvangstregistratieIdField;
-        
-        private System.Nullable<int> PalletbreedteField;
-        
-        private System.Nullable<int> PallethoogteField;
-        
-        private System.Nullable<int> PallethoogteBerekendField;
-        
-        private string PalletnrField;
-        
-        private System.Nullable<System.DateTime> ProductiedatumField;
-        
-        private System.Nullable<int> SlagField;
-        
-        private System.Nullable<System.DateTime> ThtdatumField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ArtikelZone
-        {
-            get
-            {
-                return this.ArtikelZoneField;
-            }
-            set
-            {
-                this.ArtikelZoneField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Colliaantal
-        {
-            get
-            {
-                return this.ColliaantalField;
-            }
-            set
-            {
-                this.ColliaantalField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool GS1Scan
-        {
-            get
-            {
-                return this.GS1ScanField;
-            }
-            set
-            {
-                this.GS1ScanField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string GTINBron
-        {
-            get
-            {
-                return this.GTINBronField;
-            }
-            set
-            {
-                this.GTINBronField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.KeyValuePair<string, string>[] Gs1Codes
-        {
-            get
-            {
-                return this.Gs1CodesField;
-            }
-            set
-            {
-                this.Gs1CodesField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IdNr
-        {
-            get
-            {
-                return this.IdNrField;
-            }
-            set
-            {
-                this.IdNrField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsNieuw
-        {
-            get
-            {
-                return this.IsNieuwField;
-            }
-            set
-            {
-                this.IsNieuwField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LastdragerNr
-        {
-            get
-            {
-                return this.LastdragerNrField;
-            }
-            set
-            {
-                this.LastdragerNrField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LastdragerNrEnNaam
-        {
-            get
-            {
-                return this.LastdragerNrEnNaamField;
-            }
-            set
-            {
-                this.LastdragerNrEnNaamField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Lotnummer
-        {
-            get
-            {
-                return this.LotnummerField;
-            }
-            set
-            {
-                this.LotnummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Monstergenomen
-        {
-            get
-            {
-                return this.MonstergenomenField;
-            }
-            set
-            {
-                this.MonstergenomenField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool MonsternameTonen
-        {
-            get
-            {
-                return this.MonsternameTonenField;
-            }
-            set
-            {
-                this.MonsternameTonenField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ontvangstordernr
-        {
-            get
-            {
-                return this.OntvangstordernrField;
-            }
-            set
-            {
-                this.OntvangstordernrField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<long> OntvangstregistratieId
-        {
-            get
-            {
-                return this.OntvangstregistratieIdField;
-            }
-            set
-            {
-                this.OntvangstregistratieIdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Palletbreedte
-        {
-            get
-            {
-                return this.PalletbreedteField;
-            }
-            set
-            {
-                this.PalletbreedteField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Pallethoogte
-        {
-            get
-            {
-                return this.PallethoogteField;
-            }
-            set
-            {
-                this.PallethoogteField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> PallethoogteBerekend
-        {
-            get
-            {
-                return this.PallethoogteBerekendField;
-            }
-            set
-            {
-                this.PallethoogteBerekendField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Palletnr
-        {
-            get
-            {
-                return this.PalletnrField;
-            }
-            set
-            {
-                this.PalletnrField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> Productiedatum
-        {
-            get
-            {
-                return this.ProductiedatumField;
-            }
-            set
-            {
-                this.ProductiedatumField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Slag
-        {
-            get
-            {
-                return this.SlagField;
-            }
-            set
-            {
-                this.SlagField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> Thtdatum
-        {
-            get
-            {
-                return this.ThtdatumField;
-            }
-            set
-            {
-                this.ThtdatumField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfOntvangstregistratiePalletay1Gw99V", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class ResultaatOfOntvangstregistratiePalletay1Gw99V : object
-    {
-        
-        private string FoutmeldingField;
-        
-        private bool IsValideField;
-        
-        private TruckWebService.OntvangstregistratiePallet ResultaatObjectField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Foutmelding
-        {
-            get
-            {
-                return this.FoutmeldingField;
-            }
-            set
-            {
-                this.FoutmeldingField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsValide
-        {
-            get
-            {
-                return this.IsValideField;
-            }
-            set
-            {
-                this.IsValideField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TruckWebService.OntvangstregistratiePallet ResultaatObject
-        {
-            get
-            {
-                return this.ResultaatObjectField;
-            }
-            set
-            {
-                this.ResultaatObjectField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfArrayOfLastdragerDC5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class ResultaatOfArrayOfLastdragerDC5SlwlhPY : object
-    {
-        
-        private string FoutmeldingField;
-        
-        private bool IsValideField;
-        
-        private TruckWebService.LastdragerDC[] ResultaatObjectField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Foutmelding
-        {
-            get
-            {
-                return this.FoutmeldingField;
-            }
-            set
-            {
-                this.FoutmeldingField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsValide
-        {
-            get
-            {
-                return this.IsValideField;
-            }
-            set
-            {
-                this.IsValideField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TruckWebService.LastdragerDC[] ResultaatObject
-        {
-            get
-            {
-                return this.ResultaatObjectField;
-            }
-            set
-            {
-                this.ResultaatObjectField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="LastdragerDC", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class LastdragerDC : object
-    {
-        
-        private string LastdragerNaamField;
-        
-        private string LastdragerNrField;
-        
-        private string LastdragerNrEnNaamField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LastdragerNaam
-        {
-            get
-            {
-                return this.LastdragerNaamField;
-            }
-            set
-            {
-                this.LastdragerNaamField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LastdragerNr
-        {
-            get
-            {
-                return this.LastdragerNrField;
-            }
-            set
-            {
-                this.LastdragerNrField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LastdragerNrEnNaam
-        {
-            get
-            {
-                return this.LastdragerNrEnNaamField;
-            }
-            set
-            {
-                this.LastdragerNrEnNaamField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfstring", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class ResultaatOfstring : object
-    {
-        
-        private string FoutmeldingField;
-        
-        private bool IsValideField;
-        
-        private string ResultaatObjectField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Foutmelding
-        {
-            get
-            {
-                return this.FoutmeldingField;
-            }
-            set
-            {
-                this.FoutmeldingField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsValide
-        {
-            get
-            {
-                return this.IsValideField;
-            }
-            set
-            {
-                this.IsValideField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ResultaatObject
-        {
-            get
-            {
-                return this.ResultaatObjectField;
-            }
-            set
-            {
-                this.ResultaatObjectField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfPalletInfo5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class ResultaatOfPalletInfo5SlwlhPY : object
-    {
-        
-        private string FoutmeldingField;
-        
-        private bool IsValideField;
-        
-        private TruckWebService.PalletInfo ResultaatObjectField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Foutmelding
-        {
-            get
-            {
-                return this.FoutmeldingField;
-            }
-            set
-            {
-                this.FoutmeldingField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsValide
-        {
-            get
-            {
-                return this.IsValideField;
-            }
-            set
-            {
-                this.IsValideField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TruckWebService.PalletInfo ResultaatObject
-        {
-            get
-            {
-                return this.ResultaatObjectField;
-            }
-            set
-            {
-                this.ResultaatObjectField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfArrayOfGrondstofVoorraad5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class ResultaatOfArrayOfGrondstofVoorraad5SlwlhPY : object
-    {
-        
-        private string FoutmeldingField;
-        
-        private bool IsValideField;
-        
-        private TruckWebService.GrondstofVoorraad[] ResultaatObjectField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Foutmelding
-        {
-            get
-            {
-                return this.FoutmeldingField;
-            }
-            set
-            {
-                this.FoutmeldingField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsValide
-        {
-            get
-            {
-                return this.IsValideField;
-            }
-            set
-            {
-                this.IsValideField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TruckWebService.GrondstofVoorraad[] ResultaatObject
-        {
-            get
-            {
-                return this.ResultaatObjectField;
-            }
-            set
-            {
-                this.ResultaatObjectField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GrondstofVoorraad", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class GrondstofVoorraad : object
-    {
-        
-        private string ArtikelNaamField;
-        
-        private string ArtikelNummerField;
-        
-        private string ProductNummerField;
-        
-        private int TotaalColliBeschikbaarField;
-        
-        private int TotaalColliGevraagdField;
-        
-        private int TotaalColliInQuarantaineField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ArtikelNaam
-        {
-            get
-            {
-                return this.ArtikelNaamField;
-            }
-            set
-            {
-                this.ArtikelNaamField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ArtikelNummer
-        {
-            get
-            {
-                return this.ArtikelNummerField;
-            }
-            set
-            {
-                this.ArtikelNummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ProductNummer
-        {
-            get
-            {
-                return this.ProductNummerField;
-            }
-            set
-            {
-                this.ProductNummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TotaalColliBeschikbaar
-        {
-            get
-            {
-                return this.TotaalColliBeschikbaarField;
-            }
-            set
-            {
-                this.TotaalColliBeschikbaarField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TotaalColliGevraagd
-        {
-            get
-            {
-                return this.TotaalColliGevraagdField;
-            }
-            set
-            {
-                this.TotaalColliGevraagdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TotaalColliInQuarantaine
-        {
-            get
-            {
-                return this.TotaalColliInQuarantaineField;
-            }
-            set
-            {
-                this.TotaalColliInQuarantaineField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LoginResultaat", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
     public partial class LoginResultaat : object
     {
@@ -6244,140 +6826,6 @@ namespace TruckWebService
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfScanResultaat5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class ResultaatOfScanResultaat5SlwlhPY : object
-    {
-        
-        private string FoutmeldingField;
-        
-        private bool IsValideField;
-        
-        private TruckWebService.ScanResultaat ResultaatObjectField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Foutmelding
-        {
-            get
-            {
-                return this.FoutmeldingField;
-            }
-            set
-            {
-                this.FoutmeldingField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsValide
-        {
-            get
-            {
-                return this.IsValideField;
-            }
-            set
-            {
-                this.IsValideField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TruckWebService.ScanResultaat ResultaatObject
-        {
-            get
-            {
-                return this.ResultaatObjectField;
-            }
-            set
-            {
-                this.ResultaatObjectField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ScanResultaat", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class ScanResultaat : object
-    {
-        
-        private bool AanvulopdrachtVerzondenField;
-        
-        private int BeschikbaarAantalField;
-        
-        private string GescandOrderregelNummerField;
-        
-        private bool IsDecoArtikelField;
-        
-        private bool OrderregelCompleetField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool AanvulopdrachtVerzonden
-        {
-            get
-            {
-                return this.AanvulopdrachtVerzondenField;
-            }
-            set
-            {
-                this.AanvulopdrachtVerzondenField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int BeschikbaarAantal
-        {
-            get
-            {
-                return this.BeschikbaarAantalField;
-            }
-            set
-            {
-                this.BeschikbaarAantalField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string GescandOrderregelNummer
-        {
-            get
-            {
-                return this.GescandOrderregelNummerField;
-            }
-            set
-            {
-                this.GescandOrderregelNummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsDecoArtikel
-        {
-            get
-            {
-                return this.IsDecoArtikelField;
-            }
-            set
-            {
-                this.IsDecoArtikelField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool OrderregelCompleet
-        {
-            get
-            {
-                return this.OrderregelCompleetField;
-            }
-            set
-            {
-                this.OrderregelCompleetField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SimpleItem", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
     public partial class SimpleItem : object
     {
@@ -6976,283 +7424,6 @@ namespace TruckWebService
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OrderAanvoerOpdracht", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class OrderAanvoerOpdracht : object
-    {
-        
-        private int AantalField;
-        
-        private long AanvoerOpdrachtIdField;
-        
-        private string AreaNaamField;
-        
-        private int AreaNummerField;
-        
-        private double ColliAantalField;
-        
-        private System.DateTime DatumGeplandField;
-        
-        private double EenheidsHoeveelheidField;
-        
-        private bool GestartField;
-        
-        private string LijnNaamField;
-        
-        private int LijnNummerField;
-        
-        private string LotCodeField;
-        
-        private int LotVolgNummerField;
-        
-        private TruckWebService.OrderAanvoerOpdrachtRegel[] OrderAanvoerOpdrachtRegelsField;
-        
-        private string ProductNaamField;
-        
-        private int ProductNummerField;
-        
-        private int ProductieOrderNummerField;
-        
-        private string StatusField;
-        
-        private double VolgNummerField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Aantal
-        {
-            get
-            {
-                return this.AantalField;
-            }
-            set
-            {
-                this.AantalField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long AanvoerOpdrachtId
-        {
-            get
-            {
-                return this.AanvoerOpdrachtIdField;
-            }
-            set
-            {
-                this.AanvoerOpdrachtIdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AreaNaam
-        {
-            get
-            {
-                return this.AreaNaamField;
-            }
-            set
-            {
-                this.AreaNaamField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AreaNummer
-        {
-            get
-            {
-                return this.AreaNummerField;
-            }
-            set
-            {
-                this.AreaNummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double ColliAantal
-        {
-            get
-            {
-                return this.ColliAantalField;
-            }
-            set
-            {
-                this.ColliAantalField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime DatumGepland
-        {
-            get
-            {
-                return this.DatumGeplandField;
-            }
-            set
-            {
-                this.DatumGeplandField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double EenheidsHoeveelheid
-        {
-            get
-            {
-                return this.EenheidsHoeveelheidField;
-            }
-            set
-            {
-                this.EenheidsHoeveelheidField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Gestart
-        {
-            get
-            {
-                return this.GestartField;
-            }
-            set
-            {
-                this.GestartField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LijnNaam
-        {
-            get
-            {
-                return this.LijnNaamField;
-            }
-            set
-            {
-                this.LijnNaamField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int LijnNummer
-        {
-            get
-            {
-                return this.LijnNummerField;
-            }
-            set
-            {
-                this.LijnNummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LotCode
-        {
-            get
-            {
-                return this.LotCodeField;
-            }
-            set
-            {
-                this.LotCodeField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int LotVolgNummer
-        {
-            get
-            {
-                return this.LotVolgNummerField;
-            }
-            set
-            {
-                this.LotVolgNummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TruckWebService.OrderAanvoerOpdrachtRegel[] OrderAanvoerOpdrachtRegels
-        {
-            get
-            {
-                return this.OrderAanvoerOpdrachtRegelsField;
-            }
-            set
-            {
-                this.OrderAanvoerOpdrachtRegelsField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ProductNaam
-        {
-            get
-            {
-                return this.ProductNaamField;
-            }
-            set
-            {
-                this.ProductNaamField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ProductNummer
-        {
-            get
-            {
-                return this.ProductNummerField;
-            }
-            set
-            {
-                this.ProductNummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ProductieOrderNummer
-        {
-            get
-            {
-                return this.ProductieOrderNummerField;
-            }
-            set
-            {
-                this.ProductieOrderNummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Status
-        {
-            get
-            {
-                return this.StatusField;
-            }
-            set
-            {
-                this.StatusField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double VolgNummer
-        {
-            get
-            {
-                return this.VolgNummerField;
-            }
-            set
-            {
-                this.VolgNummerField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfLocatieAanvoerOpdracht5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
     public partial class ResultaatOfLocatieAanvoerOpdracht5SlwlhPY : object
     {
@@ -7422,166 +7593,296 @@ namespace TruckWebService
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfArrayOfstringuHEDJ7Dj", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class ResultaatOfArrayOfstringuHEDJ7Dj : object
-    {
-        
-        private string FoutmeldingField;
-        
-        private bool IsValideField;
-        
-        private string[] ResultaatObjectField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Foutmelding
-        {
-            get
-            {
-                return this.FoutmeldingField;
-            }
-            set
-            {
-                this.FoutmeldingField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsValide
-        {
-            get
-            {
-                return this.IsValideField;
-            }
-            set
-            {
-                this.IsValideField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] ResultaatObject
-        {
-            get
-            {
-                return this.ResultaatObjectField;
-            }
-            set
-            {
-                this.ResultaatObjectField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfArrayOfintuHEDJ7Dj", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class ResultaatOfArrayOfintuHEDJ7Dj : object
-    {
-        
-        private string FoutmeldingField;
-        
-        private bool IsValideField;
-        
-        private int[] ResultaatObjectField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Foutmelding
-        {
-            get
-            {
-                return this.FoutmeldingField;
-            }
-            set
-            {
-                this.FoutmeldingField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsValide
-        {
-            get
-            {
-                return this.IsValideField;
-            }
-            set
-            {
-                this.IsValideField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int[] ResultaatObject
-        {
-            get
-            {
-                return this.ResultaatObjectField;
-            }
-            set
-            {
-                this.ResultaatObjectField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResultaatOfGTMGebiedInfo5SlwlhPY", Namespace="http://schemas.datacontract.org/2004/07/MLSWebServices.DataContracts")]
-    public partial class ResultaatOfGTMGebiedInfo5SlwlhPY : object
-    {
-        
-        private string FoutmeldingField;
-        
-        private bool IsValideField;
-        
-        private TruckWebService.GTMGebiedInfo ResultaatObjectField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Foutmelding
-        {
-            get
-            {
-                return this.FoutmeldingField;
-            }
-            set
-            {
-                this.FoutmeldingField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsValide
-        {
-            get
-            {
-                return this.IsValideField;
-            }
-            set
-            {
-                this.IsValideField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TruckWebService.GTMGebiedInfo ResultaatObject
-        {
-            get
-            {
-                return this.ResultaatObjectField;
-            }
-            set
-            {
-                this.ResultaatObjectField = value;
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TruckWebService.ITruckWebService")]
     public interface ITruckWebService
     {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkRestverpakkingsregel", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkRestverpakkingsregelResponse")]
+        TruckWebService.Resultaat VerwerkRestverpakkingsregel(TruckWebService.OrderAanvoerOpdrachtRegel regel, string scan, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkRestverpakkingsregel", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkRestverpakkingsregelResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkRestverpakkingsregelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel, string scan, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkenScanZegelnummer", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkenScanZegelnummerResponse")]
+        TruckWebService.Resultaat VerwerkenScanZegelnummer(string zegelNr, string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkenScanZegelnummer", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkenScanZegelnummerResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkenScanZegelnummerAsync(string zegelNr, string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGmagEindcontrolePallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefGmagEindcontrolePalletsResponse")]
+        TruckWebService.ResultaatOfArrayOfPalletEindcontrole5SlwlhPY GeefGmagEindcontrolePallets();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGmagEindcontrolePallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefGmagEindcontrolePalletsResponse")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfPalletEindcontrole5SlwlhPY> GeefGmagEindcontrolePalletsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefFabriekslocatiesBijEindcontrolePallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefFabriekslocatiesBijEindcontrolePalletsRes" +
+            "ponse")]
+        TruckWebService.Fabriekslocatie[] GeefFabriekslocatiesBijEindcontrolePallets();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefFabriekslocatiesBijEindcontrolePallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefFabriekslocatiesBijEindcontrolePalletsRes" +
+            "ponse")]
+        System.Threading.Tasks.Task<TruckWebService.Fabriekslocatie[]> GeefFabriekslocatiesBijEindcontrolePalletsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefTeVerwerkenOntvangstorders", ReplyAction="http://tempuri.org/ITruckWebService/GeefTeVerwerkenOntvangstordersResponse")]
+        TruckWebService.ResultaatOfArrayOfOntvangstOrder5SlwlhPY GeefTeVerwerkenOntvangstorders(string gebiedcode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefTeVerwerkenOntvangstorders", ReplyAction="http://tempuri.org/ITruckWebService/GeefTeVerwerkenOntvangstordersResponse")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfOntvangstOrder5SlwlhPY> GeefTeVerwerkenOntvangstordersAsync(string gebiedcode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/KoppelenTruckRun", ReplyAction="http://tempuri.org/ITruckWebService/KoppelenTruckRunResponse")]
+        TruckWebService.Resultaat KoppelenTruckRun(string runvolgnr, string trucknr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/KoppelenTruckRun", ReplyAction="http://tempuri.org/ITruckWebService/KoppelenTruckRunResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> KoppelenTruckRunAsync(string runvolgnr, string trucknr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OntkoppelenTruckRun", ReplyAction="http://tempuri.org/ITruckWebService/OntkoppelenTruckRunResponse")]
+        TruckWebService.Resultaat OntkoppelenTruckRun(string runvolgnr, string trucknr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OntkoppelenTruckRun", ReplyAction="http://tempuri.org/ITruckWebService/OntkoppelenTruckRunResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> OntkoppelenTruckRunAsync(string runvolgnr, string trucknr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/StartenOntvangstorderResponse")]
+        TruckWebService.Resultaat StartenOntvangstorder(string ontvangstordernummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/StartenOntvangstorderResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> StartenOntvangstorderAsync(string ontvangstordernummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AanmakenOntvangstorderPallets", ReplyAction="http://tempuri.org/ITruckWebService/AanmakenOntvangstorderPalletsResponse")]
+        TruckWebService.Resultaat AanmakenOntvangstorderPallets(string gebiedcode, string ontvangstordernummer, int aantalPallets);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AanmakenOntvangstorderPallets", ReplyAction="http://tempuri.org/ITruckWebService/AanmakenOntvangstorderPalletsResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> AanmakenOntvangstorderPalletsAsync(string gebiedcode, string ontvangstordernummer, int aantalPallets);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOntvangstorderPallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefOntvangstorderPalletsResponse")]
+        TruckWebService.ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V GeefOntvangstorderPallets(string ontvangstordernummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOntvangstorderPallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefOntvangstorderPalletsResponse")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstorderPalletsAsync(string ontvangstordernummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OnderbrekenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/OnderbrekenOntvangstorderResponse")]
+        TruckWebService.Resultaat OnderbrekenOntvangstorder(string ontvangstordernummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OnderbrekenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/OnderbrekenOntvangstorderResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> OnderbrekenOntvangstorderAsync(string ontvangstordernummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOntvangstregistratiePallet", ReplyAction="http://tempuri.org/ITruckWebService/GeefOntvangstregistratiePalletResponse")]
+        TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V GeefOntvangstregistratiePallet(string ontvangstordernummer, string palletnr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOntvangstregistratiePallet", ReplyAction="http://tempuri.org/ITruckWebService/GeefOntvangstregistratiePalletResponse")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstregistratiePalletAsync(string ontvangstordernummer, string palletnr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OpslaanOntvangstregistratiePallet", ReplyAction="http://tempuri.org/ITruckWebService/OpslaanOntvangstregistratiePalletResponse")]
+        TruckWebService.Resultaat OpslaanOntvangstregistratiePallet(TruckWebService.OntvangstregistratiePallet ontvangstregistratiePallet, string trucknr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OpslaanOntvangstregistratiePallet", ReplyAction="http://tempuri.org/ITruckWebService/OpslaanOntvangstregistratiePalletResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> OpslaanOntvangstregistratiePalletAsync(TruckWebService.OntvangstregistratiePallet ontvangstregistratiePallet, string trucknr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenOntvangstorderResponse")]
+        TruckWebService.Resultaat AfrondenOntvangstorder(string ontvangstordernummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenOntvangstorderResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> AfrondenOntvangstorderAsync(string ontvangstordernummer, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintOntvangstPalletLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintOntvangstPalletLabelResponse")]
+        TruckWebService.Resultaat PrintOntvangstPalletLabel(string palletnr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintOntvangstPalletLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintOntvangstPalletLabelResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintOntvangstPalletLabelAsync(string palletnr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintMonsterLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintMonsterLabelResponse")]
+        TruckWebService.Resultaat PrintMonsterLabel(string palletnr, string ontvangstOrdernr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintMonsterLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintMonsterLabelResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintMonsterLabelAsync(string palletnr, string ontvangstOrdernr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintLeggerSticker", ReplyAction="http://tempuri.org/ITruckWebService/PrintLeggerStickerResponse")]
+        TruckWebService.Resultaat PrintLeggerSticker(string palletnr, string ontvangstOrdernr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintLeggerSticker", ReplyAction="http://tempuri.org/ITruckWebService/PrintLeggerStickerResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintLeggerStickerAsync(string palletnr, string ontvangstOrdernr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkGS1LabelLeverancier", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkGS1LabelLeverancierResponse")]
+        TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V VerwerkGS1LabelLeverancier(string ontvangstordernummer, string palletnr, string labelCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkGS1LabelLeverancier", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkGS1LabelLeverancierResponse")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V> VerwerkGS1LabelLeverancierAsync(string ontvangstordernummer, string palletnr, string labelCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLastdragers", ReplyAction="http://tempuri.org/ITruckWebService/GeefLastdragersResponse")]
+        TruckWebService.ResultaatOfArrayOfLastdragerDC5SlwlhPY GeefLastdragers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLastdragers", ReplyAction="http://tempuri.org/ITruckWebService/GeefLastdragersResponse")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfLastdragerDC5SlwlhPY> GeefLastdragersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefNieuwPalletnummer", ReplyAction="http://tempuri.org/ITruckWebService/GeefNieuwPalletnummerResponse")]
+        TruckWebService.ResultaatOfstring GeefNieuwPalletnummer();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefNieuwPalletnummer", ReplyAction="http://tempuri.org/ITruckWebService/GeefNieuwPalletnummerResponse")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfstring> GeefNieuwPalletnummerAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/CheckPalletTelOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/CheckPalletTelOpdrachtResponse")]
+        TruckWebService.ResultaatOfPalletInfo5SlwlhPY CheckPalletTelOpdracht(string palletnummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/CheckPalletTelOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/CheckPalletTelOpdrachtResponse")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfPalletInfo5SlwlhPY> CheckPalletTelOpdrachtAsync(string palletnummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/BepaalGrondstofVoorraadVoorOpdrachten", ReplyAction="http://tempuri.org/ITruckWebService/BepaalGrondstofVoorraadVoorOpdrachtenResponse" +
+            "")]
+        TruckWebService.ResultaatOfArrayOfGrondstofVoorraad5SlwlhPY BepaalGrondstofVoorraadVoorOpdrachten(long[] opdrachtIds);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/BepaalGrondstofVoorraadVoorOpdrachten", ReplyAction="http://tempuri.org/ITruckWebService/BepaalGrondstofVoorraadVoorOpdrachtenResponse" +
+            "")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfGrondstofVoorraad5SlwlhPY> BepaalGrondstofVoorraadVoorOpdrachtenAsync(long[] opdrachtIds);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieOrderAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieOrderAanvoerOpdrachtResp" +
+            "onse")]
+        string PickpalletDoelLocatieOrderAanvoerOpdracht(string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieOrderAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieOrderAanvoerOpdrachtResp" +
+            "onse")]
+        System.Threading.Tasks.Task<string> PickpalletDoelLocatieOrderAanvoerOpdrachtAsync(string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamVerzamelAanvoerOpdra" +
+            "cht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamVerzamelAanvoerOpdra" +
+            "chtResponse")]
+        string PickpalletDoelLocatieNaamVerzamelAanvoerOpdracht(string palletNr, System.Nullable<int> productieorderNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamVerzamelAanvoerOpdra" +
+            "cht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamVerzamelAanvoerOpdra" +
+            "chtResponse")]
+        System.Threading.Tasks.Task<string> PickpalletDoelLocatieNaamVerzamelAanvoerOpdrachtAsync(string palletNr, System.Nullable<int> productieorderNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamOrderAanvoerOpdracht" +
+            "", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamOrderAanvoerOpdracht" +
+            "Response")]
+        string PickpalletDoelLocatieNaamOrderAanvoerOpdracht(string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamOrderAanvoerOpdracht" +
+            "", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamOrderAanvoerOpdracht" +
+            "Response")]
+        System.Threading.Tasks.Task<string> PickpalletDoelLocatieNaamOrderAanvoerOpdrachtAsync(string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachten", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtenResponse")]
+        TruckWebService.OrderAanvoerOpdracht[] GeefOrderAanvoerOpdrachten(long[] aanvoeropdrachtIds);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachten", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtenResponse")]
+        System.Threading.Tasks.Task<TruckWebService.OrderAanvoerOpdracht[]> GeefOrderAanvoerOpdrachtenAsync(long[] aanvoeropdrachtIds);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtRegels", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtRegelsResponse")]
+        TruckWebService.OrderAanvoerOpdrachtRegel[] GeefOrderAanvoerOpdrachtRegels(long[] aanvoeropdrachtId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtRegels", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtRegelsResponse")]
+        System.Threading.Tasks.Task<TruckWebService.OrderAanvoerOpdrachtRegel[]> GeefOrderAanvoerOpdrachtRegelsAsync(long[] aanvoeropdrachtId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartOrderAanvoerOpdrachtRegel", ReplyAction="http://tempuri.org/ITruckWebService/StartOrderAanvoerOpdrachtRegelResponse")]
+        TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY StartOrderAanvoerOpdrachtRegel(TruckWebService.OrderAanvoerOpdrachtRegel regel, string uitgezonderdPalletNr, string idnr, bool zoekVolgende, string pin, bool gtm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartOrderAanvoerOpdrachtRegel", ReplyAction="http://tempuri.org/ITruckWebService/StartOrderAanvoerOpdrachtRegelResponse")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY> StartOrderAanvoerOpdrachtRegelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel, string uitgezonderdPalletNr, string idnr, bool zoekVolgende, string pin, bool gtm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerOrderAanvoerOpdrachtRegel", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerOrderAanvoerOpdrachtRegelResponse")]
+        void AnnuleerOrderAanvoerOpdrachtRegel(TruckWebService.OrderAanvoerOpdrachtRegel regel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerOrderAanvoerOpdrachtRegel", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerOrderAanvoerOpdrachtRegelResponse")]
+        System.Threading.Tasks.Task AnnuleerOrderAanvoerOpdrachtRegelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenOrderAanvoeropdrachtRegelGmag", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenOrderAanvoeropdrachtRegelGmagResponse" +
+            "")]
+        TruckWebService.ResultaatOfScanResultaat5SlwlhPY AfrondenOrderAanvoeropdrachtRegelGmag(TruckWebService.OrderAanvoerOpdrachtRegel regel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenOrderAanvoeropdrachtRegelGmag", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenOrderAanvoeropdrachtRegelGmagResponse" +
+            "")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfScanResultaat5SlwlhPY> AfrondenOrderAanvoeropdrachtRegelGmagAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletAfrondenLocatieAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletAfrondenLocatieAanvoerOpdrachtRespo" +
+            "nse")]
+        void PickpalletAfrondenLocatieAanvoerOpdracht(string palletNr, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletAfrondenLocatieAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletAfrondenLocatieAanvoerOpdrachtRespo" +
+            "nse")]
+        System.Threading.Tasks.Task PickpalletAfrondenLocatieAanvoerOpdrachtAsync(string palletNr, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieLocatieAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieLocatieAanvoerOpdrachtRe" +
+            "sponse")]
+        string PickpalletDoelLocatieLocatieAanvoerOpdracht(string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieLocatieAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieLocatieAanvoerOpdrachtRe" +
+            "sponse")]
+        System.Threading.Tasks.Task<string> PickpalletDoelLocatieLocatieAanvoerOpdrachtAsync(string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatienaamLocatieAanvoerOpdrac" +
+            "ht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatienaamLocatieAanvoerOpdrac" +
+            "htResponse")]
+        string PickpalletDoelLocatienaamLocatieAanvoerOpdracht(string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatienaamLocatieAanvoerOpdrac" +
+            "ht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatienaamLocatieAanvoerOpdrac" +
+            "htResponse")]
+        System.Threading.Tasks.Task<string> PickpalletDoelLocatienaamLocatieAanvoerOpdrachtAsync(string palletNr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerPickpallet", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerPickpalletResponse")]
+        void AnnuleerPickpallet(string palletNr, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerPickpallet", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerPickpalletResponse")]
+        System.Threading.Tasks.Task AnnuleerPickpalletAsync(string palletNr, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/LabelPrintenLocatieAanvoerOpdrachtPallet", ReplyAction="http://tempuri.org/ITruckWebService/LabelPrintenLocatieAanvoerOpdrachtPalletRespo" +
+            "nse")]
+        bool LabelPrintenLocatieAanvoerOpdrachtPallet(System.Nullable<int> procesSegmentnummer, string locatieType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/LabelPrintenLocatieAanvoerOpdrachtPallet", ReplyAction="http://tempuri.org/ITruckWebService/LabelPrintenLocatieAanvoerOpdrachtPalletRespo" +
+            "nse")]
+        System.Threading.Tasks.Task<bool> LabelPrintenLocatieAanvoerOpdrachtPalletAsync(System.Nullable<int> procesSegmentnummer, string locatieType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieopdrachtDetailmenuSetting", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieopdrachtDetailmenuSettingResponse")]
+        TruckWebService.ResultaatOfArrayOfstringuHEDJ7Dj GeefLocatieopdrachtDetailmenuSetting();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieopdrachtDetailmenuSetting", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieopdrachtDetailmenuSettingResponse")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfstringuHEDJ7Dj> GeefLocatieopdrachtDetailmenuSettingAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderopdrachtRootProcessegmentnummers", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderopdrachtRootProcessegmentnummersResp" +
+            "onse")]
+        TruckWebService.ResultaatOfArrayOfintuHEDJ7Dj GeefOrderopdrachtRootProcessegmentnummers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderopdrachtRootProcessegmentnummers", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderopdrachtRootProcessegmentnummersResp" +
+            "onse")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfintuHEDJ7Dj> GeefOrderopdrachtRootProcessegmentnummersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefVrijeGTMGebieden", ReplyAction="http://tempuri.org/ITruckWebService/GeefVrijeGTMGebiedenResponse")]
+        TruckWebService.GTMGebiedInfo[] GeefVrijeGTMGebieden(string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefVrijeGTMGebieden", ReplyAction="http://tempuri.org/ITruckWebService/GeefVrijeGTMGebiedenResponse")]
+        System.Threading.Tasks.Task<TruckWebService.GTMGebiedInfo[]> GeefVrijeGTMGebiedenAsync(string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGTMGebiedVrij", ReplyAction="http://tempuri.org/ITruckWebService/GeefGTMGebiedVrijResponse")]
+        TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY GeefGTMGebiedVrij(long gebiedId, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGTMGebiedVrij", ReplyAction="http://tempuri.org/ITruckWebService/GeefGTMGebiedVrijResponse")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY> GeefGTMGebiedVrijAsync(long gebiedId, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/KoppelGTMGebied", ReplyAction="http://tempuri.org/ITruckWebService/KoppelGTMGebiedResponse")]
+        TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY KoppelGTMGebied(long gebiedId, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/KoppelGTMGebied", ReplyAction="http://tempuri.org/ITruckWebService/KoppelGTMGebiedResponse")]
+        System.Threading.Tasks.Task<TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY> KoppelGTMGebiedAsync(long gebiedId, string pincode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetGTMAanvoerverzoeken", ReplyAction="http://tempuri.org/ITruckWebService/ZetGTMAanvoerverzoekenResponse")]
+        TruckWebService.Resultaat ZetGTMAanvoerverzoeken(long[] aanvoeropdrachtIds, long gebiedId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetGTMAanvoerverzoeken", ReplyAction="http://tempuri.org/ITruckWebService/ZetGTMAanvoerverzoekenResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> ZetGTMAanvoerverzoekenAsync(long[] aanvoeropdrachtIds, long gebiedId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetGTMAfvoerverzoeken", ReplyAction="http://tempuri.org/ITruckWebService/ZetGTMAfvoerverzoekenResponse")]
+        TruckWebService.Resultaat ZetGTMAfvoerverzoeken(long gebiedId, bool alleRegels);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetGTMAfvoerverzoeken", ReplyAction="http://tempuri.org/ITruckWebService/ZetGTMAfvoerverzoekenResponse")]
+        System.Threading.Tasks.Task<TruckWebService.Resultaat> ZetGTMAfvoerverzoekenAsync(long gebiedId, bool alleRegels);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieStatusGTM", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieStatusGTMResponse")]
+        string GeefLocatieStatusGTM(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieStatusGTM", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieStatusGTMResponse")]
+        System.Threading.Tasks.Task<string> GeefLocatieStatusGTMAsync(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieInfoGTM", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieInfoGTMResponse")]
         TruckWebService.LocatieInfo GeefLocatieInfoGTM(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr);
@@ -7850,142 +8151,6 @@ namespace TruckWebService
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefEersteRestverpakkingsregel", ReplyAction="http://tempuri.org/ITruckWebService/GeefEersteRestverpakkingsregelResponse")]
         System.Threading.Tasks.Task<TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY> GeefEersteRestverpakkingsregelAsync(long[] orderaanvoeropdrachtids, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkRestverpakkingsregel", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkRestverpakkingsregelResponse")]
-        TruckWebService.Resultaat VerwerkRestverpakkingsregel(TruckWebService.OrderAanvoerOpdrachtRegel regel, string scan, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkRestverpakkingsregel", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkRestverpakkingsregelResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkRestverpakkingsregelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel, string scan, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkenScanZegelnummer", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkenScanZegelnummerResponse")]
-        TruckWebService.Resultaat VerwerkenScanZegelnummer(string zegelNr, string palletNr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkenScanZegelnummer", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkenScanZegelnummerResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkenScanZegelnummerAsync(string zegelNr, string palletNr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGmagEindcontrolePallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefGmagEindcontrolePalletsResponse")]
-        TruckWebService.ResultaatOfArrayOfPalletEindcontrole5SlwlhPY GeefGmagEindcontrolePallets();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGmagEindcontrolePallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefGmagEindcontrolePalletsResponse")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfPalletEindcontrole5SlwlhPY> GeefGmagEindcontrolePalletsAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefFabriekslocatiesBijEindcontrolePallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefFabriekslocatiesBijEindcontrolePalletsRes" +
-            "ponse")]
-        TruckWebService.Fabriekslocatie[] GeefFabriekslocatiesBijEindcontrolePallets();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefFabriekslocatiesBijEindcontrolePallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefFabriekslocatiesBijEindcontrolePalletsRes" +
-            "ponse")]
-        System.Threading.Tasks.Task<TruckWebService.Fabriekslocatie[]> GeefFabriekslocatiesBijEindcontrolePalletsAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefTeVerwerkenOntvangstorders", ReplyAction="http://tempuri.org/ITruckWebService/GeefTeVerwerkenOntvangstordersResponse")]
-        TruckWebService.ResultaatOfArrayOfOntvangstOrder5SlwlhPY GeefTeVerwerkenOntvangstorders(string gebiedcode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefTeVerwerkenOntvangstorders", ReplyAction="http://tempuri.org/ITruckWebService/GeefTeVerwerkenOntvangstordersResponse")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfOntvangstOrder5SlwlhPY> GeefTeVerwerkenOntvangstordersAsync(string gebiedcode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/KoppelenTruckRun", ReplyAction="http://tempuri.org/ITruckWebService/KoppelenTruckRunResponse")]
-        TruckWebService.Resultaat KoppelenTruckRun(string runvolgnr, string trucknr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/KoppelenTruckRun", ReplyAction="http://tempuri.org/ITruckWebService/KoppelenTruckRunResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> KoppelenTruckRunAsync(string runvolgnr, string trucknr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OntkoppelenTruckRun", ReplyAction="http://tempuri.org/ITruckWebService/OntkoppelenTruckRunResponse")]
-        TruckWebService.Resultaat OntkoppelenTruckRun(string runvolgnr, string trucknr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OntkoppelenTruckRun", ReplyAction="http://tempuri.org/ITruckWebService/OntkoppelenTruckRunResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> OntkoppelenTruckRunAsync(string runvolgnr, string trucknr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/StartenOntvangstorderResponse")]
-        TruckWebService.Resultaat StartenOntvangstorder(string ontvangstordernummer, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/StartenOntvangstorderResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> StartenOntvangstorderAsync(string ontvangstordernummer, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AanmakenOntvangstorderPallets", ReplyAction="http://tempuri.org/ITruckWebService/AanmakenOntvangstorderPalletsResponse")]
-        TruckWebService.Resultaat AanmakenOntvangstorderPallets(string gebiedcode, string ontvangstordernummer, int aantalPallets);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AanmakenOntvangstorderPallets", ReplyAction="http://tempuri.org/ITruckWebService/AanmakenOntvangstorderPalletsResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> AanmakenOntvangstorderPalletsAsync(string gebiedcode, string ontvangstordernummer, int aantalPallets);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOntvangstorderPallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefOntvangstorderPalletsResponse")]
-        TruckWebService.ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V GeefOntvangstorderPallets(string ontvangstordernummer);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOntvangstorderPallets", ReplyAction="http://tempuri.org/ITruckWebService/GeefOntvangstorderPalletsResponse")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstorderPalletsAsync(string ontvangstordernummer);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OnderbrekenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/OnderbrekenOntvangstorderResponse")]
-        TruckWebService.Resultaat OnderbrekenOntvangstorder(string ontvangstordernummer, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OnderbrekenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/OnderbrekenOntvangstorderResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> OnderbrekenOntvangstorderAsync(string ontvangstordernummer, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOntvangstregistratiePallet", ReplyAction="http://tempuri.org/ITruckWebService/GeefOntvangstregistratiePalletResponse")]
-        TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V GeefOntvangstregistratiePallet(string ontvangstordernummer, string palletnr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOntvangstregistratiePallet", ReplyAction="http://tempuri.org/ITruckWebService/GeefOntvangstregistratiePalletResponse")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstregistratiePalletAsync(string ontvangstordernummer, string palletnr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OpslaanOntvangstregistratiePallet", ReplyAction="http://tempuri.org/ITruckWebService/OpslaanOntvangstregistratiePalletResponse")]
-        TruckWebService.Resultaat OpslaanOntvangstregistratiePallet(TruckWebService.OntvangstregistratiePallet ontvangstregistratiePallet, string trucknr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/OpslaanOntvangstregistratiePallet", ReplyAction="http://tempuri.org/ITruckWebService/OpslaanOntvangstregistratiePalletResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> OpslaanOntvangstregistratiePalletAsync(TruckWebService.OntvangstregistratiePallet ontvangstregistratiePallet, string trucknr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenOntvangstorderResponse")]
-        TruckWebService.Resultaat AfrondenOntvangstorder(string ontvangstordernummer, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenOntvangstorder", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenOntvangstorderResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> AfrondenOntvangstorderAsync(string ontvangstordernummer, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintOntvangstPalletLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintOntvangstPalletLabelResponse")]
-        TruckWebService.Resultaat PrintOntvangstPalletLabel(string palletnr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintOntvangstPalletLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintOntvangstPalletLabelResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintOntvangstPalletLabelAsync(string palletnr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintMonsterLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintMonsterLabelResponse")]
-        TruckWebService.Resultaat PrintMonsterLabel(string palletnr, string ontvangstOrdernr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintMonsterLabel", ReplyAction="http://tempuri.org/ITruckWebService/PrintMonsterLabelResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintMonsterLabelAsync(string palletnr, string ontvangstOrdernr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintLeggerSticker", ReplyAction="http://tempuri.org/ITruckWebService/PrintLeggerStickerResponse")]
-        TruckWebService.Resultaat PrintLeggerSticker(string palletnr, string ontvangstOrdernr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PrintLeggerSticker", ReplyAction="http://tempuri.org/ITruckWebService/PrintLeggerStickerResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintLeggerStickerAsync(string palletnr, string ontvangstOrdernr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkGS1LabelLeverancier", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkGS1LabelLeverancierResponse")]
-        TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V VerwerkGS1LabelLeverancier(string ontvangstordernummer, string palletnr, string labelCode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/VerwerkGS1LabelLeverancier", ReplyAction="http://tempuri.org/ITruckWebService/VerwerkGS1LabelLeverancierResponse")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V> VerwerkGS1LabelLeverancierAsync(string ontvangstordernummer, string palletnr, string labelCode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLastdragers", ReplyAction="http://tempuri.org/ITruckWebService/GeefLastdragersResponse")]
-        TruckWebService.ResultaatOfArrayOfLastdragerDC5SlwlhPY GeefLastdragers();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLastdragers", ReplyAction="http://tempuri.org/ITruckWebService/GeefLastdragersResponse")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfLastdragerDC5SlwlhPY> GeefLastdragersAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefNieuwPalletnummer", ReplyAction="http://tempuri.org/ITruckWebService/GeefNieuwPalletnummerResponse")]
-        TruckWebService.ResultaatOfstring GeefNieuwPalletnummer();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefNieuwPalletnummer", ReplyAction="http://tempuri.org/ITruckWebService/GeefNieuwPalletnummerResponse")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfstring> GeefNieuwPalletnummerAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/CheckPalletTelOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/CheckPalletTelOpdrachtResponse")]
-        TruckWebService.ResultaatOfPalletInfo5SlwlhPY CheckPalletTelOpdracht(string palletnummer);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/CheckPalletTelOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/CheckPalletTelOpdrachtResponse")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfPalletInfo5SlwlhPY> CheckPalletTelOpdrachtAsync(string palletnummer);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/BepaalGrondstofVoorraadVoorOpdrachten", ReplyAction="http://tempuri.org/ITruckWebService/BepaalGrondstofVoorraadVoorOpdrachtenResponse" +
-            "")]
-        TruckWebService.ResultaatOfArrayOfGrondstofVoorraad5SlwlhPY BepaalGrondstofVoorraadVoorOpdrachten(long[] opdrachtIds);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/BepaalGrondstofVoorraadVoorOpdrachten", ReplyAction="http://tempuri.org/ITruckWebService/BepaalGrondstofVoorraadVoorOpdrachtenResponse" +
-            "")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfGrondstofVoorraad5SlwlhPY> BepaalGrondstofVoorraadVoorOpdrachtenAsync(long[] opdrachtIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/CheckService", ReplyAction="http://tempuri.org/ITruckWebService/CheckServiceResponse")]
         bool CheckService();
@@ -8390,156 +8555,6 @@ namespace TruckWebService
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletAfrondenOrderAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletAfrondenOrderAanvoerOpdrachtRespons" +
             "e")]
         System.Threading.Tasks.Task PickpalletAfrondenOrderAanvoerOpdrachtAsync(string palletNr, string truckNr, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieOrderAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieOrderAanvoerOpdrachtResp" +
-            "onse")]
-        string PickpalletDoelLocatieOrderAanvoerOpdracht(string palletNr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieOrderAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieOrderAanvoerOpdrachtResp" +
-            "onse")]
-        System.Threading.Tasks.Task<string> PickpalletDoelLocatieOrderAanvoerOpdrachtAsync(string palletNr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamVerzamelAanvoerOpdra" +
-            "cht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamVerzamelAanvoerOpdra" +
-            "chtResponse")]
-        string PickpalletDoelLocatieNaamVerzamelAanvoerOpdracht(string palletNr, System.Nullable<int> productieorderNr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamVerzamelAanvoerOpdra" +
-            "cht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamVerzamelAanvoerOpdra" +
-            "chtResponse")]
-        System.Threading.Tasks.Task<string> PickpalletDoelLocatieNaamVerzamelAanvoerOpdrachtAsync(string palletNr, System.Nullable<int> productieorderNr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamOrderAanvoerOpdracht" +
-            "", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamOrderAanvoerOpdracht" +
-            "Response")]
-        string PickpalletDoelLocatieNaamOrderAanvoerOpdracht(string palletNr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamOrderAanvoerOpdracht" +
-            "", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieNaamOrderAanvoerOpdracht" +
-            "Response")]
-        System.Threading.Tasks.Task<string> PickpalletDoelLocatieNaamOrderAanvoerOpdrachtAsync(string palletNr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachten", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtenResponse")]
-        TruckWebService.OrderAanvoerOpdracht[] GeefOrderAanvoerOpdrachten(long[] aanvoeropdrachtIds);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachten", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtenResponse")]
-        System.Threading.Tasks.Task<TruckWebService.OrderAanvoerOpdracht[]> GeefOrderAanvoerOpdrachtenAsync(long[] aanvoeropdrachtIds);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtRegels", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtRegelsResponse")]
-        TruckWebService.OrderAanvoerOpdrachtRegel[] GeefOrderAanvoerOpdrachtRegels(long[] aanvoeropdrachtId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtRegels", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderAanvoerOpdrachtRegelsResponse")]
-        System.Threading.Tasks.Task<TruckWebService.OrderAanvoerOpdrachtRegel[]> GeefOrderAanvoerOpdrachtRegelsAsync(long[] aanvoeropdrachtId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartOrderAanvoerOpdrachtRegel", ReplyAction="http://tempuri.org/ITruckWebService/StartOrderAanvoerOpdrachtRegelResponse")]
-        TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY StartOrderAanvoerOpdrachtRegel(TruckWebService.OrderAanvoerOpdrachtRegel regel, string uitgezonderdPalletNr, string idnr, bool zoekVolgende, string pin, bool gtm);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/StartOrderAanvoerOpdrachtRegel", ReplyAction="http://tempuri.org/ITruckWebService/StartOrderAanvoerOpdrachtRegelResponse")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY> StartOrderAanvoerOpdrachtRegelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel, string uitgezonderdPalletNr, string idnr, bool zoekVolgende, string pin, bool gtm);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerOrderAanvoerOpdrachtRegel", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerOrderAanvoerOpdrachtRegelResponse")]
-        void AnnuleerOrderAanvoerOpdrachtRegel(TruckWebService.OrderAanvoerOpdrachtRegel regel);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerOrderAanvoerOpdrachtRegel", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerOrderAanvoerOpdrachtRegelResponse")]
-        System.Threading.Tasks.Task AnnuleerOrderAanvoerOpdrachtRegelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenOrderAanvoeropdrachtRegelGmag", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenOrderAanvoeropdrachtRegelGmagResponse" +
-            "")]
-        TruckWebService.ResultaatOfScanResultaat5SlwlhPY AfrondenOrderAanvoeropdrachtRegelGmag(TruckWebService.OrderAanvoerOpdrachtRegel regel);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AfrondenOrderAanvoeropdrachtRegelGmag", ReplyAction="http://tempuri.org/ITruckWebService/AfrondenOrderAanvoeropdrachtRegelGmagResponse" +
-            "")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfScanResultaat5SlwlhPY> AfrondenOrderAanvoeropdrachtRegelGmagAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletAfrondenLocatieAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletAfrondenLocatieAanvoerOpdrachtRespo" +
-            "nse")]
-        void PickpalletAfrondenLocatieAanvoerOpdracht(string palletNr, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletAfrondenLocatieAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletAfrondenLocatieAanvoerOpdrachtRespo" +
-            "nse")]
-        System.Threading.Tasks.Task PickpalletAfrondenLocatieAanvoerOpdrachtAsync(string palletNr, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieLocatieAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieLocatieAanvoerOpdrachtRe" +
-            "sponse")]
-        string PickpalletDoelLocatieLocatieAanvoerOpdracht(string palletNr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieLocatieAanvoerOpdracht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatieLocatieAanvoerOpdrachtRe" +
-            "sponse")]
-        System.Threading.Tasks.Task<string> PickpalletDoelLocatieLocatieAanvoerOpdrachtAsync(string palletNr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatienaamLocatieAanvoerOpdrac" +
-            "ht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatienaamLocatieAanvoerOpdrac" +
-            "htResponse")]
-        string PickpalletDoelLocatienaamLocatieAanvoerOpdracht(string palletNr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/PickpalletDoelLocatienaamLocatieAanvoerOpdrac" +
-            "ht", ReplyAction="http://tempuri.org/ITruckWebService/PickpalletDoelLocatienaamLocatieAanvoerOpdrac" +
-            "htResponse")]
-        System.Threading.Tasks.Task<string> PickpalletDoelLocatienaamLocatieAanvoerOpdrachtAsync(string palletNr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerPickpallet", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerPickpalletResponse")]
-        void AnnuleerPickpallet(string palletNr, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/AnnuleerPickpallet", ReplyAction="http://tempuri.org/ITruckWebService/AnnuleerPickpalletResponse")]
-        System.Threading.Tasks.Task AnnuleerPickpalletAsync(string palletNr, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/LabelPrintenLocatieAanvoerOpdrachtPallet", ReplyAction="http://tempuri.org/ITruckWebService/LabelPrintenLocatieAanvoerOpdrachtPalletRespo" +
-            "nse")]
-        bool LabelPrintenLocatieAanvoerOpdrachtPallet(System.Nullable<int> procesSegmentnummer, string locatieType);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/LabelPrintenLocatieAanvoerOpdrachtPallet", ReplyAction="http://tempuri.org/ITruckWebService/LabelPrintenLocatieAanvoerOpdrachtPalletRespo" +
-            "nse")]
-        System.Threading.Tasks.Task<bool> LabelPrintenLocatieAanvoerOpdrachtPalletAsync(System.Nullable<int> procesSegmentnummer, string locatieType);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieopdrachtDetailmenuSetting", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieopdrachtDetailmenuSettingResponse")]
-        TruckWebService.ResultaatOfArrayOfstringuHEDJ7Dj GeefLocatieopdrachtDetailmenuSetting();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieopdrachtDetailmenuSetting", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieopdrachtDetailmenuSettingResponse")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfstringuHEDJ7Dj> GeefLocatieopdrachtDetailmenuSettingAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderopdrachtRootProcessegmentnummers", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderopdrachtRootProcessegmentnummersResp" +
-            "onse")]
-        TruckWebService.ResultaatOfArrayOfintuHEDJ7Dj GeefOrderopdrachtRootProcessegmentnummers();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefOrderopdrachtRootProcessegmentnummers", ReplyAction="http://tempuri.org/ITruckWebService/GeefOrderopdrachtRootProcessegmentnummersResp" +
-            "onse")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfintuHEDJ7Dj> GeefOrderopdrachtRootProcessegmentnummersAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefVrijeGTMGebieden", ReplyAction="http://tempuri.org/ITruckWebService/GeefVrijeGTMGebiedenResponse")]
-        TruckWebService.GTMGebiedInfo[] GeefVrijeGTMGebieden(string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefVrijeGTMGebieden", ReplyAction="http://tempuri.org/ITruckWebService/GeefVrijeGTMGebiedenResponse")]
-        System.Threading.Tasks.Task<TruckWebService.GTMGebiedInfo[]> GeefVrijeGTMGebiedenAsync(string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGTMGebiedVrij", ReplyAction="http://tempuri.org/ITruckWebService/GeefGTMGebiedVrijResponse")]
-        TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY GeefGTMGebiedVrij(long gebiedId, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefGTMGebiedVrij", ReplyAction="http://tempuri.org/ITruckWebService/GeefGTMGebiedVrijResponse")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY> GeefGTMGebiedVrijAsync(long gebiedId, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/KoppelGTMGebied", ReplyAction="http://tempuri.org/ITruckWebService/KoppelGTMGebiedResponse")]
-        TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY KoppelGTMGebied(long gebiedId, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/KoppelGTMGebied", ReplyAction="http://tempuri.org/ITruckWebService/KoppelGTMGebiedResponse")]
-        System.Threading.Tasks.Task<TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY> KoppelGTMGebiedAsync(long gebiedId, string pincode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetGTMAanvoerverzoeken", ReplyAction="http://tempuri.org/ITruckWebService/ZetGTMAanvoerverzoekenResponse")]
-        TruckWebService.Resultaat ZetGTMAanvoerverzoeken(long[] aanvoeropdrachtIds, long gebiedId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetGTMAanvoerverzoeken", ReplyAction="http://tempuri.org/ITruckWebService/ZetGTMAanvoerverzoekenResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> ZetGTMAanvoerverzoekenAsync(long[] aanvoeropdrachtIds, long gebiedId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetGTMAfvoerverzoeken", ReplyAction="http://tempuri.org/ITruckWebService/ZetGTMAfvoerverzoekenResponse")]
-        TruckWebService.Resultaat ZetGTMAfvoerverzoeken(long gebiedId, bool alleRegels);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/ZetGTMAfvoerverzoeken", ReplyAction="http://tempuri.org/ITruckWebService/ZetGTMAfvoerverzoekenResponse")]
-        System.Threading.Tasks.Task<TruckWebService.Resultaat> ZetGTMAfvoerverzoekenAsync(long gebiedId, bool alleRegels);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieStatusGTM", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieStatusGTMResponse")]
-        string GeefLocatieStatusGTM(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITruckWebService/GeefLocatieStatusGTM", ReplyAction="http://tempuri.org/ITruckWebService/GeefLocatieStatusGTMResponse")]
-        System.Threading.Tasks.Task<string> GeefLocatieStatusGTMAsync(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
@@ -8590,6 +8605,436 @@ namespace TruckWebService
         public TruckWebServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress)
         {
+        }
+        
+        public TruckWebService.Resultaat VerwerkRestverpakkingsregel(TruckWebService.OrderAanvoerOpdrachtRegel regel, string scan, string pincode)
+        {
+            return base.Channel.VerwerkRestverpakkingsregel(regel, scan, pincode);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkRestverpakkingsregelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel, string scan, string pincode)
+        {
+            return base.Channel.VerwerkRestverpakkingsregelAsync(regel, scan, pincode);
+        }
+        
+        public TruckWebService.Resultaat VerwerkenScanZegelnummer(string zegelNr, string palletNr)
+        {
+            return base.Channel.VerwerkenScanZegelnummer(zegelNr, palletNr);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkenScanZegelnummerAsync(string zegelNr, string palletNr)
+        {
+            return base.Channel.VerwerkenScanZegelnummerAsync(zegelNr, palletNr);
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfPalletEindcontrole5SlwlhPY GeefGmagEindcontrolePallets()
+        {
+            return base.Channel.GeefGmagEindcontrolePallets();
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfPalletEindcontrole5SlwlhPY> GeefGmagEindcontrolePalletsAsync()
+        {
+            return base.Channel.GeefGmagEindcontrolePalletsAsync();
+        }
+        
+        public TruckWebService.Fabriekslocatie[] GeefFabriekslocatiesBijEindcontrolePallets()
+        {
+            return base.Channel.GeefFabriekslocatiesBijEindcontrolePallets();
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Fabriekslocatie[]> GeefFabriekslocatiesBijEindcontrolePalletsAsync()
+        {
+            return base.Channel.GeefFabriekslocatiesBijEindcontrolePalletsAsync();
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfOntvangstOrder5SlwlhPY GeefTeVerwerkenOntvangstorders(string gebiedcode)
+        {
+            return base.Channel.GeefTeVerwerkenOntvangstorders(gebiedcode);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfOntvangstOrder5SlwlhPY> GeefTeVerwerkenOntvangstordersAsync(string gebiedcode)
+        {
+            return base.Channel.GeefTeVerwerkenOntvangstordersAsync(gebiedcode);
+        }
+        
+        public TruckWebService.Resultaat KoppelenTruckRun(string runvolgnr, string trucknr)
+        {
+            return base.Channel.KoppelenTruckRun(runvolgnr, trucknr);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> KoppelenTruckRunAsync(string runvolgnr, string trucknr)
+        {
+            return base.Channel.KoppelenTruckRunAsync(runvolgnr, trucknr);
+        }
+        
+        public TruckWebService.Resultaat OntkoppelenTruckRun(string runvolgnr, string trucknr)
+        {
+            return base.Channel.OntkoppelenTruckRun(runvolgnr, trucknr);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> OntkoppelenTruckRunAsync(string runvolgnr, string trucknr)
+        {
+            return base.Channel.OntkoppelenTruckRunAsync(runvolgnr, trucknr);
+        }
+        
+        public TruckWebService.Resultaat StartenOntvangstorder(string ontvangstordernummer, string pincode)
+        {
+            return base.Channel.StartenOntvangstorder(ontvangstordernummer, pincode);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> StartenOntvangstorderAsync(string ontvangstordernummer, string pincode)
+        {
+            return base.Channel.StartenOntvangstorderAsync(ontvangstordernummer, pincode);
+        }
+        
+        public TruckWebService.Resultaat AanmakenOntvangstorderPallets(string gebiedcode, string ontvangstordernummer, int aantalPallets)
+        {
+            return base.Channel.AanmakenOntvangstorderPallets(gebiedcode, ontvangstordernummer, aantalPallets);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> AanmakenOntvangstorderPalletsAsync(string gebiedcode, string ontvangstordernummer, int aantalPallets)
+        {
+            return base.Channel.AanmakenOntvangstorderPalletsAsync(gebiedcode, ontvangstordernummer, aantalPallets);
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V GeefOntvangstorderPallets(string ontvangstordernummer)
+        {
+            return base.Channel.GeefOntvangstorderPallets(ontvangstordernummer);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstorderPalletsAsync(string ontvangstordernummer)
+        {
+            return base.Channel.GeefOntvangstorderPalletsAsync(ontvangstordernummer);
+        }
+        
+        public TruckWebService.Resultaat OnderbrekenOntvangstorder(string ontvangstordernummer, string pincode)
+        {
+            return base.Channel.OnderbrekenOntvangstorder(ontvangstordernummer, pincode);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> OnderbrekenOntvangstorderAsync(string ontvangstordernummer, string pincode)
+        {
+            return base.Channel.OnderbrekenOntvangstorderAsync(ontvangstordernummer, pincode);
+        }
+        
+        public TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V GeefOntvangstregistratiePallet(string ontvangstordernummer, string palletnr)
+        {
+            return base.Channel.GeefOntvangstregistratiePallet(ontvangstordernummer, palletnr);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstregistratiePalletAsync(string ontvangstordernummer, string palletnr)
+        {
+            return base.Channel.GeefOntvangstregistratiePalletAsync(ontvangstordernummer, palletnr);
+        }
+        
+        public TruckWebService.Resultaat OpslaanOntvangstregistratiePallet(TruckWebService.OntvangstregistratiePallet ontvangstregistratiePallet, string trucknr)
+        {
+            return base.Channel.OpslaanOntvangstregistratiePallet(ontvangstregistratiePallet, trucknr);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> OpslaanOntvangstregistratiePalletAsync(TruckWebService.OntvangstregistratiePallet ontvangstregistratiePallet, string trucknr)
+        {
+            return base.Channel.OpslaanOntvangstregistratiePalletAsync(ontvangstregistratiePallet, trucknr);
+        }
+        
+        public TruckWebService.Resultaat AfrondenOntvangstorder(string ontvangstordernummer, string pincode)
+        {
+            return base.Channel.AfrondenOntvangstorder(ontvangstordernummer, pincode);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> AfrondenOntvangstorderAsync(string ontvangstordernummer, string pincode)
+        {
+            return base.Channel.AfrondenOntvangstorderAsync(ontvangstordernummer, pincode);
+        }
+        
+        public TruckWebService.Resultaat PrintOntvangstPalletLabel(string palletnr)
+        {
+            return base.Channel.PrintOntvangstPalletLabel(palletnr);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintOntvangstPalletLabelAsync(string palletnr)
+        {
+            return base.Channel.PrintOntvangstPalletLabelAsync(palletnr);
+        }
+        
+        public TruckWebService.Resultaat PrintMonsterLabel(string palletnr, string ontvangstOrdernr)
+        {
+            return base.Channel.PrintMonsterLabel(palletnr, ontvangstOrdernr);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintMonsterLabelAsync(string palletnr, string ontvangstOrdernr)
+        {
+            return base.Channel.PrintMonsterLabelAsync(palletnr, ontvangstOrdernr);
+        }
+        
+        public TruckWebService.Resultaat PrintLeggerSticker(string palletnr, string ontvangstOrdernr)
+        {
+            return base.Channel.PrintLeggerSticker(palletnr, ontvangstOrdernr);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintLeggerStickerAsync(string palletnr, string ontvangstOrdernr)
+        {
+            return base.Channel.PrintLeggerStickerAsync(palletnr, ontvangstOrdernr);
+        }
+        
+        public TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V VerwerkGS1LabelLeverancier(string ontvangstordernummer, string palletnr, string labelCode)
+        {
+            return base.Channel.VerwerkGS1LabelLeverancier(ontvangstordernummer, palletnr, labelCode);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V> VerwerkGS1LabelLeverancierAsync(string ontvangstordernummer, string palletnr, string labelCode)
+        {
+            return base.Channel.VerwerkGS1LabelLeverancierAsync(ontvangstordernummer, palletnr, labelCode);
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfLastdragerDC5SlwlhPY GeefLastdragers()
+        {
+            return base.Channel.GeefLastdragers();
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfLastdragerDC5SlwlhPY> GeefLastdragersAsync()
+        {
+            return base.Channel.GeefLastdragersAsync();
+        }
+        
+        public TruckWebService.ResultaatOfstring GeefNieuwPalletnummer()
+        {
+            return base.Channel.GeefNieuwPalletnummer();
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfstring> GeefNieuwPalletnummerAsync()
+        {
+            return base.Channel.GeefNieuwPalletnummerAsync();
+        }
+        
+        public TruckWebService.ResultaatOfPalletInfo5SlwlhPY CheckPalletTelOpdracht(string palletnummer)
+        {
+            return base.Channel.CheckPalletTelOpdracht(palletnummer);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfPalletInfo5SlwlhPY> CheckPalletTelOpdrachtAsync(string palletnummer)
+        {
+            return base.Channel.CheckPalletTelOpdrachtAsync(palletnummer);
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfGrondstofVoorraad5SlwlhPY BepaalGrondstofVoorraadVoorOpdrachten(long[] opdrachtIds)
+        {
+            return base.Channel.BepaalGrondstofVoorraadVoorOpdrachten(opdrachtIds);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfGrondstofVoorraad5SlwlhPY> BepaalGrondstofVoorraadVoorOpdrachtenAsync(long[] opdrachtIds)
+        {
+            return base.Channel.BepaalGrondstofVoorraadVoorOpdrachtenAsync(opdrachtIds);
+        }
+        
+        public string PickpalletDoelLocatieOrderAanvoerOpdracht(string palletNr)
+        {
+            return base.Channel.PickpalletDoelLocatieOrderAanvoerOpdracht(palletNr);
+        }
+        
+        public System.Threading.Tasks.Task<string> PickpalletDoelLocatieOrderAanvoerOpdrachtAsync(string palletNr)
+        {
+            return base.Channel.PickpalletDoelLocatieOrderAanvoerOpdrachtAsync(palletNr);
+        }
+        
+        public string PickpalletDoelLocatieNaamVerzamelAanvoerOpdracht(string palletNr, System.Nullable<int> productieorderNr)
+        {
+            return base.Channel.PickpalletDoelLocatieNaamVerzamelAanvoerOpdracht(palletNr, productieorderNr);
+        }
+        
+        public System.Threading.Tasks.Task<string> PickpalletDoelLocatieNaamVerzamelAanvoerOpdrachtAsync(string palletNr, System.Nullable<int> productieorderNr)
+        {
+            return base.Channel.PickpalletDoelLocatieNaamVerzamelAanvoerOpdrachtAsync(palletNr, productieorderNr);
+        }
+        
+        public string PickpalletDoelLocatieNaamOrderAanvoerOpdracht(string palletNr)
+        {
+            return base.Channel.PickpalletDoelLocatieNaamOrderAanvoerOpdracht(palletNr);
+        }
+        
+        public System.Threading.Tasks.Task<string> PickpalletDoelLocatieNaamOrderAanvoerOpdrachtAsync(string palletNr)
+        {
+            return base.Channel.PickpalletDoelLocatieNaamOrderAanvoerOpdrachtAsync(palletNr);
+        }
+        
+        public TruckWebService.OrderAanvoerOpdracht[] GeefOrderAanvoerOpdrachten(long[] aanvoeropdrachtIds)
+        {
+            return base.Channel.GeefOrderAanvoerOpdrachten(aanvoeropdrachtIds);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.OrderAanvoerOpdracht[]> GeefOrderAanvoerOpdrachtenAsync(long[] aanvoeropdrachtIds)
+        {
+            return base.Channel.GeefOrderAanvoerOpdrachtenAsync(aanvoeropdrachtIds);
+        }
+        
+        public TruckWebService.OrderAanvoerOpdrachtRegel[] GeefOrderAanvoerOpdrachtRegels(long[] aanvoeropdrachtId)
+        {
+            return base.Channel.GeefOrderAanvoerOpdrachtRegels(aanvoeropdrachtId);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.OrderAanvoerOpdrachtRegel[]> GeefOrderAanvoerOpdrachtRegelsAsync(long[] aanvoeropdrachtId)
+        {
+            return base.Channel.GeefOrderAanvoerOpdrachtRegelsAsync(aanvoeropdrachtId);
+        }
+        
+        public TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY StartOrderAanvoerOpdrachtRegel(TruckWebService.OrderAanvoerOpdrachtRegel regel, string uitgezonderdPalletNr, string idnr, bool zoekVolgende, string pin, bool gtm)
+        {
+            return base.Channel.StartOrderAanvoerOpdrachtRegel(regel, uitgezonderdPalletNr, idnr, zoekVolgende, pin, gtm);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY> StartOrderAanvoerOpdrachtRegelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel, string uitgezonderdPalletNr, string idnr, bool zoekVolgende, string pin, bool gtm)
+        {
+            return base.Channel.StartOrderAanvoerOpdrachtRegelAsync(regel, uitgezonderdPalletNr, idnr, zoekVolgende, pin, gtm);
+        }
+        
+        public void AnnuleerOrderAanvoerOpdrachtRegel(TruckWebService.OrderAanvoerOpdrachtRegel regel)
+        {
+            base.Channel.AnnuleerOrderAanvoerOpdrachtRegel(regel);
+        }
+        
+        public System.Threading.Tasks.Task AnnuleerOrderAanvoerOpdrachtRegelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel)
+        {
+            return base.Channel.AnnuleerOrderAanvoerOpdrachtRegelAsync(regel);
+        }
+        
+        public TruckWebService.ResultaatOfScanResultaat5SlwlhPY AfrondenOrderAanvoeropdrachtRegelGmag(TruckWebService.OrderAanvoerOpdrachtRegel regel)
+        {
+            return base.Channel.AfrondenOrderAanvoeropdrachtRegelGmag(regel);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfScanResultaat5SlwlhPY> AfrondenOrderAanvoeropdrachtRegelGmagAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel)
+        {
+            return base.Channel.AfrondenOrderAanvoeropdrachtRegelGmagAsync(regel);
+        }
+        
+        public void PickpalletAfrondenLocatieAanvoerOpdracht(string palletNr, string pincode)
+        {
+            base.Channel.PickpalletAfrondenLocatieAanvoerOpdracht(palletNr, pincode);
+        }
+        
+        public System.Threading.Tasks.Task PickpalletAfrondenLocatieAanvoerOpdrachtAsync(string palletNr, string pincode)
+        {
+            return base.Channel.PickpalletAfrondenLocatieAanvoerOpdrachtAsync(palletNr, pincode);
+        }
+        
+        public string PickpalletDoelLocatieLocatieAanvoerOpdracht(string palletNr)
+        {
+            return base.Channel.PickpalletDoelLocatieLocatieAanvoerOpdracht(palletNr);
+        }
+        
+        public System.Threading.Tasks.Task<string> PickpalletDoelLocatieLocatieAanvoerOpdrachtAsync(string palletNr)
+        {
+            return base.Channel.PickpalletDoelLocatieLocatieAanvoerOpdrachtAsync(palletNr);
+        }
+        
+        public string PickpalletDoelLocatienaamLocatieAanvoerOpdracht(string palletNr)
+        {
+            return base.Channel.PickpalletDoelLocatienaamLocatieAanvoerOpdracht(palletNr);
+        }
+        
+        public System.Threading.Tasks.Task<string> PickpalletDoelLocatienaamLocatieAanvoerOpdrachtAsync(string palletNr)
+        {
+            return base.Channel.PickpalletDoelLocatienaamLocatieAanvoerOpdrachtAsync(palletNr);
+        }
+        
+        public void AnnuleerPickpallet(string palletNr, string pincode)
+        {
+            base.Channel.AnnuleerPickpallet(palletNr, pincode);
+        }
+        
+        public System.Threading.Tasks.Task AnnuleerPickpalletAsync(string palletNr, string pincode)
+        {
+            return base.Channel.AnnuleerPickpalletAsync(palletNr, pincode);
+        }
+        
+        public bool LabelPrintenLocatieAanvoerOpdrachtPallet(System.Nullable<int> procesSegmentnummer, string locatieType)
+        {
+            return base.Channel.LabelPrintenLocatieAanvoerOpdrachtPallet(procesSegmentnummer, locatieType);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LabelPrintenLocatieAanvoerOpdrachtPalletAsync(System.Nullable<int> procesSegmentnummer, string locatieType)
+        {
+            return base.Channel.LabelPrintenLocatieAanvoerOpdrachtPalletAsync(procesSegmentnummer, locatieType);
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfstringuHEDJ7Dj GeefLocatieopdrachtDetailmenuSetting()
+        {
+            return base.Channel.GeefLocatieopdrachtDetailmenuSetting();
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfstringuHEDJ7Dj> GeefLocatieopdrachtDetailmenuSettingAsync()
+        {
+            return base.Channel.GeefLocatieopdrachtDetailmenuSettingAsync();
+        }
+        
+        public TruckWebService.ResultaatOfArrayOfintuHEDJ7Dj GeefOrderopdrachtRootProcessegmentnummers()
+        {
+            return base.Channel.GeefOrderopdrachtRootProcessegmentnummers();
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfintuHEDJ7Dj> GeefOrderopdrachtRootProcessegmentnummersAsync()
+        {
+            return base.Channel.GeefOrderopdrachtRootProcessegmentnummersAsync();
+        }
+        
+        public TruckWebService.GTMGebiedInfo[] GeefVrijeGTMGebieden(string pincode)
+        {
+            return base.Channel.GeefVrijeGTMGebieden(pincode);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.GTMGebiedInfo[]> GeefVrijeGTMGebiedenAsync(string pincode)
+        {
+            return base.Channel.GeefVrijeGTMGebiedenAsync(pincode);
+        }
+        
+        public TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY GeefGTMGebiedVrij(long gebiedId, string pincode)
+        {
+            return base.Channel.GeefGTMGebiedVrij(gebiedId, pincode);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY> GeefGTMGebiedVrijAsync(long gebiedId, string pincode)
+        {
+            return base.Channel.GeefGTMGebiedVrijAsync(gebiedId, pincode);
+        }
+        
+        public TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY KoppelGTMGebied(long gebiedId, string pincode)
+        {
+            return base.Channel.KoppelGTMGebied(gebiedId, pincode);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY> KoppelGTMGebiedAsync(long gebiedId, string pincode)
+        {
+            return base.Channel.KoppelGTMGebiedAsync(gebiedId, pincode);
+        }
+        
+        public TruckWebService.Resultaat ZetGTMAanvoerverzoeken(long[] aanvoeropdrachtIds, long gebiedId)
+        {
+            return base.Channel.ZetGTMAanvoerverzoeken(aanvoeropdrachtIds, gebiedId);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> ZetGTMAanvoerverzoekenAsync(long[] aanvoeropdrachtIds, long gebiedId)
+        {
+            return base.Channel.ZetGTMAanvoerverzoekenAsync(aanvoeropdrachtIds, gebiedId);
+        }
+        
+        public TruckWebService.Resultaat ZetGTMAfvoerverzoeken(long gebiedId, bool alleRegels)
+        {
+            return base.Channel.ZetGTMAfvoerverzoeken(gebiedId, alleRegels);
+        }
+        
+        public System.Threading.Tasks.Task<TruckWebService.Resultaat> ZetGTMAfvoerverzoekenAsync(long gebiedId, bool alleRegels)
+        {
+            return base.Channel.ZetGTMAfvoerverzoekenAsync(gebiedId, alleRegels);
+        }
+        
+        public string GeefLocatieStatusGTM(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr)
+        {
+            return base.Channel.GeefLocatieStatusGTM(gtmgebied, artikelnr);
+        }
+        
+        public System.Threading.Tasks.Task<string> GeefLocatieStatusGTMAsync(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr)
+        {
+            return base.Channel.GeefLocatieStatusGTMAsync(gtmgebied, artikelnr);
         }
         
         public TruckWebService.LocatieInfo GeefLocatieInfoGTM(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr)
@@ -9020,226 +9465,6 @@ namespace TruckWebService
         public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY> GeefEersteRestverpakkingsregelAsync(long[] orderaanvoeropdrachtids, string pincode)
         {
             return base.Channel.GeefEersteRestverpakkingsregelAsync(orderaanvoeropdrachtids, pincode);
-        }
-        
-        public TruckWebService.Resultaat VerwerkRestverpakkingsregel(TruckWebService.OrderAanvoerOpdrachtRegel regel, string scan, string pincode)
-        {
-            return base.Channel.VerwerkRestverpakkingsregel(regel, scan, pincode);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkRestverpakkingsregelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel, string scan, string pincode)
-        {
-            return base.Channel.VerwerkRestverpakkingsregelAsync(regel, scan, pincode);
-        }
-        
-        public TruckWebService.Resultaat VerwerkenScanZegelnummer(string zegelNr, string palletNr)
-        {
-            return base.Channel.VerwerkenScanZegelnummer(zegelNr, palletNr);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> VerwerkenScanZegelnummerAsync(string zegelNr, string palletNr)
-        {
-            return base.Channel.VerwerkenScanZegelnummerAsync(zegelNr, palletNr);
-        }
-        
-        public TruckWebService.ResultaatOfArrayOfPalletEindcontrole5SlwlhPY GeefGmagEindcontrolePallets()
-        {
-            return base.Channel.GeefGmagEindcontrolePallets();
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfPalletEindcontrole5SlwlhPY> GeefGmagEindcontrolePalletsAsync()
-        {
-            return base.Channel.GeefGmagEindcontrolePalletsAsync();
-        }
-        
-        public TruckWebService.Fabriekslocatie[] GeefFabriekslocatiesBijEindcontrolePallets()
-        {
-            return base.Channel.GeefFabriekslocatiesBijEindcontrolePallets();
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.Fabriekslocatie[]> GeefFabriekslocatiesBijEindcontrolePalletsAsync()
-        {
-            return base.Channel.GeefFabriekslocatiesBijEindcontrolePalletsAsync();
-        }
-        
-        public TruckWebService.ResultaatOfArrayOfOntvangstOrder5SlwlhPY GeefTeVerwerkenOntvangstorders(string gebiedcode)
-        {
-            return base.Channel.GeefTeVerwerkenOntvangstorders(gebiedcode);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfOntvangstOrder5SlwlhPY> GeefTeVerwerkenOntvangstordersAsync(string gebiedcode)
-        {
-            return base.Channel.GeefTeVerwerkenOntvangstordersAsync(gebiedcode);
-        }
-        
-        public TruckWebService.Resultaat KoppelenTruckRun(string runvolgnr, string trucknr)
-        {
-            return base.Channel.KoppelenTruckRun(runvolgnr, trucknr);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> KoppelenTruckRunAsync(string runvolgnr, string trucknr)
-        {
-            return base.Channel.KoppelenTruckRunAsync(runvolgnr, trucknr);
-        }
-        
-        public TruckWebService.Resultaat OntkoppelenTruckRun(string runvolgnr, string trucknr)
-        {
-            return base.Channel.OntkoppelenTruckRun(runvolgnr, trucknr);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> OntkoppelenTruckRunAsync(string runvolgnr, string trucknr)
-        {
-            return base.Channel.OntkoppelenTruckRunAsync(runvolgnr, trucknr);
-        }
-        
-        public TruckWebService.Resultaat StartenOntvangstorder(string ontvangstordernummer, string pincode)
-        {
-            return base.Channel.StartenOntvangstorder(ontvangstordernummer, pincode);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> StartenOntvangstorderAsync(string ontvangstordernummer, string pincode)
-        {
-            return base.Channel.StartenOntvangstorderAsync(ontvangstordernummer, pincode);
-        }
-        
-        public TruckWebService.Resultaat AanmakenOntvangstorderPallets(string gebiedcode, string ontvangstordernummer, int aantalPallets)
-        {
-            return base.Channel.AanmakenOntvangstorderPallets(gebiedcode, ontvangstordernummer, aantalPallets);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> AanmakenOntvangstorderPalletsAsync(string gebiedcode, string ontvangstordernummer, int aantalPallets)
-        {
-            return base.Channel.AanmakenOntvangstorderPalletsAsync(gebiedcode, ontvangstordernummer, aantalPallets);
-        }
-        
-        public TruckWebService.ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V GeefOntvangstorderPallets(string ontvangstordernummer)
-        {
-            return base.Channel.GeefOntvangstorderPallets(ontvangstordernummer);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstorderPalletsAsync(string ontvangstordernummer)
-        {
-            return base.Channel.GeefOntvangstorderPalletsAsync(ontvangstordernummer);
-        }
-        
-        public TruckWebService.Resultaat OnderbrekenOntvangstorder(string ontvangstordernummer, string pincode)
-        {
-            return base.Channel.OnderbrekenOntvangstorder(ontvangstordernummer, pincode);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> OnderbrekenOntvangstorderAsync(string ontvangstordernummer, string pincode)
-        {
-            return base.Channel.OnderbrekenOntvangstorderAsync(ontvangstordernummer, pincode);
-        }
-        
-        public TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V GeefOntvangstregistratiePallet(string ontvangstordernummer, string palletnr)
-        {
-            return base.Channel.GeefOntvangstregistratiePallet(ontvangstordernummer, palletnr);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V> GeefOntvangstregistratiePalletAsync(string ontvangstordernummer, string palletnr)
-        {
-            return base.Channel.GeefOntvangstregistratiePalletAsync(ontvangstordernummer, palletnr);
-        }
-        
-        public TruckWebService.Resultaat OpslaanOntvangstregistratiePallet(TruckWebService.OntvangstregistratiePallet ontvangstregistratiePallet, string trucknr)
-        {
-            return base.Channel.OpslaanOntvangstregistratiePallet(ontvangstregistratiePallet, trucknr);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> OpslaanOntvangstregistratiePalletAsync(TruckWebService.OntvangstregistratiePallet ontvangstregistratiePallet, string trucknr)
-        {
-            return base.Channel.OpslaanOntvangstregistratiePalletAsync(ontvangstregistratiePallet, trucknr);
-        }
-        
-        public TruckWebService.Resultaat AfrondenOntvangstorder(string ontvangstordernummer, string pincode)
-        {
-            return base.Channel.AfrondenOntvangstorder(ontvangstordernummer, pincode);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> AfrondenOntvangstorderAsync(string ontvangstordernummer, string pincode)
-        {
-            return base.Channel.AfrondenOntvangstorderAsync(ontvangstordernummer, pincode);
-        }
-        
-        public TruckWebService.Resultaat PrintOntvangstPalletLabel(string palletnr)
-        {
-            return base.Channel.PrintOntvangstPalletLabel(palletnr);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintOntvangstPalletLabelAsync(string palletnr)
-        {
-            return base.Channel.PrintOntvangstPalletLabelAsync(palletnr);
-        }
-        
-        public TruckWebService.Resultaat PrintMonsterLabel(string palletnr, string ontvangstOrdernr)
-        {
-            return base.Channel.PrintMonsterLabel(palletnr, ontvangstOrdernr);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintMonsterLabelAsync(string palletnr, string ontvangstOrdernr)
-        {
-            return base.Channel.PrintMonsterLabelAsync(palletnr, ontvangstOrdernr);
-        }
-        
-        public TruckWebService.Resultaat PrintLeggerSticker(string palletnr, string ontvangstOrdernr)
-        {
-            return base.Channel.PrintLeggerSticker(palletnr, ontvangstOrdernr);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> PrintLeggerStickerAsync(string palletnr, string ontvangstOrdernr)
-        {
-            return base.Channel.PrintLeggerStickerAsync(palletnr, ontvangstOrdernr);
-        }
-        
-        public TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V VerwerkGS1LabelLeverancier(string ontvangstordernummer, string palletnr, string labelCode)
-        {
-            return base.Channel.VerwerkGS1LabelLeverancier(ontvangstordernummer, palletnr, labelCode);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOntvangstregistratiePalletay1Gw99V> VerwerkGS1LabelLeverancierAsync(string ontvangstordernummer, string palletnr, string labelCode)
-        {
-            return base.Channel.VerwerkGS1LabelLeverancierAsync(ontvangstordernummer, palletnr, labelCode);
-        }
-        
-        public TruckWebService.ResultaatOfArrayOfLastdragerDC5SlwlhPY GeefLastdragers()
-        {
-            return base.Channel.GeefLastdragers();
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfLastdragerDC5SlwlhPY> GeefLastdragersAsync()
-        {
-            return base.Channel.GeefLastdragersAsync();
-        }
-        
-        public TruckWebService.ResultaatOfstring GeefNieuwPalletnummer()
-        {
-            return base.Channel.GeefNieuwPalletnummer();
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfstring> GeefNieuwPalletnummerAsync()
-        {
-            return base.Channel.GeefNieuwPalletnummerAsync();
-        }
-        
-        public TruckWebService.ResultaatOfPalletInfo5SlwlhPY CheckPalletTelOpdracht(string palletnummer)
-        {
-            return base.Channel.CheckPalletTelOpdracht(palletnummer);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfPalletInfo5SlwlhPY> CheckPalletTelOpdrachtAsync(string palletnummer)
-        {
-            return base.Channel.CheckPalletTelOpdrachtAsync(palletnummer);
-        }
-        
-        public TruckWebService.ResultaatOfArrayOfGrondstofVoorraad5SlwlhPY BepaalGrondstofVoorraadVoorOpdrachten(long[] opdrachtIds)
-        {
-            return base.Channel.BepaalGrondstofVoorraadVoorOpdrachten(opdrachtIds);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfGrondstofVoorraad5SlwlhPY> BepaalGrondstofVoorraadVoorOpdrachtenAsync(long[] opdrachtIds)
-        {
-            return base.Channel.BepaalGrondstofVoorraadVoorOpdrachtenAsync(opdrachtIds);
         }
         
         public bool CheckService()
@@ -9880,216 +10105,6 @@ namespace TruckWebService
         public System.Threading.Tasks.Task PickpalletAfrondenOrderAanvoerOpdrachtAsync(string palletNr, string truckNr, string pincode)
         {
             return base.Channel.PickpalletAfrondenOrderAanvoerOpdrachtAsync(palletNr, truckNr, pincode);
-        }
-        
-        public string PickpalletDoelLocatieOrderAanvoerOpdracht(string palletNr)
-        {
-            return base.Channel.PickpalletDoelLocatieOrderAanvoerOpdracht(palletNr);
-        }
-        
-        public System.Threading.Tasks.Task<string> PickpalletDoelLocatieOrderAanvoerOpdrachtAsync(string palletNr)
-        {
-            return base.Channel.PickpalletDoelLocatieOrderAanvoerOpdrachtAsync(palletNr);
-        }
-        
-        public string PickpalletDoelLocatieNaamVerzamelAanvoerOpdracht(string palletNr, System.Nullable<int> productieorderNr)
-        {
-            return base.Channel.PickpalletDoelLocatieNaamVerzamelAanvoerOpdracht(palletNr, productieorderNr);
-        }
-        
-        public System.Threading.Tasks.Task<string> PickpalletDoelLocatieNaamVerzamelAanvoerOpdrachtAsync(string palletNr, System.Nullable<int> productieorderNr)
-        {
-            return base.Channel.PickpalletDoelLocatieNaamVerzamelAanvoerOpdrachtAsync(palletNr, productieorderNr);
-        }
-        
-        public string PickpalletDoelLocatieNaamOrderAanvoerOpdracht(string palletNr)
-        {
-            return base.Channel.PickpalletDoelLocatieNaamOrderAanvoerOpdracht(palletNr);
-        }
-        
-        public System.Threading.Tasks.Task<string> PickpalletDoelLocatieNaamOrderAanvoerOpdrachtAsync(string palletNr)
-        {
-            return base.Channel.PickpalletDoelLocatieNaamOrderAanvoerOpdrachtAsync(palletNr);
-        }
-        
-        public TruckWebService.OrderAanvoerOpdracht[] GeefOrderAanvoerOpdrachten(long[] aanvoeropdrachtIds)
-        {
-            return base.Channel.GeefOrderAanvoerOpdrachten(aanvoeropdrachtIds);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.OrderAanvoerOpdracht[]> GeefOrderAanvoerOpdrachtenAsync(long[] aanvoeropdrachtIds)
-        {
-            return base.Channel.GeefOrderAanvoerOpdrachtenAsync(aanvoeropdrachtIds);
-        }
-        
-        public TruckWebService.OrderAanvoerOpdrachtRegel[] GeefOrderAanvoerOpdrachtRegels(long[] aanvoeropdrachtId)
-        {
-            return base.Channel.GeefOrderAanvoerOpdrachtRegels(aanvoeropdrachtId);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.OrderAanvoerOpdrachtRegel[]> GeefOrderAanvoerOpdrachtRegelsAsync(long[] aanvoeropdrachtId)
-        {
-            return base.Channel.GeefOrderAanvoerOpdrachtRegelsAsync(aanvoeropdrachtId);
-        }
-        
-        public TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY StartOrderAanvoerOpdrachtRegel(TruckWebService.OrderAanvoerOpdrachtRegel regel, string uitgezonderdPalletNr, string idnr, bool zoekVolgende, string pin, bool gtm)
-        {
-            return base.Channel.StartOrderAanvoerOpdrachtRegel(regel, uitgezonderdPalletNr, idnr, zoekVolgende, pin, gtm);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY> StartOrderAanvoerOpdrachtRegelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel, string uitgezonderdPalletNr, string idnr, bool zoekVolgende, string pin, bool gtm)
-        {
-            return base.Channel.StartOrderAanvoerOpdrachtRegelAsync(regel, uitgezonderdPalletNr, idnr, zoekVolgende, pin, gtm);
-        }
-        
-        public void AnnuleerOrderAanvoerOpdrachtRegel(TruckWebService.OrderAanvoerOpdrachtRegel regel)
-        {
-            base.Channel.AnnuleerOrderAanvoerOpdrachtRegel(regel);
-        }
-        
-        public System.Threading.Tasks.Task AnnuleerOrderAanvoerOpdrachtRegelAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel)
-        {
-            return base.Channel.AnnuleerOrderAanvoerOpdrachtRegelAsync(regel);
-        }
-        
-        public TruckWebService.ResultaatOfScanResultaat5SlwlhPY AfrondenOrderAanvoeropdrachtRegelGmag(TruckWebService.OrderAanvoerOpdrachtRegel regel)
-        {
-            return base.Channel.AfrondenOrderAanvoeropdrachtRegelGmag(regel);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfScanResultaat5SlwlhPY> AfrondenOrderAanvoeropdrachtRegelGmagAsync(TruckWebService.OrderAanvoerOpdrachtRegel regel)
-        {
-            return base.Channel.AfrondenOrderAanvoeropdrachtRegelGmagAsync(regel);
-        }
-        
-        public void PickpalletAfrondenLocatieAanvoerOpdracht(string palletNr, string pincode)
-        {
-            base.Channel.PickpalletAfrondenLocatieAanvoerOpdracht(palletNr, pincode);
-        }
-        
-        public System.Threading.Tasks.Task PickpalletAfrondenLocatieAanvoerOpdrachtAsync(string palletNr, string pincode)
-        {
-            return base.Channel.PickpalletAfrondenLocatieAanvoerOpdrachtAsync(palletNr, pincode);
-        }
-        
-        public string PickpalletDoelLocatieLocatieAanvoerOpdracht(string palletNr)
-        {
-            return base.Channel.PickpalletDoelLocatieLocatieAanvoerOpdracht(palletNr);
-        }
-        
-        public System.Threading.Tasks.Task<string> PickpalletDoelLocatieLocatieAanvoerOpdrachtAsync(string palletNr)
-        {
-            return base.Channel.PickpalletDoelLocatieLocatieAanvoerOpdrachtAsync(palletNr);
-        }
-        
-        public string PickpalletDoelLocatienaamLocatieAanvoerOpdracht(string palletNr)
-        {
-            return base.Channel.PickpalletDoelLocatienaamLocatieAanvoerOpdracht(palletNr);
-        }
-        
-        public System.Threading.Tasks.Task<string> PickpalletDoelLocatienaamLocatieAanvoerOpdrachtAsync(string palletNr)
-        {
-            return base.Channel.PickpalletDoelLocatienaamLocatieAanvoerOpdrachtAsync(palletNr);
-        }
-        
-        public void AnnuleerPickpallet(string palletNr, string pincode)
-        {
-            base.Channel.AnnuleerPickpallet(palletNr, pincode);
-        }
-        
-        public System.Threading.Tasks.Task AnnuleerPickpalletAsync(string palletNr, string pincode)
-        {
-            return base.Channel.AnnuleerPickpalletAsync(palletNr, pincode);
-        }
-        
-        public bool LabelPrintenLocatieAanvoerOpdrachtPallet(System.Nullable<int> procesSegmentnummer, string locatieType)
-        {
-            return base.Channel.LabelPrintenLocatieAanvoerOpdrachtPallet(procesSegmentnummer, locatieType);
-        }
-        
-        public System.Threading.Tasks.Task<bool> LabelPrintenLocatieAanvoerOpdrachtPalletAsync(System.Nullable<int> procesSegmentnummer, string locatieType)
-        {
-            return base.Channel.LabelPrintenLocatieAanvoerOpdrachtPalletAsync(procesSegmentnummer, locatieType);
-        }
-        
-        public TruckWebService.ResultaatOfArrayOfstringuHEDJ7Dj GeefLocatieopdrachtDetailmenuSetting()
-        {
-            return base.Channel.GeefLocatieopdrachtDetailmenuSetting();
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfstringuHEDJ7Dj> GeefLocatieopdrachtDetailmenuSettingAsync()
-        {
-            return base.Channel.GeefLocatieopdrachtDetailmenuSettingAsync();
-        }
-        
-        public TruckWebService.ResultaatOfArrayOfintuHEDJ7Dj GeefOrderopdrachtRootProcessegmentnummers()
-        {
-            return base.Channel.GeefOrderopdrachtRootProcessegmentnummers();
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfArrayOfintuHEDJ7Dj> GeefOrderopdrachtRootProcessegmentnummersAsync()
-        {
-            return base.Channel.GeefOrderopdrachtRootProcessegmentnummersAsync();
-        }
-        
-        public TruckWebService.GTMGebiedInfo[] GeefVrijeGTMGebieden(string pincode)
-        {
-            return base.Channel.GeefVrijeGTMGebieden(pincode);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.GTMGebiedInfo[]> GeefVrijeGTMGebiedenAsync(string pincode)
-        {
-            return base.Channel.GeefVrijeGTMGebiedenAsync(pincode);
-        }
-        
-        public TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY GeefGTMGebiedVrij(long gebiedId, string pincode)
-        {
-            return base.Channel.GeefGTMGebiedVrij(gebiedId, pincode);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY> GeefGTMGebiedVrijAsync(long gebiedId, string pincode)
-        {
-            return base.Channel.GeefGTMGebiedVrijAsync(gebiedId, pincode);
-        }
-        
-        public TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY KoppelGTMGebied(long gebiedId, string pincode)
-        {
-            return base.Channel.KoppelGTMGebied(gebiedId, pincode);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.ResultaatOfGTMGebiedInfo5SlwlhPY> KoppelGTMGebiedAsync(long gebiedId, string pincode)
-        {
-            return base.Channel.KoppelGTMGebiedAsync(gebiedId, pincode);
-        }
-        
-        public TruckWebService.Resultaat ZetGTMAanvoerverzoeken(long[] aanvoeropdrachtIds, long gebiedId)
-        {
-            return base.Channel.ZetGTMAanvoerverzoeken(aanvoeropdrachtIds, gebiedId);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> ZetGTMAanvoerverzoekenAsync(long[] aanvoeropdrachtIds, long gebiedId)
-        {
-            return base.Channel.ZetGTMAanvoerverzoekenAsync(aanvoeropdrachtIds, gebiedId);
-        }
-        
-        public TruckWebService.Resultaat ZetGTMAfvoerverzoeken(long gebiedId, bool alleRegels)
-        {
-            return base.Channel.ZetGTMAfvoerverzoeken(gebiedId, alleRegels);
-        }
-        
-        public System.Threading.Tasks.Task<TruckWebService.Resultaat> ZetGTMAfvoerverzoekenAsync(long gebiedId, bool alleRegels)
-        {
-            return base.Channel.ZetGTMAfvoerverzoekenAsync(gebiedId, alleRegels);
-        }
-        
-        public string GeefLocatieStatusGTM(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr)
-        {
-            return base.Channel.GeefLocatieStatusGTM(gtmgebied, artikelnr);
-        }
-        
-        public System.Threading.Tasks.Task<string> GeefLocatieStatusGTMAsync(TruckWebService.GTMGebiedInfo gtmgebied, string artikelnr)
-        {
-            return base.Channel.GeefLocatieStatusGTMAsync(gtmgebied, artikelnr);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()
