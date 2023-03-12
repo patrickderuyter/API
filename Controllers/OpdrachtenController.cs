@@ -3,8 +3,8 @@
 namespace LESAPI.Controllers
 {
     using Helpers;
-    using LESAPI.Models;
-    using Microsoft.AspNetCore.Mvc.Infrastructure;
+    using Models;
+    using OpdrachtService;
     using TruckWebService;
 
     [ApiController]
@@ -84,6 +84,25 @@ namespace LESAPI.Controllers
 
             }
         }
+
+        [HttpPost("StartAanvulOpdracht")]
+        public async Task<OpdrachtService.Opdracht> StartAanvulOpdracht
+            (string pin, OpdrachtService.Opdracht opdracht)
+        {
+            await using var serviceClient = new OpdrachtServiceClient();
+            var result = serviceClient.StartAanvulOpdrachtAsync(pin, opdracht);
+            return result.Result.ResultaatObject;
+
+        }
+
+        [HttpGet("GeefVolgendeOpdracht/{trucknummer}")]
+        public async Task<OpdrachtService.Opdracht> GeefVolgendeOpdracht(string trucknummer)
+        {
+            await using var serviceClient = new OpdrachtServiceClient();
+            var result = await serviceClient.GeefVolgendeOpdrachtAsync(trucknummer);
+            return result;
+        }
+
 
     }
 }
