@@ -6,6 +6,8 @@ namespace LESAPI.Controllers
     using Models;
     using OpdrachtService;
     using TruckWebService;
+    using Opdracht = OpdrachtService.Opdracht;
+    using Resultaat = TruckWebService.Resultaat;
 
     [ApiController]
     [Route("[controller]")]
@@ -85,7 +87,7 @@ namespace LESAPI.Controllers
             }
         }
 
-        [HttpPost("StartAanvulOpdracht")]
+        [HttpPost("StartAanvulOpdracht/{pin}")]
         public async Task<OpdrachtService.Opdracht> StartAanvulOpdracht
             (string pin, OpdrachtService.Opdracht opdracht)
         {
@@ -103,6 +105,37 @@ namespace LESAPI.Controllers
             return result;
         }
 
+        [HttpPost("OpdrachtOntkoppelen/{opdrachtnummer}")]
+        public async Task<bool> OpdrachtOntkoppelen(string opdrachtnummer)
+        {
+            try
+            {
+                await using var serviceClient = new OpdrachtServiceClient();
+                await serviceClient.OpdrachtOntkoppelenAsync(opdrachtnummer);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
 
+        }
+
+        [HttpPost("AanvulOpdrachtAfronden/{colliOpEindlocatie}")]
+        public async Task<bool> AanvulOpdrachtAfronden(Opdracht opdracht, int colliOpEindlocatie)
+        {
+            try
+            {
+                await using var serviceClient = new OpdrachtServiceClient();
+                await serviceClient.AanvulOpdrachtAfrondenAsync(opdracht, colliOpEindlocatie);
+                //normaal gesproken gaat er dan een bericht uit en wordt de opdracht afgesloten.
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
     }
 }
