@@ -4,8 +4,6 @@ using TruckWebService;
 namespace LESAPI.Controllers
 {
     using Models;
-    using System.Text;
-    using System.Text.Json;
 
     [ApiController]
     [Route("[controller]")]
@@ -18,11 +16,11 @@ namespace LESAPI.Controllers
             _logger = logger;
 
         }
-        [HttpGet("{ontvangstordernr}/{palletnr}")]
-        public async Task<OntvangstregistratiePallet> GeefOntvangstregistratiePallet(string ontvangstordernr, string palletnr)
+        [HttpGet("{ontvangstordernr}/{palletNummer}")]
+        public async Task<OntvangstregistratiePallet> GeefOntvangstregistratiePallet(string ontvangstordernr, string palletNummer)
         {
             await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.GeefOntvangstregistratiePalletAsync(ontvangstordernr, palletnr);
+            var result = await serviceClient.GeefOntvangstregistratiePalletAsync(ontvangstordernr, palletNummer);
             return result.ResultaatObject;
         }
 

@@ -15,11 +15,11 @@ namespace LESAPI.Controllers
 
         }
 
-        [HttpGet("GeefLocatieInfoBijPalletnr/{palletnr}")]
-        public async Task<LocatieInfo> GeefLocatieInfoBijPalletnr(string palletnr)
+        [HttpGet("GeefLocatieInfoBijPalletnr/{palletNummer}")]
+        public async Task<LocatieInfo> GeefLocatieInfoBijPalletnr(string palletNummer)
         {
             await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.GeefLocatieInfoBijPalletnrAsync(palletnr);
+            var result = await serviceClient.GeefLocatieInfoBijPalletnrAsync(palletNummer);
             result.PalletsOpLocatie = null;//not needed for app.
 
             return result;
@@ -28,14 +28,15 @@ namespace LESAPI.Controllers
         }
 
 
-        [HttpPost("SluitVerzamelpallet/{palletnr}/{productienummer}")]
-        public async Task<string> SluitVerzamelpallet(string palletnr, int? productienummer = 0)
+        [HttpPost("SluitVerzamelpallet/{palletNummer}/{productieNummer}")]
+        public async Task<string> SluitVerzamelpallet(string palletNummer, int? productieNummer = 0)
         {
             await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.PickpalletDoelLocatieNaamVerzamelAanvoerOpdrachtAsync(palletnr, productienummer);
+            var result = await serviceClient.PickpalletDoelLocatieNaamVerzamelAanvoerOpdrachtAsync(palletNummer, productieNummer);
             return result;
 
 
         }
+
     }
 }
