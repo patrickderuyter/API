@@ -75,117 +75,124 @@ namespace LESAPI.Controllers
 
         public enum AttachDetach
         {
-            Attach,
-            Detach
+            Attach = 0,
+            Detach = 1
         }
 
         [HttpPost("KoppelenTruckRun/{runvolgnr}/{trucknr}/{attachDetach}")]
         public async Task<Resultaat> KoppelenTruckRun(string runvolgnr, string trucknr, AttachDetach attachDetach)
         {
             await using var serviceClient = new TruckWebServiceClient();
-            if (attachDetach == AttachDetach.Attach)
+            switch (attachDetach)
             {
-                var result = await serviceClient.KoppelenTruckRunAsync(runvolgnr, trucknr);
-                return result;
+                case AttachDetach.Attach:
+                {
+                    var result = await serviceClient.KoppelenTruckRunAsync(runvolgnr, trucknr);
+                    return result;
+                }
+                case AttachDetach.Detach:
+                {
+                    {
+                        var result = await serviceClient.OntkoppelenTruckRunAsync(runvolgnr, trucknr);
+                        return result;
+                    }
+                }
             }
-            else
-            {
-                var result = await serviceClient.OntkoppelenTruckRunAsync(runvolgnr, trucknr);
-                return result;
-            }
+
+            return new Resultaat() { IsValide = false };
         }
 
         [HttpGet("GetUitslagordersVoorRit/{runvolgnummer}")]
-        public async Task<RitOrder[]> GetUitslagordersVoorRit(string runVolgnummer)
-        {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.GetUitslagordersVoorRitAsync(runVolgnummer);
-            return result.ResultaatObject;
+            public async Task<RitOrder[]> GetUitslagordersVoorRit(string runVolgnummer)
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.GetUitslagordersVoorRitAsync(runVolgnummer);
+                return result.ResultaatObject;
+            }
+
+            [HttpPost("AfsluitenRit/{runvolgnr}/{pincode}/{forceerAfsluitenRit}")]
+            public async Task<Resultaat> AfsluitenRit(string runvolgnr, string pincode,
+                bool forceerAfsluitenRit)
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.AfsluitenRitAsync(runvolgnr, pincode, forceerAfsluitenRit);
+                return result;
+            }
+
+            [HttpGet("GetOpenstaandePalletsVoorUitslagorder/{runvolgnummer}")]
+            public async Task<UitslagPalletInfo[]> GetOpenstaandePalletsVoorUitslagorder(string runVolgnummer)
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.GetOpenstaandePalletsVoorUitslagorderAsync(runVolgnummer);
+                return result.ResultaatObject;
+            }
+
+            [HttpGet("GetPalletinfoVoorUitslagorder/{runvolgnummer}/{palletNummer}")]
+            public async Task<UitslagPalletInfo> GetPalletinfoVoorUitslagorder(string runVolgnummer, string palletNummer)
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.
+                    GetPalletinfoVoorUitslagorderAsync(runVolgnummer, palletNummer);
+                return result.ResultaatObject;
+            }
+
+            [HttpPost("StartVerzendingControle/{palletNummer}/{pin}")]
+            public async Task StartVerzendingControle(string palletNummer, string pin)
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                await serviceClient.
+                    StartVerzendingControleAsync(palletNummer, pin);
+            }
+
+            [HttpPost("VerwerkenVerzendingMeermaligeLeenEmballage/{lastdragernr}/{emballagenr}/{palletNummer}")]
+            public async Task<Resultaat> VerwerkenVerzendingMeermaligeLeenEmballage(string lastdragerNummer, string emballageNummer, string palletNummer)
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.
+                    VerwerkenVerzendingMeermaligeLeenEmballageAsync(lastdragerNummer, emballageNummer, palletNummer);
+                return result;
+            }
+
+            [HttpPost("VerwerkenScanZegelnummer/{zegelnr}/{palletNummer}")]
+            public async Task<Resultaat> VerwerkenScanZegelnummer(string zegelnummer, string palletNummer)
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.
+                    VerwerkenScanZegelnummerAsync(zegelnummer, palletNummer);
+                return result;
+            }
+
+            [HttpPost("VerwerkPalletGoedkeuren/{palletNummer}/{pincode}/{trucknummer}")]
+            public async Task<Resultaat> VerwerkPalletGoedkeuren(string palletNummer, string pincode, string trucknummer)
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.
+                    VerwerkPalletGoedkeurenAsync(palletNummer, pincode, trucknummer);
+                return result;
+            }
+
+            [HttpPost("VerwerkAantalCorrectie/{palletNummer}/{idNr}/{nieuwAantal}/{verplaatsingsOrderNr}/{pincode}")]
+            public async Task<Resultaat> VerwerkAantalCorrectie(string palletNummer, string idNr, int nieuwAantal,
+                string verplaatsingsOrderNr, string pincode)
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.
+                    VerwerkAantalCorrectieAsync(palletNummer, idNr, nieuwAantal, verplaatsingsOrderNr, pincode);
+                return result;
+            }
+
+            [HttpPost("VerwerkOverstapelen/{runVolgNummer}/{palletNummerVan}/{palletNummerNaar}/{idnr}/{aantal}/{verplaatsingsOrderNummer}/{pincode}")]
+            public async Task<Resultaat> VerwerkOverstapelen(string runVolgNummer, string palletNummerVan,
+                string palletNummerNaar, string idnr, int aantal, string verplaatsingsOrderNummer, string pincode)
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.
+                    VerwerkOverstapelenAsync(runVolgNummer, palletNummerVan, palletNummerNaar, idnr, aantal, verplaatsingsOrderNummer, pincode);
+                return result;
+            }
+
+
+
+
         }
-
-        [HttpPost("AfsluitenRit/{runvolgnr}/{pincode}/{forceerAfsluitenRit}")]
-        public async Task<Resultaat> AfsluitenRit(string runvolgnr, string pincode,
-            bool forceerAfsluitenRit)
-        {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.AfsluitenRitAsync(runvolgnr, pincode, forceerAfsluitenRit);
-            return result;
-        }
-
-        [HttpGet("GetOpenstaandePalletsVoorUitslagorder/{runvolgnummer}")]
-        public async Task<UitslagPalletInfo[]> GetOpenstaandePalletsVoorUitslagorder(string runVolgnummer)
-        {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.GetOpenstaandePalletsVoorUitslagorderAsync(runVolgnummer);
-            return result.ResultaatObject;
-        }
-
-        [HttpGet("GetPalletinfoVoorUitslagorder/{runvolgnummer}/{palletNummer}")]
-        public async Task<UitslagPalletInfo> GetPalletinfoVoorUitslagorder(string runVolgnummer, string palletNummer)
-        {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.
-                GetPalletinfoVoorUitslagorderAsync(runVolgnummer, palletNummer);
-            return result.ResultaatObject;
-        }
-
-        [HttpPost("StartVerzendingControle/{palletNummer}/{pin}")]
-        public async Task StartVerzendingControle(string palletNummer, string pin)
-        {
-            await using var serviceClient = new TruckWebServiceClient();
-            await serviceClient.
-                StartVerzendingControleAsync(palletNummer, pin);
-        }
-
-        [HttpPost("VerwerkenVerzendingMeermaligeLeenEmballage/{lastdragernr}/{emballagenr}/{palletNummer}")]
-        public async Task<Resultaat> VerwerkenVerzendingMeermaligeLeenEmballage(string lastdragerNummer, string emballageNummer, string palletNummer)
-        {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.
-                VerwerkenVerzendingMeermaligeLeenEmballageAsync(lastdragerNummer, emballageNummer, palletNummer);
-            return result;
-        }
-
-        [HttpPost("VerwerkenScanZegelnummer/{zegelnr}/{palletNummer}")]
-        public async Task<Resultaat> VerwerkenScanZegelnummer(string zegelnummer, string palletNummer)
-        {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.
-                VerwerkenScanZegelnummerAsync(zegelnummer, palletNummer);
-            return result;
-        }
-
-        [HttpPost("VerwerkPalletGoedkeuren/{palletNummer}/{ pincode}/{trucknummer}")]
-        public async Task<Resultaat> VerwerkPalletGoedkeuren(string palletNummer, string pincode, string trucknummer)
-        {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.
-                VerwerkPalletGoedkeurenAsync(palletNummer, pincode, trucknummer);
-            return result;
-        }
-
-        [HttpPost("VerwerkAantalCorrectie/{palletNummer}/{idNr}/{nieuwAantal}/{verplaatsingsOrderNr}/{pincode}")]
-        public async Task<Resultaat> VerwerkAantalCorrectie(string palletNummer, string idNr, int nieuwAantal,
-            string verplaatsingsOrderNr, string pincode)
-        {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.
-                VerwerkAantalCorrectieAsync(palletNummer, idNr, nieuwAantal, verplaatsingsOrderNr, pincode);
-            return result;
-        }
-
-        [HttpPost("VerwerkOverstapelen/{runVolgNummer}/{palletNummerVan}/{palletNummerNaar}/{idnr}/{aantal}/{verplaatsingsOrderNummer}/{pincode}")]
-        public async Task<Resultaat> VerwerkOverstapelen(string runVolgNummer, string palletNummerVan,
-            string palletNummerNaar, string idnr, int aantal,string verplaatsingsOrderNummer ,string pincode)
-        {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.
-                VerwerkOverstapelenAsync(runVolgNummer, palletNummerVan,palletNummerNaar, idnr, aantal, verplaatsingsOrderNummer,pincode);
-            return result;
-        }
-
-
-
-
     }
-}
