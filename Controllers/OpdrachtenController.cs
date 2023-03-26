@@ -7,7 +7,6 @@ namespace LESAPI.Controllers
     using OpdrachtService;
     using TruckWebService;
     using Opdracht = OpdrachtService.Opdracht;
-    using Resultaat = TruckWebService.Resultaat;
 
     [ApiController]
     [Route("[controller]")]
@@ -137,5 +136,53 @@ namespace LESAPI.Controllers
             }
 
         }
+
+        [HttpPut("StartTransportOpdracht/{pin}")]
+        public async Task<Opdracht> StartTransportOpdracht(string pin,[FromBody] Opdracht opdracht)
+        {
+            try
+            {
+                await using var serviceClient = new OpdrachtServiceClient();
+                var result = await serviceClient.StartTransportOpdrachtAsync(pin, opdracht);
+                return result.ResultaatObject;
+            }
+            catch
+            {
+                return new Opdracht();
+            }
+        }
+
+        [HttpPost("TransportOpdrachtAfronden")]
+        public async Task<bool> TransportOpdrachtAfronden(Opdracht opdracht)
+        {
+            try
+            {
+                await using var serviceClient = new OpdrachtServiceClient();
+                await serviceClient.TransportOpdrachtAfrondenAsync(opdracht);
+                //normaal gesproken gaat er dan een bericht uit en wordt de opdracht afgesloten.
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        [HttpPost("LocatieVrijgeven/{locatieNr}")]
+        public async Task<bool> LocatieVrijgeven(string locatieNr)
+        {
+            try
+            {
+                await using var serviceClient = new OpdrachtServiceClient();
+                await serviceClient.LocatieVrijgevenAsync(locatieNr);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        
     }
 }
