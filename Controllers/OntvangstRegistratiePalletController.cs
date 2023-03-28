@@ -16,7 +16,7 @@ namespace LESAPI.Controllers
             _logger = logger;
 
         }
-        [HttpGet("{ontvangstordernr}/{palletNummer}")]
+        [HttpGet("GeefOntvangstregistratiePallet/{ontvangstordernr}/{palletNummer}")]
         public async Task<OntvangstregistratiePallet> GeefOntvangstregistratiePallet(string ontvangstordernr, string palletNummer)
         {
             await using var serviceClient = new TruckWebServiceClient();
@@ -38,8 +38,8 @@ namespace LESAPI.Controllers
         {
             await using var serviceClient = new TruckWebServiceClient();
             var result =
-                serviceClient.OpslaanOntvangstregistratiePallet(receiptRegistrationWithNumber.ReceiptRegistration, receiptRegistrationWithNumber.Trucknumber);
-            return result;
+                serviceClient.OpslaanOntvangstregistratiePalletAsync(receiptRegistrationWithNumber.ReceiptRegistration, receiptRegistrationWithNumber.Trucknumber);
+            return result.Result;
         }
     }
 }
