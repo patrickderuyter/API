@@ -69,8 +69,8 @@ namespace LESAPI.Controllers
             return true;
         }
 
-        [HttpGet("GetCheckPalletTelOpdracht/{palletnummer}")]
-        public async Task<PalletInfo?> GetCheckPalletTelOpdracht(string palletnummer)
+        [HttpGet("CheckPalletTelOpdracht/{palletnummer}")]
+        public async Task<PalletInfo?> CheckPalletTelOpdracht(string palletnummer)
         {
             try
             {
@@ -182,7 +182,5 @@ namespace LESAPI.Controllers
                 return false;
             }
         }
-
-        
     }
 }

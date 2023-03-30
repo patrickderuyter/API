@@ -20,7 +20,7 @@ namespace LESAPI.Controllers
         {
             await using var serviceClient = new TruckWebServiceClient();
             var result = await serviceClient.GeefLocatieInfoBijPalletnrAsync(palletNummer);
-            result.PalletsOpLocatie = null;//not needed for app.
+            if(result != null) result.PalletsOpLocatie = null;//not needed for app.
 
             return result;
 
