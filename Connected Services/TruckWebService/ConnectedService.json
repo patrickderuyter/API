@@ -10,7 +10,6 @@
     "namespaceMappings": [
       "*, TruckWebService"
     ],
-    "sync": true,
     "targetFramework": "net6.0",
     "typeReuseMode": "All"
   }

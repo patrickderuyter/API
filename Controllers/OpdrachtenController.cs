@@ -2,11 +2,13 @@
 
 namespace LESAPI.Controllers
 {
+    using System.Diagnostics;
     using Helpers;
     using Models;
     using OpdrachtService;
     using TruckWebService;
     using Opdracht = OpdrachtService.Opdracht;
+    using Resultaat = TruckWebService.Resultaat;
 
     [ApiController]
     [Route("[controller]")]
@@ -182,5 +184,61 @@ namespace LESAPI.Controllers
                 return false;
             }
         }
+
+        [HttpGet("GeefProcessegmentenBijFabriekopdrachten/{pin}")]
+        public async Task<Processegment[]> GeefProcessegmentenBijFabriekopdrachten(string pin)
+        {
+            await using var serviceClient = new TruckWebServiceClient();
+            var result = await 
+                serviceClient.GeefProcessegmentenBijFabriekopdrachtenAsync(pin);
+            return result.ResultaatObject;
+        }
+
+        [HttpPost("GeefVrijeFabriekopdrachtenVoorFabrieken/{pin}")]
+        public async Task<FabriekOpdracht[]> GeefVrijeFabriekopdrachtenVoorFabrieken(string pin, [FromBody] List<int> processegmentCodes)
+        {
+            await using var serviceClient = new TruckWebServiceClient();
+            var result = await
+                serviceClient.GeefVrijeFabriekopdrachtenVoorFabriekenAsync(pin, processegmentCodes.ToArray());
+            return result.ResultaatObject;
+        }
+
+        [HttpGet("GeefOrderaanvoeropdrachtIdVoorPallet/{palletnummer}")]
+        public async Task<long> GeefOrderaanvoeropdrachtIdVoorPallet(string palletnummer)
+        {
+            await using var serviceClient = new TruckWebServiceClient();
+            var result = await
+                serviceClient.GeefOrderaanvoeropdrachtIdVoorPalletAsync(palletnummer);
+            return result.ResultaatObject;
+        }
+
+        [HttpPut("FabriekopdrachtStarten/{orderaanvoerOpdrachtId}/{gebied}/{pin}")]
+        public async Task<Opdracht> FabriekopdrachtStarten(long orderaanvoerOpdrachtId, string gebied, string pin)
+        {
+            await using var serviceClient = new OpdrachtServiceClient();
+            var result = await serviceClient.FabriekopdrachtStartenAsync(orderaanvoerOpdrachtId, gebied, pin);
+            return result.ResultaatObject;
+        }
+
+        [HttpPut("FabriekopdrachtAfronden/{opdrachtNummer}/{pin}")]
+        public async Task<OpdrachtService.Resultaat> FabriekopdrachtAfronden(string opdrachtNummer, string pin)
+        {
+            await using var serviceClient = new OpdrachtServiceClient();
+            var result = await
+                serviceClient.FabriekopdrachtAfrondenAsync(opdrachtNummer,  pin);
+            return result;
+        }
+
+        [HttpPut("FabriekopdrachtAnnuleren/{opdrachtNummer}/{pin}")]
+        public async Task<OpdrachtService.Resultaat> FabriekopdrachtAnnuleren(string opdrachtNummer, string pin)
+        {
+            await using var serviceClient = new OpdrachtServiceClient();
+            var result = await
+                serviceClient.FabriekopdrachtAnnulerenAsync(opdrachtNummer, pin);
+            return result;
+        }
+
+        
+
     }
 }
