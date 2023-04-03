@@ -1,14 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace LESAPI.Controllers
+﻿namespace LESAPI.Controllers
 {
-    using System.Diagnostics;
     using Helpers;
+    using Microsoft.AspNetCore.Mvc;
     using Models;
     using OpdrachtService;
     using TruckWebService;
     using Opdracht = OpdrachtService.Opdracht;
-    using Resultaat = TruckWebService.Resultaat;
+    using Resultaat = OpdrachtService.Resultaat;
+    using ResultaatOfOpdracht5SlwlhPY = OpdrachtService.ResultaatOfOpdracht5SlwlhPY;
 
     [ApiController]
     [Route("[controller]")]
@@ -89,8 +88,8 @@ namespace LESAPI.Controllers
         }
 
         [HttpPost("StartAanvulOpdracht/{pin}")]
-        public async Task<OpdrachtService.Opdracht> StartAanvulOpdracht
-            (string pin, OpdrachtService.Opdracht opdracht)
+        public async Task<Opdracht> StartAanvulOpdracht
+            (string pin, Opdracht opdracht)
         {
             await using var serviceClient = new OpdrachtServiceClient();
             var result = serviceClient.StartAanvulOpdrachtAsync(pin, opdracht);
@@ -99,7 +98,7 @@ namespace LESAPI.Controllers
         }
 
         [HttpGet("GeefVolgendeOpdracht/{trucknummer}")]
-        public async Task<OpdrachtService.Opdracht> GeefVolgendeOpdracht(string trucknummer)
+        public async Task<Opdracht> GeefVolgendeOpdracht(string trucknummer)
         {
             await using var serviceClient = new OpdrachtServiceClient();
             var result = await serviceClient.GeefVolgendeOpdrachtAsync(trucknummer);
@@ -221,7 +220,7 @@ namespace LESAPI.Controllers
         }
 
         [HttpPut("FabriekopdrachtAfronden/{opdrachtNummer}/{pin}")]
-        public async Task<OpdrachtService.Resultaat> FabriekopdrachtAfronden(string opdrachtNummer, string pin)
+        public async Task<Resultaat> FabriekopdrachtAfronden(string opdrachtNummer, string pin)
         {
             await using var serviceClient = new OpdrachtServiceClient();
             var result = await
@@ -230,7 +229,7 @@ namespace LESAPI.Controllers
         }
 
         [HttpPut("FabriekopdrachtAnnuleren/{opdrachtNummer}/{pin}")]
-        public async Task<OpdrachtService.Resultaat> FabriekopdrachtAnnuleren(string opdrachtNummer, string pin)
+        public async Task<Resultaat> FabriekopdrachtAnnuleren(string opdrachtNummer, string pin)
         {
             await using var serviceClient = new OpdrachtServiceClient();
             var result = await
@@ -238,7 +237,78 @@ namespace LESAPI.Controllers
             return result;
         }
 
-        
+        [HttpPut("StartInslagOpdrachtLocatieBepalingLES/{pin}/{palletNumber}/{area}")]
+        public async Task<ResultaatOfOpdracht5SlwlhPY> StartInslagOpdrachtLocatieBepalingLES(string pin,string palletNumber, string area, bool locationDetermination)
+        {
+            await using var serviceClient = new OpdrachtServiceClient();
+            var result = await
+                serviceClient.StartInslagOpdrachtLocatieBepalingLESAsync(pin, palletNumber, area, locationDetermination);
+            return result;
+        }
 
+        [HttpPut("StartInslagOpdracht/{pin}/{palletNumber}/{area}")]
+        public async Task<ResultaatOfOpdracht5SlwlhPY> StartInslagOpdracht(string pin, string palletNumber, string area)
+        {
+            await using var serviceClient = new OpdrachtServiceClient();
+            var result = await
+                serviceClient.StartInslagOpdrachtAsync(pin, palletNumber, area);
+            return result;
+        }
+
+        [HttpPut("InslagOpdrachtAfronden")]
+        public async Task<bool> InslagOpdrachtAfronden(Opdracht opdracht)
+        {
+            try
+            {
+                await using var serviceClient = new OpdrachtServiceClient();
+                await serviceClient.InslagOpdrachtAfrondenAsync(opdracht);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        [HttpPut("StartUitslagOpdracht/{pin}")]
+        public async Task<ResultaatOfOpdracht5SlwlhPY> StartUitslagOpdracht(string pin, Opdracht opdracht)
+        {
+            await using var serviceClient = new OpdrachtServiceClient();
+            var result = await
+                serviceClient.StartUitslagOpdrachtAsync(pin, opdracht);
+            return result;
+        }
+
+        [HttpPut("UitslagOpdrachtAfronden")]
+        public async Task<bool> UitslagOpdrachtAfronden(Opdracht opdracht)
+        {
+            try
+            {
+                await using var serviceClient = new OpdrachtServiceClient();
+                await serviceClient.UitslagOpdrachtAfrondenAsync(opdracht);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        [HttpPut("UitslagOpdrachtMarkeren")]
+        public async Task<bool> UitslagOpdrachtMarkeren(string orderNumber)
+        {
+            try
+            {
+                await using var serviceClient = new OpdrachtServiceClient();
+                await serviceClient.UitslagOpdrachtMarkerenAsync(orderNumber);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        
     }
 }
