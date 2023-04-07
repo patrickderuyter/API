@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LESAPI.Controllers
 {
-    using Models;
+    using System.Net.NetworkInformation;
     using TruckWebService;
 
     [ApiController]
@@ -20,11 +20,10 @@ namespace LESAPI.Controllers
         [HttpGet("GeefOpenopdrachten/{pincode}")]
         public async Task<List<AreaProcesssegment>> GeefOpenopdrachten(string pincode)
         {
-            var areaProcesssegments = new List<AreaProcesssegment>();
             await using var serviceClient = new TruckWebServiceClient();
             var result = await serviceClient.GeefProcessegmentenOpenstaandeOrderopdrachtenAsync(0, pincode);
 
-            areaProcesssegments = result.ResultaatObject.ToList();
+            var areaProcesssegments = result.ResultaatObject.ToList();
 
             return areaProcesssegments;
         }
@@ -32,11 +31,10 @@ namespace LESAPI.Controllers
         [HttpGet("GeefProcessegmentenOpenstaandeOrderopdrachten/{processSegmentNumber}/{pincode}")]
         public async Task<List<AreaProcesssegment>> GeefOpenopdrachten(int processSegmentNumber, string pincode)
         {
-            var areaProcesssegments = new List<AreaProcesssegment>();
             await using var serviceClient = new TruckWebServiceClient();
             var result = await serviceClient.GeefProcessegmentenOpenstaandeOrderopdrachtenAsync(processSegmentNumber, pincode);
 
-            areaProcesssegments = result.ResultaatObject.ToList();
+            var areaProcesssegments = result.ResultaatObject.ToList();
 
             return areaProcesssegments;
         }
@@ -145,6 +143,82 @@ namespace LESAPI.Controllers
             var result = await serviceClient.AfrondenOrderAanvoeropdrachtRegelGmagAsync(orderAanvoerOpdrachtRegel);
             return result;
         }
+
+        [HttpPut("ZetGTMAanvoerverzoeken/{gebiedId}")]
+        public async Task<Resultaat> ZetGTMAanvoerverzoeken(long[] supplyRequestIds, long gebiedId)
+        {
+            await using var serviceClient = new TruckWebServiceClient();
+            var result = await serviceClient.ZetGTMAanvoerverzoekenAsync(supplyRequestIds, gebiedId);
+            return result;
+        }
+
+        [HttpPut("PickpalletAfrondenVerzamelAanvoerOpdracht/{palletnumber}/{truck}/{pin}/{productionNumber}")]
+        public async Task<bool> PickpalletAfrondenVerzamelAanvoerOpdracht(string palletnumber, string truck,string pin, int? productionNumber)
+        {
+            try
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                    await serviceClient.PickpalletAfrondenVerzamelAanvoerOpdrachtAsync(palletnumber, truck, pin,
+                        productionNumber);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        [HttpPost("ZetGTMAfvoerverzoeken/{areaId}/{allLines}")]
+        public async Task<Resultaat> ZetGTMAfvoerverzoeken(long areaId, bool allLines)
+        {
+            await using var serviceClient = new TruckWebServiceClient();
+            var result = await serviceClient.ZetGTMAfvoerverzoekenAsync(areaId, allLines);
+            return result;
+        }
+
+        [HttpPost("ZetGTMAanvoerverzoeken/{areaId}")]
+        public async Task<Resultaat> ZetGTMAanvoerverzoeken(long areaId, long[] orderIds)
+        {
+            await using var serviceClient = new TruckWebServiceClient();
+            var result = await serviceClient.ZetGTMAanvoerverzoekenAsync(orderIds, areaId);
+            return result;
+        }
+
+        [HttpPut("GeefGTMGebiedVrij/{areaId}/{pin}")]
+        public async Task<ResultaatOfGTMGebiedInfo5SlwlhPY> GeefGTMGebiedVrij(long areaId, string pin)
+        {
+            await using var serviceClient = new TruckWebServiceClient();
+            var result = await serviceClient.GeefGTMGebiedVrijAsync(areaId,pin);
+            return result;
+        }
+
+        [HttpPut("StartOrderAanvoerOpdrachtRegel/{findNext}/{pin}/{gtm}")]
+        [HttpPut("StartOrderAanvoerOpdrachtRegel/{findNext}/{pin}/{gtm}/{exclusivePalletNumber?}/{idnr?}")]
+        public async Task<ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY> StartOrderAanvoerOpdrachtRegel(OrderAanvoerOpdrachtRegel line,
+            bool findNext, string pin, bool gtm, string? exclusivePalletNumber = null, string? idnr = null)
+        {
+            await using var serviceClient = new TruckWebServiceClient();
+            var result = await serviceClient.StartOrderAanvoerOpdrachtRegelAsync(line,
+                exclusivePalletNumber, idnr, findNext, pin, gtm);
+            return result;
+        }
+
+        [HttpPost("AnnuleerOrderAanvoerOpdrachtRegel")]
+        public async Task<bool> AnnuleerOrderAanvoerOpdrachtRegel(OrderAanvoerOpdrachtRegel line)
+        {
+            try
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                await serviceClient.AnnuleerOrderAanvoerOpdrachtRegelAsync(line);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         
+
+
     }
 }
