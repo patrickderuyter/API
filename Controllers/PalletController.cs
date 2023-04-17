@@ -28,15 +28,14 @@ namespace LESAPI.Controllers
         }
 
 
-        [HttpPost("SluitVerzamelpallet/{palletNummer}/{productieNummer}")]
-        public async Task<string> SluitVerzamelpallet(string palletNummer, int? productieNummer = 0)
+        [HttpPost("SluitVerzamelpallet/{palletNumber}/{productionNumber}")]
+        public async Task<string> SluitVerzamelpallet(string palletNumber, int? productionNumber = 0)
         {
             await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.PickpalletDoelLocatieNaamVerzamelAanvoerOpdrachtAsync(palletNummer, productieNummer);
+            var result = await serviceClient.PickpalletDoelLocatieNaamVerzamelAanvoerOpdrachtAsync(palletNumber, productionNumber);
             return result;
-
-
         }
+       
 
     }
 }

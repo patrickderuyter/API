@@ -41,5 +41,14 @@ namespace LESAPI.Controllers
                 serviceClient.OpslaanOntvangstregistratiePalletAsync(receiptRegistrationWithNumber.ReceiptRegistration, receiptRegistrationWithNumber.Trucknumber);
             return result.Result;
         }
+
+        [HttpGet("ProcessGS1LabelSupplier/{receiptNumber}/{palletNumber}/{labelCode}")]
+        public async Task<ResultaatOfOntvangstregistratiePalletay1Gw99V> ProcessGS1LabelSupplier(string receiptNumber, string palletNumber, string labelCode)
+        {
+            await using var serviceClient = new TruckWebServiceClient();
+            var result = await serviceClient.VerwerkGS1LabelLeverancierAsync(receiptNumber, palletNumber, labelCode);
+            return result;
+        }
+
     }
 }

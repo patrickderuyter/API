@@ -21,7 +21,7 @@
 
         }
 
-        [HttpGet(Name = "AantalOpenstaandeOpdrachtenGMAG")]
+        [HttpGet( "AantalOpenstaandeOpdrachtenGMAG")]
         public async Task<AantalOpenstaandeOpdrachtenGMAG> GetOpdrachtservice()
         {
             using (var serviceClient = new TruckWebServiceClient())
