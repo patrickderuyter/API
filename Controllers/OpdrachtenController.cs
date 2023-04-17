@@ -294,7 +294,7 @@
             return true;
         }
 
-        [HttpPut("UitslagOpdrachtMarkeren")]
+        [HttpPut("UitslagOpdrachtMarkeren/{orderNumber}")]
         public async Task<bool> UitslagOpdrachtMarkeren(string orderNumber)
         {
             try
@@ -309,6 +309,37 @@
             return true;
         }
 
+        [HttpPost("StartGTMOpdracht/{pin}")]
+        public async Task<ResultaatOfOpdracht5SlwlhPY> StartGTMOpdracht(string pin, Opdracht opdracht)
+        {
+            try
+            {
+                await using var serviceClient = new OpdrachtServiceClient();
+                var result = await serviceClient.StartGTMOpdrachtAsync(pin,opdracht);
+                return result;
+            }
+            catch
+            {
+                return new ResultaatOfOpdracht5SlwlhPY();
+            }
+        }
+
+        [HttpPut("GTMOpdrachtAfronden")]
+        public async Task<bool> GTMOpdrachtAfronden(Opdracht opdracht)
+        {
+            try
+            {
+                await using var serviceClient = new OpdrachtServiceClient();
+                await serviceClient.GTMOpdrachtAfrondenAsync(opdracht);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         
+
     }
 }
