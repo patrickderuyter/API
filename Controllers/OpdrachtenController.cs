@@ -34,6 +34,19 @@
 
         }
 
+        [HttpGet("GeefScorebord")]
+        public async Task<Scorebord[]> GeefScorebord()
+        {
+            using (var serviceClient = new TruckWebServiceClient())
+            {
+                var result = await serviceClient.GeefScorebordAsync();
+
+                return result;
+            }
+
+
+        }
+
         [HttpGet("GeefLocatieInfoVolgendeLocatie/{huidigelocatie}")]
         public async Task<LocatieInfo> GeefLocatieInfoVolgendeLocatie(string huidigelocatie)
         {
