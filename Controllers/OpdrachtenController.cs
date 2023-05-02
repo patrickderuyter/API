@@ -215,6 +215,16 @@
             return result.ResultaatObject;
         }
 
+        [HttpGet("GeefVrijeFabriekopdrachten/{pin}/{processegmentCode}")]
+        public async Task<FabriekOpdracht[]> GeefVrijeFabriekopdrachten(string pin, int processegmentCode)
+        {
+            await using var serviceClient = new TruckWebServiceClient();
+            var result = await
+                serviceClient.GeefVrijeFabriekopdrachtenAsync(pin, processegmentCode);
+            return result.ResultaatObject;
+        }
+
+        
         [HttpGet("GeefOrderaanvoeropdrachtIdVoorPallet/{palletnummer}")]
         public async Task<long> GeefOrderaanvoeropdrachtIdVoorPallet(string palletnummer)
         {
