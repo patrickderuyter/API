@@ -2,9 +2,11 @@
 
 namespace LESAPI.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using TruckWebService;
 
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     public class TruckController : ControllerBase
     {

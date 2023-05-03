@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TruckWebService;
 
 namespace LESAPI.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     public class PalletController : ControllerBase
     {

@@ -2,10 +2,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LESAPI.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using System.Net.NetworkInformation;
     using TruckWebService;
 
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     public class VerzamelOrderController : ControllerBase
     {

@@ -3,9 +3,11 @@ using TruckWebService;
 
 namespace LESAPI.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Models;
 
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     public class OntvangstRegistratiePalletController : ControllerBase
     {

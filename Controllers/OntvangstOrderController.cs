@@ -2,10 +2,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LESAPI.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using TruckWebService;
 
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class OntvangstOrderController : ControllerBase
     {
         private readonly ILogger<OntvangstOrderController> _logger;

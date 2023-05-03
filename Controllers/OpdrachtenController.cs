@@ -1,6 +1,7 @@
 ﻿namespace LESAPI.Controllers
 {
     using Helpers;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Models;
     using OpdrachtService;
@@ -10,6 +11,7 @@
     using ResultaatOfOpdracht5SlwlhPY = OpdrachtService.ResultaatOfOpdracht5SlwlhPY;
 
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     public class OpdrachtenController : ControllerBase
     {
