@@ -1,7 +1,7 @@
 {
   "ExtendedData": {
     "inputs": [
-      "http://localhost:8080/OpdrachtService.svc"
+      "http://192.168.2.27:8080/OpdrachtService.svc"
     ],
     "collectionTypes": [
       "System.Array",

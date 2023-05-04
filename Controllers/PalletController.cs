@@ -24,9 +24,10 @@ namespace LESAPI.Controllers
             var result = await serviceClient.GeefLocatieInfoBijPalletnrAsync(palletNummer);
             if(result != null) result.PalletsOpLocatie = null;//not needed for app.
 
-            return result;
+            result ??= new LocatieInfo();
 
-
+            _logger.LogInformation($"GeefLocatieInfoBijPalletnr : " + result.LocatieNummer);
+            return result; 
         }
 
 

@@ -59,7 +59,7 @@ builder.Services.AddAuthentication(opt => {
             ValidateIssuerSigningKey = true,
             ValidIssuer = ConfigurationManager.AppSetting["JWT:ValidIssuer"],
             ValidAudience = ConfigurationManager.AppSetting["JWT:ValidAudience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(ConfigurationManager.AppSetting["JWT:Secret"]))
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(ConfigurationManager.AppSetting["JWT:Secret"] ?? throw new InvalidOperationException()))
         };
     });
 

@@ -1,7 +1,7 @@
 {
   "ExtendedData": {
     "inputs": [
-      "http://localhost:8080/TruckWebService.svc"
+      "http://192.168.2.27:8080/TruckWebService.svc"
     ],
     "collectionTypes": [
       "System.Array",

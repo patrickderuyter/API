@@ -8901,7 +8901,7 @@ namespace TruckWebService
         {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_ITruckWebService))
             {
-                return new System.ServiceModel.EndpointAddress("http://localhost:8080/TruckWebService.svc");
+                return new System.ServiceModel.EndpointAddress("http://192.168.2.27:8080/TruckWebService.svc");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }
