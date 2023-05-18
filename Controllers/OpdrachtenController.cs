@@ -1,6 +1,5 @@
 ﻿namespace LESAPI.Controllers
 {
-    using Helpers;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Models;
@@ -15,60 +14,80 @@
     [Route("[controller]")]
     public class OpdrachtenController : ControllerBase
     {
-        private readonly ILogger<OpdrachtenController> _logger;
+        private readonly ILogger<OpdrachtenController> logger;
 
         public OpdrachtenController(ILogger<OpdrachtenController> logger)
         {
-            _logger = logger;
-
+            this.logger = logger;
         }
 
-        [HttpGet( "AantalOpenstaandeOpdrachtenGMAG")]
+        [HttpGet("AantalOpenstaandeOpdrachtenGMAG")]
         public async Task<AantalOpenstaandeOpdrachtenGMAG> GetOpdrachtservice()
         {
-            using (var serviceClient = new TruckWebServiceClient())
+            try
             {
+                await using var serviceClient = new TruckWebServiceClient();
                 var result = await serviceClient.GeefAantalOpenstaandeOpdrachtenGMAGAsync();
-                
+
                 return result.ResultaatObject;
             }
-
-
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                return new AantalOpenstaandeOpdrachtenGMAG();
+            }
         }
 
         [HttpGet("GeefScorebord")]
         public async Task<Scorebord[]> GeefScorebord()
         {
-            using (var serviceClient = new TruckWebServiceClient())
+            try
             {
+                await using var serviceClient = new TruckWebServiceClient();
                 var result = await serviceClient.GeefScorebordAsync();
 
                 return result;
             }
-
-
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                return Array.Empty<Scorebord>();
+            }
         }
 
         [HttpGet("GeefLocatieInfoVolgendeLocatie/{huidigelocatie}")]
         public async Task<LocatieInfo> GeefLocatieInfoVolgendeLocatie(string huidigelocatie)
         {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.GeefLocatieInfoVolgendeLocatieAsync(huidigelocatie);
-
-            return result;
+            try
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.GeefLocatieInfoVolgendeLocatieAsync(huidigelocatie);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                return new LocatieInfo();
+            }
         }
-
 
         [HttpGet("GeefLocatieInfo/{locatienummer}")]
         public async Task<LocatieInfo> GeefLocatieInfo(string locatienummer)
         {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.GeefLocatieInfoAsync(locatienummer);
-
-            return result;
+            try
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.GeefLocatieInfoAsync(locatienummer);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                return new LocatieInfo();
+            }
         }
 
-        [HttpPost("VerwerkTelOpdracht")]
+        [HttpPut("VerwerkTelOpdracht")]
         public async Task<bool> VerwerkTelOpdracht(LocatieInfoWithPin locatieInfoWithPin)
         {
             try
@@ -92,19 +111,17 @@
             {
                 await using var serviceClient = new TruckWebServiceClient();
                 var result = await serviceClient.CheckPalletTelOpdrachtAsync(palletnummer);
-                var palletinfo = Mapper.MapPalletInfo(result);
-                return palletinfo;
+                return result.ResultaatObject;
             }
-            catch
+            catch (Exception ex)
             {
-                return null;
-
+                logger.LogError(ex.Message);
+                return new PalletInfo();
             }
         }
 
-        [HttpPost("StartAanvulOpdracht/{pin}")]
-        public async Task<Opdracht> StartAanvulOpdracht
-            (string pin, Opdracht opdracht)
+        [HttpPut("StartAanvulOpdracht/{pin}")]
+        public async Task<Opdracht> StartAanvulOpdracht(string pin, Opdracht opdracht)
         {
             await using var serviceClient = new OpdrachtServiceClient();
             var result = serviceClient.StartAanvulOpdrachtAsync(pin, opdracht);
@@ -120,7 +137,7 @@
             return result;
         }
 
-        [HttpPost("OpdrachtOntkoppelen/{opdrachtnummer}")]
+        [HttpPut("OpdrachtOntkoppelen/{opdrachtnummer}")]
         public async Task<bool> OpdrachtOntkoppelen(string opdrachtnummer)
         {
             try
@@ -136,7 +153,7 @@
 
         }
 
-        [HttpPost("AanvulOpdrachtAfronden/{colliOpEindlocatie}")]
+        [HttpPut("AanvulOpdrachtAfronden/{colliOpEindlocatie}")]
         public async Task<bool> AanvulOpdrachtAfronden(Opdracht opdracht, int colliOpEindlocatie)
         {
             try
@@ -154,7 +171,7 @@
         }
 
         [HttpPut("StartTransportOpdracht/{pin}")]
-        public async Task<Opdracht> StartTransportOpdracht(string pin,[FromBody] Opdracht opdracht)
+        public async Task<Opdracht> StartTransportOpdracht(string pin, [FromBody] Opdracht opdracht)
         {
             try
             {
@@ -168,7 +185,7 @@
             }
         }
 
-        [HttpPost("TransportOpdrachtAfronden")]
+        [HttpPut("TransportOpdrachtAfronden")]
         public async Task<bool> TransportOpdrachtAfronden(Opdracht opdracht)
         {
             try
@@ -184,7 +201,7 @@
             }
         }
 
-        [HttpPost("LocatieVrijgeven/{locatieNr}")]
+        [HttpPut("LocatieVrijgeven/{locatieNr}")]
         public async Task<bool> LocatieVrijgeven(string locatieNr)
         {
             try
@@ -203,7 +220,7 @@
         public async Task<Processegment[]> GeefProcessegmentenBijFabriekopdrachten(string pin)
         {
             await using var serviceClient = new TruckWebServiceClient();
-            var result = await 
+            var result = await
                 serviceClient.GeefProcessegmentenBijFabriekopdrachtenAsync(pin);
             return result.ResultaatObject;
         }
@@ -226,7 +243,6 @@
             return result.ResultaatObject;
         }
 
-        
         [HttpGet("GeefOrderaanvoeropdrachtIdVoorPallet/{palletnummer}")]
         public async Task<long> GeefOrderaanvoeropdrachtIdVoorPallet(string palletnummer)
         {
@@ -249,7 +265,7 @@
         {
             await using var serviceClient = new OpdrachtServiceClient();
             var result = await
-                serviceClient.FabriekopdrachtAfrondenAsync(opdrachtNummer,  pin);
+                serviceClient.FabriekopdrachtAfrondenAsync(opdrachtNummer, pin);
             return result;
         }
 
@@ -263,7 +279,7 @@
         }
 
         [HttpPut("StartInslagOpdrachtLocatieBepalingLES/{pin}/{palletNumber}/{area}")]
-        public async Task<ResultaatOfOpdracht5SlwlhPY> StartInslagOpdrachtLocatieBepalingLES(string pin,string palletNumber, string area, bool locationDetermination)
+        public async Task<ResultaatOfOpdracht5SlwlhPY> StartInslagOpdrachtLocatieBepalingLES(string pin, string palletNumber, string area, bool locationDetermination)
         {
             await using var serviceClient = new OpdrachtServiceClient();
             var result = await
@@ -334,13 +350,13 @@
             return true;
         }
 
-        [HttpPost("StartGTMOpdracht/{pin}")]
+        [HttpPut("StartGTMOpdracht/{pin}")]
         public async Task<ResultaatOfOpdracht5SlwlhPY> StartGTMOpdracht(string pin, Opdracht opdracht)
         {
             try
             {
                 await using var serviceClient = new OpdrachtServiceClient();
-                var result = await serviceClient.StartGTMOpdrachtAsync(pin,opdracht);
+                var result = await serviceClient.StartGTMOpdrachtAsync(pin, opdracht);
                 return result;
             }
             catch
@@ -363,8 +379,5 @@
                 return false;
             }
         }
-
-        
-
     }
 }

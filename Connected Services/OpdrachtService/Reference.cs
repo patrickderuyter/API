@@ -1176,7 +1176,7 @@ namespace OpdrachtService
         {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IOpdrachtService))
             {
-                return new System.ServiceModel.EndpointAddress("http://192.168.2.27:8080/OpdrachtService.svc");
+                return new System.ServiceModel.EndpointAddress("http://192.168.2.12:8080/OpdrachtService.svc");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }

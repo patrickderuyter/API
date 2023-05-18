@@ -15,29 +15,36 @@ namespace LESAPI.Controllers
     [Route("[controller]")]
     public class LoginController : ControllerBase
     {
-        private readonly ILogger<LastdragerController> _logger;
+        private readonly ILogger<LoginController> logger;
 
-        public LoginController(ILogger<LastdragerController> logger)
+        public LoginController(ILogger<LoginController> logger)
         {
-            _logger = logger;
-
+            this.logger = logger;
         }
 
-        
         [HttpGet("Inloggen/{truckNumber}/{pin}")]
         public async Task<JWTTokenResponse> Inloggen(string truckNumber, string pin)
         {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.InloggenAsync(truckNumber, pin);
-            if (result.Status == LoginStatus.Geslaagd)
+            try
             {
-                return CreateToken(result.Gebruiker);
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.InloggenAsync(truckNumber, pin);
+                if (result.Status == LoginStatus.Geslaagd)
+                {
+                    return CreateToken(result.Gebruiker);
+                }
+                logger.LogError($"Token created for {truckNumber}");
+                return new JWTTokenResponse
+                { Token = "", Gebruiker = result.Gebruiker, Status = result.Status, RefreshToken = "" };
             }
-
-            return new JWTTokenResponse { Token = "", Gebruiker = result.Gebruiker, Status = result.Status,RefreshToken = ""};
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                return new JWTTokenResponse();//return empty token.
+            }
         }
 
-        private JWTTokenResponse CreateToken(TruckGebruiker gebruiker)
+        private static JWTTokenResponse CreateToken(TruckGebruiker gebruiker)
         {
             var secretKey =
                 new SymmetricSecurityKey(
@@ -51,7 +58,7 @@ namespace LESAPI.Controllers
                 signingCredentials: signinCredentials
             );
 
-           var  refreshToken = GenerateRefreshToken();
+            var refreshToken = GenerateRefreshToken();
             var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
 
             return new JWTTokenResponse
@@ -65,15 +72,23 @@ namespace LESAPI.Controllers
         }
 
         [HttpPost("RefreshToken")]
-        public async Task<JWTTokenResponse> RefreshToken(JWTTokenResponse originalJwtTokenResponse)
+        public Task<JWTTokenResponse> RefreshToken(JWTTokenResponse originalJwtTokenResponse)
         {
-            if (string.IsNullOrWhiteSpace(originalJwtTokenResponse.RefreshToken) 
-                && string.IsNullOrWhiteSpace(originalJwtTokenResponse.Token))
+            try
             {
-                return new JWTTokenResponse { Token = "", Gebruiker = null, Status = LoginStatus.GebruikerOnbekend, RefreshToken = "" };
-            }
+                if (string.IsNullOrWhiteSpace(originalJwtTokenResponse.RefreshToken)
+                    && string.IsNullOrWhiteSpace(originalJwtTokenResponse.Token))
+                {
+                    return Task.FromResult(new JWTTokenResponse { Token = "", Gebruiker = null, Status = LoginStatus.GebruikerOnbekend, RefreshToken = "" });
+                }
 
-            return CreateToken(originalJwtTokenResponse.Gebruiker);
+                return Task.FromResult(CreateToken(originalJwtTokenResponse.Gebruiker));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                return Task.FromResult(new JWTTokenResponse());//return empty token.
+            }
         }
 
         private static string GenerateRefreshToken()
@@ -88,9 +103,17 @@ namespace LESAPI.Controllers
         [HttpGet("GeefTruckConfiguratie/{truck}")]
         public async Task<TruckSettings> GeefTruckConfiguratie(string truck)
         {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.GeefTruckConfiguratieAsync(truck);
-            return result;
+            try
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.GeefTruckConfiguratieAsync(truck);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(message: ex.Message);
+                return new TruckSettings();//return empty.
+            }
         }
     }
 }

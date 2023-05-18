@@ -1,16 +1,15 @@
-﻿namespace LESAPI.Models
+﻿namespace LESAPI.Models;
+
+using TruckWebService;
+
+public class ReceiptRegistrationWithNumber
 {
-    using TruckWebService;
-
-    public class ReceiptRegistrationWithNumber
+    public ReceiptRegistrationWithNumber(OntvangstregistratiePallet receiptRegistration, string trucknumber)
     {
-        public ReceiptRegistrationWithNumber(OntvangstregistratiePallet receiptRegistration, string trucknumber)
-        {
-            ReceiptRegistration = receiptRegistration;
-            Trucknumber = trucknumber;
-        }
-
-        public OntvangstregistratiePallet ReceiptRegistration { get; set; }
-        public string Trucknumber { get; set; }
+        ReceiptRegistration = receiptRegistration;
+        Trucknumber = trucknumber;
     }
+
+    public OntvangstregistratiePallet ReceiptRegistration { get; set; }
+    public string Trucknumber { get; set; }
 }

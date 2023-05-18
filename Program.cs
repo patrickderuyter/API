@@ -72,9 +72,7 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
     app.UseSwaggerUI();
 }
 
-//#if !DEBUG
 app.UseHttpsRedirection();
-//#endif
 
 app.UseAuthorization();
 

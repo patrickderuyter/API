@@ -1,44 +1,53 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using TruckWebService;
-
-namespace LESAPI.Controllers
+﻿namespace LESAPI.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+    using TruckWebService;
+
     [ApiController]
     [Authorize]
     [Route("[controller]")]
     public class PalletController : ControllerBase
     {
-        private readonly ILogger<PalletController> _logger;
+        private readonly ILogger<PalletController> logger;
 
         public PalletController(ILogger<PalletController> logger)
         {
-            _logger = logger;
-
+            this.logger = logger;
         }
 
         [HttpGet("GeefLocatieInfoBijPalletnr/{palletNummer}")]
         public async Task<LocatieInfo> GeefLocatieInfoBijPalletnr(string palletNummer)
         {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.GeefLocatieInfoBijPalletnrAsync(palletNummer);
-            if(result != null) result.PalletsOpLocatie = null;//not needed for app.
-
-            result ??= new LocatieInfo();
-
-            _logger.LogInformation($"GeefLocatieInfoBijPalletnr : " + result.LocatieNummer);
-            return result; 
+            try
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.GeefLocatieInfoBijPalletnrAsync(palletNummer);
+                if (result != null) result.PalletsOpLocatie = null;//not needed for app.
+                result ??= new LocatieInfo();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                return new LocatieInfo();
+            }
         }
 
-
-        [HttpPost("SluitVerzamelpallet/{palletNumber}/{productionNumber}")]
+        [HttpPut("SluitVerzamelpallet/{palletNumber}/{productionNumber}")]
         public async Task<string> SluitVerzamelpallet(string palletNumber, int? productionNumber = 0)
         {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.PickpalletDoelLocatieNaamVerzamelAanvoerOpdrachtAsync(palletNumber, productionNumber);
-            return result;
+            try
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.PickpalletDoelLocatieNaamVerzamelAanvoerOpdrachtAsync(palletNumber, productionNumber);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                return string.Empty;
+            }
         }
-       
-
     }
 }

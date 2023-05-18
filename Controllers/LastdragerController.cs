@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace LESAPI.Controllers
+﻿namespace LESAPI.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Authorization;
     using TruckWebService;
 
@@ -10,23 +9,28 @@ namespace LESAPI.Controllers
     [Route("[controller]")]
     public class LastdragerController : ControllerBase
     {
-        private readonly ILogger<LastdragerController> _logger;
+        private readonly ILogger<LastdragerController> logger;
 
         public LastdragerController(ILogger<LastdragerController> logger)
         {
-            _logger = logger;
+            this.logger = logger;
 
         }
 
         [HttpGet("GeefLastdragers")]
         public async Task<List<LastdragerDC>> GeefLastdragers()
         {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.GeefLastdragersAsync();
-
-            return result.ResultaatObject.ToList();
-
-
+            try
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.GeefLastdragersAsync();
+                return result.ResultaatObject.ToList();
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                return new List<LastdragerDC>();
+            }
         }
     }
 }

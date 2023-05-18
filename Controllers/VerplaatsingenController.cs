@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace LESAPI.Controllers
+﻿namespace LESAPI.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Authorization;
     using TruckWebService;
 
@@ -10,40 +9,68 @@ namespace LESAPI.Controllers
     [Route("[controller]")]
     public class VerplaatsingenController : ControllerBase
     {
-        private readonly ILogger<VerplaatsingenController> _logger;
+        private readonly ILogger<VerplaatsingenController> logger;
 
         public VerplaatsingenController(ILogger<VerplaatsingenController> logger)
         {
-            _logger = logger;
-
+            this.logger = logger;
         }
 
         [HttpGet("GeefBeschikbareRijenVoorLocatie/{locatie}/{palletnummer}")]
-        public async Task<LocatiePositie> GeefBeschikbareRijenVoorLocatie(string locatie,string palletnummer)
+        public async Task<LocatiePositie> GeefBeschikbareRijenVoorLocatie(string locatie, string palletnummer)
         {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient
-                .GeefBeschikbareRijenVoorLocatieAsync(locatie, palletnummer);
-            return result.ResultaatObject;
+            try
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient
+                    .GeefBeschikbareRijenVoorLocatieAsync(locatie, palletnummer);
+                return result.ResultaatObject;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                return new LocatiePositie();
+            }
         }
 
-        [HttpPost("StartMAMOpdracht/{pincode}/{gebied}/{palletnummer}")]
+        [HttpPut("StartMAMOpdracht/{pincode}/{gebied}/{palletnummer}")]
         public async Task<Resultaat> StartMAMOpdracht(string pincode, string gebied, string palletnummer)
         {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient
-                .StartMAMOpdrachtAsync(pincode,  gebied, palletnummer);
-            return result;
+            try
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient
+                    .StartMAMOpdrachtAsync(pincode, gebied, palletnummer);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                var newResult = new Resultaat();
+                newResult.IsValide = false;
+                newResult.Foutmelding = ex.Message;
+                return newResult;
+            }
         }
 
-        [HttpPost("VerwerkMAMOpdracht/{pincode}/{palletnummer}/{locatieid}")]
+        [HttpPut("VerwerkMAMOpdracht/{pincode}/{palletnummer}/{locatieid}")]
         public async Task<Resultaat> VerwerkMAMOpdracht(string pincode, string palletnummer, long locatieid)
         {
-            await using var serviceClient = new TruckWebServiceClient();
-            var result = await serviceClient.VerwerkMAMOpdrachtAsync(
-                pincode, palletnummer, locatieid,true);
-            return result;
+            try
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.VerwerkMAMOpdrachtAsync(
+                    pincode, palletnummer, locatieid, true);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                var newResult = new Resultaat();
+                newResult.IsValide = false;
+                newResult.Foutmelding = ex.Message;
+                return newResult;
+            }
         }
-        
     }
 }

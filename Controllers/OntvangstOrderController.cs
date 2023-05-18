@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace LESAPI.Controllers
 {
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.Extensions.Logging;
     using TruckWebService;
 
     [ApiController]
@@ -10,40 +11,53 @@ namespace LESAPI.Controllers
     [Authorize]
     public class OntvangstOrderController : ControllerBase
     {
-        private readonly ILogger<OntvangstOrderController> _logger;
+        private readonly ILogger<OntvangstOrderController> logger;
 
         public OntvangstOrderController(ILogger<OntvangstOrderController> logger)
         {
-            _logger = logger;
-            
-    }
+            this.logger = logger;
+
+        }
 
         [HttpGet("GeefAantalOpenstaandeOpdrachtenGMAG/{gebiedcode}")]
-        public async Task<IEnumerable<OntvangstOrder>> GeefAantalOpenstaandeOpdrachtenGMAG(string gebiedcode)
+        public async Task<List<OntvangstOrder>> GeefAantalOpenstaandeOpdrachtenGMAG(string gebiedcode)
         {
-            using (var serviceClient = new TruckWebServiceClient())
+            try
             {
+                await using var serviceClient = new TruckWebServiceClient();
                 var result = await serviceClient.GeefTeVerwerkenOntvangstordersAsync(gebiedcode);
-                return result.ResultaatObject;
+                return result.ResultaatObject.ToList();
             }
-
-            
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                return new List<OntvangstOrder>();
+            }
         }
 
         [HttpGet("GeefOntvangstorderPallets/{ontvangstordernummer}")]
-        public async Task<IEnumerable<OntvangstregistratiePallet>> GeefOntvangstorderPallets(string ontvangstordernummer)
+        public async Task<List<OntvangstregistratiePallet>> GeefOntvangstorderPallets(string ontvangstordernummer)
         {
-            using (var serviceClient = new TruckWebServiceClient())
+            try
             {
+                await using var serviceClient = new TruckWebServiceClient();
                 var result = await serviceClient.GeefOntvangstorderPalletsAsync(ontvangstordernummer);
                 foreach (var regel in result.ResultaatObject)
                 {
                     //slechte afhanddeling in de service. Slag nog een keer ophalen.
-                    var resultIndivi = await serviceClient.GeefOntvangstregistratiePalletAsync(regel.Ontvangstordernr,regel.Palletnr);
+                    var resultIndivi =
+                        await serviceClient.GeefOntvangstregistratiePalletAsync(regel.Ontvangstordernr,
+                            regel.Palletnr);
 
                     regel.Slag = resultIndivi.ResultaatObject.Slag;
                 }
-                return result.ResultaatObject;
+
+                return result.ResultaatObject.ToList();
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                return new List<OntvangstregistratiePallet>();
             }
         }
     }
