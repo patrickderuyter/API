@@ -34,6 +34,26 @@
             }
         }
 
+        [HttpGet("GeefPalletInfo/{palletNummer}")]
+        public async Task<PalletInfo> GeefPalletInfo(string palletNummer)
+        {
+            try
+            {
+                await using var serviceClient = new TruckWebServiceClient();
+                var result = await serviceClient.GeefPalletInfoAsync(palletNummer);
+                if (result != null)
+                {
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+            }
+            return new PalletInfo();
+        }
+
+
         [HttpPut("SluitVerzamelpallet/{palletNumber}/{productionNumber}")]
         public async Task<string> SluitVerzamelpallet(string palletNumber, int? productionNumber = 0)
         {
