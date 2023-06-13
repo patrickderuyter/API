@@ -170,7 +170,7 @@ namespace LESAPI.Controllers
             }
         }
 
-        [HttpPut("GeefOrderAanvoerOpdrachtRegels")]
+        [HttpPost("GeefOrderAanvoerOpdrachtRegels")]
         public async Task<List<OrderAanvoerOpdrachtRegel>> GeefOrderAanvoerOpdrachtRegels(long[] ids)
         {
             try
@@ -206,7 +206,7 @@ namespace LESAPI.Controllers
         }
 
         [HttpPut("AfrondenOrderAanvoeropdrachtRegelGmag")]
-        public async Task<ResultaatOfScanResultaat5SlwlhPY> AfrondenOrderAanvoeropdrachtRegelGmag(OrderAanvoerOpdrachtRegel orderAanvoerOpdrachtRegel)
+        public async Task<ResultaatOfScanResultaat5SlwlhPY> AfrondenOrderAanvoeropdrachtRegelGmagAfrondenOrderAanvoeropdrachtRegelGmag(OrderAanvoerOpdrachtRegel orderAanvoerOpdrachtRegel)
         {
             try
             {
@@ -316,8 +316,7 @@ namespace LESAPI.Controllers
             }
         }
 
-        [HttpPut("StartOrderAanvoerOpdrachtRegel/{findNext}/{pin}/{gtm}")]
-        [HttpPut("StartOrderAanvoerOpdrachtRegel/{findNext}/{pin}/{gtm}/{exclusivePalletNumber?}/{idnr?}")]
+        [HttpPost("StartOrderAanvoerOpdrachtRegel/{findNext}/{pin}/{gtm}/{exclusivePalletNumber?}/{idnr?}")]
         public async Task<ResultaatOfOrderAanvoerOpdrachtRegel5SlwlhPY> StartOrderAanvoerOpdrachtRegel(OrderAanvoerOpdrachtRegel line,
             bool findNext, string pin, bool gtm, string? exclusivePalletNumber = null, string? idnr = null)
         {

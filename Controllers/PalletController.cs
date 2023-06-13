@@ -57,16 +57,17 @@
         [HttpPut("SluitVerzamelpallet/{palletNumber}/{productionNumber}")]
         public async Task<string> SluitVerzamelpallet(string palletNumber, int? productionNumber = 0)
         {
+            var result = "";
             try
             {
                 await using var serviceClient = new TruckWebServiceClient();
-                var result = await serviceClient.PickpalletDoelLocatieNaamVerzamelAanvoerOpdrachtAsync(palletNumber, productionNumber);
+                result = await serviceClient.PickpalletDoelLocatieNaamVerzamelAanvoerOpdrachtAsync(palletNumber, productionNumber);
                 return result;
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message);
-                return string.Empty;
+                return result;
             }
         }
     }

@@ -22,7 +22,7 @@ namespace LESAPI.Controllers
             this.logger = logger;
         }
 
-        [HttpGet("Inloggen/{truckNumber}/{pin}")]
+        [HttpPost("Inloggen/{truckNumber}/{pin}")]
         public async Task<JWTTokenResponse> Inloggen(string truckNumber, string pin)
         {
             try
